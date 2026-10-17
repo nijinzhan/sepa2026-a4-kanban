@@ -1,0 +1,12 @@
+# Local document validation workspace; only final artifacts are submitted.
+/.doc-sync-work/
+/.venv/
+/models/
+/outputs/
+/build/
+/dist/
+/config.local.json
+/.pytest_cache/
+/.ruff_cache/
+**/__pycache__/
+*.egg-info/
