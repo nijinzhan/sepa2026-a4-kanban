@@ -135,6 +135,28 @@ class SharedServer:
                 )
             return httpx.Response(200, json={"recordingId": RID, "items": self.segments})
         if path == "/api/v1/a4/jobs":
+            if request.method == "GET":
+                items = [
+                    j
+                    for j in self.jobs.values()
+                    if j.get("recordingId") == request.url.params["recordingId"]
+                ]
+                size = int(request.url.params.get("pageSize", "100"))
+                page = int(request.url.params.get("page", "1"))
+                total_pages = (len(items) + size - 1) // size
+                return httpx.Response(
+                    200,
+                    json={
+                        "items": items[(page - 1) * size : page * size],
+                        "page": {
+                            "page": page,
+                            "pageSize": size,
+                            "total": len(items),
+                            "totalPages": total_pages,
+                            "hasNext": page < total_pages,
+                        },
+                    },
+                )
             key = request.headers["Idempotency-Key"]
             if key not in self.keys:
                 jid = str(uuid4())
@@ -169,7 +191,7 @@ class SharedServer:
                         "segmentId": seg["id"],
                         "text": text["text"],
                         "textRaw": text["text"],
-                        "language": "en",
+                        "language": text.get("language", "en"),
                         "revision": 1,
                         "isEdited": False,
                         "reviewStatus": "unreviewed",

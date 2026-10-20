@@ -2,7 +2,7 @@ from datetime import UTC, datetime
 
 import pytest
 
-from a4_speech.segments import ensure_segments, plan_segments, verify_segment
+from a4_speech.segments_2024141460331 import ensure_segments, plan_segments, verify_segment
 
 RECORDING = {"id": "r1", "durationMs": 3000, "startedAt": "2026-10-17T00:00:00Z"}
 
@@ -85,7 +85,7 @@ def test_all_existing_segments_avoid_empty_post():
 
 
 def test_uncertain_write_is_read_back_without_retry():
-    from a4_speech.client import ApiError
+    from a4_speech.client_2024141460331 import ApiError
 
     api = SegmentApi([], failure=ApiError(0, "TRANSPORT_ERROR"))
     assert ensure_segments(api, RECORDING, [(0, 1000)], "vad")[0]["id"] == "s1"

@@ -11,8 +11,8 @@ from types import SimpleNamespace
 import numpy as np
 import pytest
 
-from a4_speech.audio import Audio, decode_audio
-from a4_speech.models import SherpaEngine
+from a4_speech.audio_2024141460331 import Audio, decode_audio
+from a4_speech.models_2024141460331 import SherpaEngine
 
 
 @pytest.fixture

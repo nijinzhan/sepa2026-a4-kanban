@@ -5,7 +5,7 @@ import json
 import httpx
 import pytest
 
-from a4_speech.client import ApiError, TeamApi
+from a4_speech.client_2024141460331 import ApiError, TeamApi
 
 RECORDING = "11111111-1111-4111-8111-111111111111"
 SEGMENT = "22222222-2222-4222-8222-222222222222"
@@ -256,6 +256,183 @@ def test_get_job_and_complete_preserve_payload(api_factory):
 def test_job_id_mismatch_is_rejected(api_factory):
     with pytest.raises(ApiError, match="INVALID_RESPONSE"):
         api_factory(lambda request: httpx.Response(200, json=job() | {"id": SEGMENT})).get_job(JOB)
+
+
+def job_page(items, *, page=1, total=1, total_pages=1, has_next=False):
+    return {
+        "items": items,
+        "page": {
+            "page": page,
+            "pageSize": 100,
+            "total": total,
+            "totalPages": total_pages,
+            "hasNext": has_next,
+        },
+    }
+
+
+def test_list_jobs_reads_all_pages_with_recording_and_asr_filters(api_factory):
+    first = [job("succeeded") | {"id": f"job-{i}", "recordingId": RECORDING} for i in range(100)]
+    last = job("partial") | {"id": "last-job", "recordingId": RECORDING}
+    pages = []
+
+    def handler(request):
+        assert request.method == "GET"
+        assert request.url.path == "/api/v1/a4/jobs"
+        page = int(request.url.params["page"])
+        assert dict(request.url.params) == {
+            "recordingId": RECORDING,
+            "kind": "asr",
+            "page": str(page),
+            "pageSize": "100",
+        }
+        pages.append(page)
+        if page == 1:
+            body = job_page(first, total=101, total_pages=2, has_next=True)
+        else:
+            assert page == 2
+            body = job_page([last], page=2, total=101, total_pages=2)
+        return httpx.Response(200, json=body)
+
+    rows = api_factory(handler).list_jobs(RECORDING)
+    assert len(rows) == 101
+    assert rows[0]["id"] == "job-0"
+    assert rows[-1] == last
+    assert pages == [1, 2]
+
+
+@pytest.mark.parametrize("total_pages", [0, 1])
+def test_list_jobs_accepts_declared_empty_page(api_factory, total_pages):
+    body = job_page([], total=0, total_pages=total_pages)
+    assert api_factory(lambda request: httpx.Response(200, json=body)).list_jobs(RECORDING) == []
+
+
+@pytest.mark.parametrize("recording_id", ["", " ", ".", "..", None])
+def test_list_jobs_invalid_recording_rejected_before_network(api_factory, recording_id):
+    def unexpected(request):
+        pytest.fail("invalid recording reached the network")
+
+    with pytest.raises(ValueError):
+        api_factory(unexpected).list_jobs(recording_id)
+
+
+@pytest.mark.parametrize("body", [[], {}, {"items": []}, {"items": {}, "page": {}}])
+def test_list_jobs_requires_items_and_page_envelope(api_factory, body):
+    with pytest.raises(ApiError, match="INVALID_RESPONSE"):
+        api_factory(lambda request: httpx.Response(200, json=body)).list_jobs(RECORDING)
+
+
+@pytest.mark.parametrize(
+    "changes",
+    [
+        {"page": True},
+        {"page": 2},
+        {"pageSize": 0},
+        {"pageSize": 50},
+        {"pageSize": True},
+        {"total": -1},
+        {"total": True},
+        {"totalPages": -1},
+        {"totalPages": True},
+        {"totalPages": 2},
+        {"hasNext": 0},
+        {"hasNext": True},
+    ],
+)
+def test_list_jobs_rejects_invalid_or_inconsistent_page_metadata(api_factory, changes):
+    body = job_page([job() | {"recordingId": RECORDING}])
+    body["page"].update(changes)
+    with pytest.raises(ApiError, match="INVALID_RESPONSE"):
+        api_factory(lambda request: httpx.Response(200, json=body)).list_jobs(RECORDING)
+
+
+@pytest.mark.parametrize(
+    "item",
+    [
+        [],
+        job(),
+        job() | {"recordingId": None},
+        job() | {"recordingId": SEGMENT},
+        job() | {"recordingId": RECORDING, "kind": "vad"},
+        job() | {"recordingId": RECORDING, "status": "unknown"},
+        job() | {"recordingId": RECORDING, "id": ""},
+        job() | {"recordingId": RECORDING, "params": []},
+        job() | {"recordingId": RECORDING, "processedSegments": True},
+        job() | {"recordingId": RECORDING, "submittedAt": None},
+    ],
+)
+def test_list_jobs_rejects_invalid_or_unbound_job_evidence(api_factory, item):
+    with pytest.raises(ApiError, match="INVALID_RESPONSE"):
+        api_factory(lambda request: httpx.Response(200, json=job_page([item]))).list_jobs(RECORDING)
+
+
+def test_list_jobs_rejects_duplicate_ids_within_page(api_factory):
+    item = job() | {"recordingId": RECORDING}
+    with pytest.raises(ApiError, match="INVALID_RESPONSE"):
+        api_factory(
+            lambda request: httpx.Response(200, json=job_page([item, item], total=2))
+        ).list_jobs(RECORDING)
+
+
+@pytest.mark.parametrize(
+    "fault", ["repeated_page", "duplicate_id", "changed_total", "missing_page"]
+)
+def test_list_jobs_refuses_ambiguous_or_changed_later_pages(api_factory, fault):
+    first = [job() | {"id": f"job-{i}", "recordingId": RECORDING} for i in range(100)]
+    calls = []
+
+    def handler(request):
+        page = int(request.url.params["page"])
+        calls.append(page)
+        if page == 1:
+            return httpx.Response(
+                200, json=job_page(first, total=101, total_pages=2, has_next=True)
+            )
+        assert page == 2
+        body = job_page([job() | {"recordingId": RECORDING}], page=2, total=101, total_pages=2)
+        if fault == "repeated_page":
+            body["page"]["page"] = 1
+        elif fault == "duplicate_id":
+            body["items"][0]["id"] = "job-0"
+        elif fault == "changed_total":
+            body["page"]["total"] = 102
+        else:
+            del body["page"]
+        return httpx.Response(200, json=body)
+
+    with pytest.raises(ApiError, match="INVALID_RESPONSE"):
+        api_factory(handler).list_jobs(RECORDING)
+    assert calls == [1, 2]
+
+
+@pytest.mark.parametrize("count", [0, 1, 3])
+def test_list_jobs_does_not_accept_missing_or_extra_rows(api_factory, count):
+    items = [job() | {"id": f"job-{i}", "recordingId": RECORDING} for i in range(count)]
+    with pytest.raises(ApiError, match="INVALID_RESPONSE"):
+        api_factory(lambda request: httpx.Response(200, json=job_page(items, total=2))).list_jobs(
+            RECORDING
+        )
+
+
+def test_list_jobs_propagates_later_error_instead_of_partial_evidence(api_factory):
+    first = [job() | {"id": f"job-{i}", "recordingId": RECORDING} for i in range(100)]
+    calls = []
+
+    def handler(request):
+        page = int(request.url.params["page"])
+        calls.append(page)
+        if page == 1:
+            return httpx.Response(
+                200, json=job_page(first, total=101, total_pages=2, has_next=True)
+            )
+        assert page == 2
+        return httpx.Response(503, json={"code": "UNAVAILABLE"})
+
+    with pytest.raises(ApiError) as error:
+        api_factory(handler).list_jobs(RECORDING)
+    assert error.value.status == 503
+    assert error.value.code == "UNAVAILABLE"
+    assert calls == [1, 2]
 
 
 def test_only_404_means_no_transcript(api_factory):

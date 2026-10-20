@@ -13,7 +13,7 @@ dependencies = ["httpx>=0.28,<0.29", "numpy>=2.2,<3", "soundfile>=0.13,<0.14", "
 dev = ["pytest>=8.4,<9", "ruff>=0.12,<0.13"]
 
 [project.scripts]
-a4-speech = "a4_speech.cli:main"
+a4-speech = "a4_speech.cli_2024141460331:main_2024141460331"
 
 [tool.setuptools.packages.find]
 where = ["src"]

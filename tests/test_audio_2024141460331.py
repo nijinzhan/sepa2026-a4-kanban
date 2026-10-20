@@ -6,7 +6,7 @@ import wave
 import numpy as np
 import pytest
 
-from a4_speech.audio import Audio, decode_audio
+from a4_speech.audio_2024141460331 import Audio, decode_audio
 
 
 def wav_bytes(samples, sample_rate):

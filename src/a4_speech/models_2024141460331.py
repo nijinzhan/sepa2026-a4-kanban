@@ -13,7 +13,7 @@ from typing import Any
 
 import numpy as np
 
-from .audio import Audio
+from .audio_2024141460331 import Audio
 
 
 class SherpaEngine:

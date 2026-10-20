@@ -110,9 +110,14 @@ class TeamApi:
         return data
 
     def _job(self, response: httpx.Response, expected_id: str | None = None) -> dict[str, Any]:
-        data = self._object(response)
+        return self._job_data(response, self._object(response), expected_id)
+
+    def _job_data(
+        self, response: httpx.Response, data: Any, expected_id: str | None = None
+    ) -> dict[str, Any]:
         if (
-            not _string(data.get("id"))
+            not isinstance(data, dict)
+            or not _string(data.get("id"))
             or (expected_id is not None and data["id"] != expected_id)
             or not _enum(data.get("kind"), JOB_KINDS)
             or not _enum(data.get("status"), JOB_STATUSES)
@@ -329,6 +334,67 @@ class TeamApi:
 
     def get_job(self, job_id: str) -> dict[str, Any]:
         return self._job(self._send("GET", f"{self.a4_url}/jobs/{_identifier(job_id)}"), job_id)
+
+    def list_jobs(self, recording_id: str) -> list[dict[str, Any]]:
+        """Read every ASR job page, rejecting incomplete or unbound source evidence."""
+        _identifier(recording_id)
+        rows: list[dict[str, Any]] = []
+        seen: set[str] = set()
+        expected_page = 1
+        fixed_meta: tuple[int, int] | None = None
+        while True:
+            response = self._send(
+                "GET",
+                f"{self.a4_url}/jobs",
+                params={
+                    "recordingId": recording_id,
+                    "kind": "asr",
+                    "page": expected_page,
+                    "pageSize": 100,
+                },
+            )
+            data = self._object(response)
+            items, page = data.get("items"), data.get("page")
+            if (
+                not isinstance(items, list)
+                or not isinstance(page, dict)
+                or not _integer(page.get("page"), 1)
+                or page["page"] != expected_page
+                or not _integer(page.get("pageSize"), 1)
+                or page["pageSize"] != 100
+                or not _integer(page.get("total"))
+                or not _integer(page.get("totalPages"))
+                or type(page.get("hasNext")) is not bool
+            ):
+                raise self._invalid(response)
+            total, total_pages = page["total"], page["totalPages"]
+            if (
+                (total == 0 and total_pages not in {0, 1})
+                or (total > 0 and total_pages != (total + 99) // 100)
+                or (total_pages > 0 and expected_page > total_pages)
+                or page["hasNext"] != (expected_page < total_pages)
+                or len(items) != min(100, max(0, total - (expected_page - 1) * 100))
+            ):
+                raise self._invalid(response)
+            meta = (total, total_pages)
+            if fixed_meta is not None and meta != fixed_meta:
+                raise self._invalid(response)
+            fixed_meta = meta
+            for item in items:
+                item = self._job_data(response, item)
+                if (
+                    item["id"] in seen
+                    or item["kind"] != "asr"
+                    or item.get("recordingId") != recording_id
+                ):
+                    raise self._invalid(response)
+                seen.add(item["id"])
+                rows.append(item)
+            if not page["hasNext"]:
+                if len(rows) != total:
+                    raise self._invalid(response)
+                return rows
+            expected_page += 1
 
     def complete_job(self, job_id: str, payload: dict[str, Any]) -> dict[str, Any]:
         if not isinstance(payload, dict) or not _enum(payload.get("status"), JOB_STATUSES):

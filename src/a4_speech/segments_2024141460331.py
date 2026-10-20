@@ -65,7 +65,7 @@ def plan_segments(
 def ensure_segments(
     api: Any, recording: dict, spans: list[tuple[int, int]], engine_code: str
 ) -> list[dict]:
-    from .client import ApiError
+    from .client_2024141460331 import ApiError
 
     existing = api.list_segments(recording["id"])
     _, new = plan_segments(recording, existing, spans)
