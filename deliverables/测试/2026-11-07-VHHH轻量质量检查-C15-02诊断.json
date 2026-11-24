@@ -1,0 +1,125 @@
+{
+  "recordedUtc": "2026-11-07T14:29:34.008976+00:00",
+  "sampleId": "C15-02",
+  "teamRef": "82ef964905383322cf94816074873700e05dc5d5",
+  "sourceFiles": [
+    {
+      "path": "李洪/src/a4_speech/__init__.py",
+      "sha256": "2a7a7ffa77ec2b40d5ae0f08dbbb0c21d85890ab1f19febfdd561f697cc7db88"
+    },
+    {
+      "path": "李洪/src/a4_speech/audio_2024141460331.py",
+      "sha256": "eec8b15b24142e95a26d26ca89b619f732af9dba83dbb4a73e9ad770c1381657"
+    },
+    {
+      "path": "李洪/src/a4_speech/models_2024141460331.py",
+      "sha256": "0a83312ebcb4077e3c6544cab6892382d9c65eca60ea1230b66a5122d0ca2dd6"
+    },
+    {
+      "path": "李洪/src/a4_speech/vad_webrtc_2024141460331.py",
+      "sha256": "caab21416e3e27511255073971a164ede2ac0b38a24dd3ae78c52f39c617f323"
+    },
+    {
+      "path": "李洪/config.teacher-sensevoice.example.json",
+      "sha256": "9a8c012bdf859b5e3b5a4d7d95f0b75f6dffdaf1f302e002695aeb11ad00dead"
+    }
+  ],
+  "model": {
+    "schemaVersion": 1,
+    "vad": {
+      "engineCode": "webrtc-vad",
+      "modelName": "webrtcvad-wheels",
+      "version": "2.0.14.post1",
+      "distributionVersion": "2.0.14.post1",
+      "parameters": {
+        "sampleRate": 16000,
+        "provider": "cpu",
+        "aggressiveness": 2,
+        "frameMs": 20,
+        "mergeSilenceMs": 500,
+        "minSpeechMs": 250,
+        "paddingMs": 0
+      }
+    },
+    "asr": {
+      "engineCode": "sensevoice",
+      "modelName": "SenseVoiceSmall-ATC-VHHH",
+      "version": "teacher-2025_0706-int8",
+      "modelSha256": "625facec8fb54410d0e34543947cd80c2e0b1e568df00395bd9a31d3d00f23e8",
+      "tokensSha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc",
+      "parameters": {
+        "sampleRate": 16000,
+        "numThreads": 2,
+        "provider": "cpu",
+        "language": "en",
+        "useItn": true
+      }
+    }
+  },
+  "sourceSampleRange": [
+    3840000,
+    4160000
+  ],
+  "clipSamples": 320000,
+  "sampleRateHz": 16000,
+  "vadSpansMs": [
+    [
+      0,
+      20000
+    ]
+  ],
+  "full20SecondsSubmittedToRecognizer": true,
+  "listeningWavMaxSampleDifference": 3.0517334380419925e-05,
+  "originalModelText": "air two niner tree dec five nine nine niner tree",
+  "sameInputSameText": true,
+  "rawJsonAndDisplayedTextPreviouslyMatched": true,
+  "variants": [
+    {
+      "variant": "same_20s",
+      "startMs": 0,
+      "endMs": 20000,
+      "textRaw": "air two niner tree dec five nine nine niner tree",
+      "status": "succeeded"
+    },
+    {
+      "variant": "first_10s",
+      "startMs": 0,
+      "endMs": 10000,
+      "textRaw": "u nine nine nine",
+      "status": "succeeded"
+    },
+    {
+      "variant": "last_10s",
+      "startMs": 10000,
+      "endMs": 20000,
+      "textRaw": "right alpha nine two niner",
+      "status": "succeeded"
+    }
+  ],
+  "experimentChangedOnly": "ASR call boundaries: one 20s call vs two 10s calls; same waveform and model",
+  "splitBoundariesMayCutSpeech": true,
+  "splitTextNotHumanValidated": true,
+  "longerTextDoesNotProveBetterAccuracy": true,
+  "noDenoisingOrModelParameterChanges": true,
+  "databaseUsed": false,
+  "httpServiceStarted": false,
+  "productionCodeChanged": false,
+  "diagnosticScriptSha256": "429d380d8e2f44e567d4aa6371058ede8c7b9176406bf7d515992eff5438afdd",
+  "humanReview": {
+    "recordedUtc": "2026-11-07T14:31:24.946009+00:00",
+    "reviewerSource": "user_feedback",
+    "specificSampleFeedback": {
+      "sampleId": "C15-02",
+      "category": "partial_correspondence_with_obvious_omissions",
+      "observation": "用户确认C15-02短文本明显没有识别完全。"
+    },
+    "generalObservation": "用户反馈原录音噪声较大，识别效果较差，但也有识别正确的内容。",
+    "otherSamplesIndividuallyConfirmed": false,
+    "assistantListenedToAudio": false,
+    "snrMeasured": false,
+    "wordErrorRateCalculated": false,
+    "completeHumanTranscriptRequired": false,
+    "qualityThresholdIntroduced": false,
+    "rootCauseUniquelyIdentified": false
+  }
+}

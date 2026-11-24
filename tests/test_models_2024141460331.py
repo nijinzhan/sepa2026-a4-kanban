@@ -48,6 +48,25 @@ def test_snapshot_hashes_actual_files_without_disclosing_paths(config):
     assert "tokensPath" not in json.dumps(snapshot)
 
 
+def test_snapshot_exposes_asr_version_for_automation(config):
+    config["vad"]["version"] = "vad-release"
+    config["asr"]["version"] = "asr-release"
+    engine = SherpaEngine(config)
+    snapshot = engine.snapshot()
+    assert snapshot["modelVersion"] == "asr-release"
+    assert snapshot["vad"]["version"] == "vad-release"
+    assert snapshot["asr"]["version"] == "asr-release"
+    engine.verify_snapshot(snapshot)
+
+
+def test_automation_version_alias_is_part_of_verified_snapshot(config):
+    engine = SherpaEngine(config)
+    snapshot = engine.snapshot()
+    snapshot["modelVersion"] = "incorrect-version"
+    with pytest.raises(ValueError, match="snapshot"):
+        engine.verify_snapshot(snapshot)
+
+
 def test_modified_model_rejects_frozen_snapshot(config):
     engine = SherpaEngine(config)
     frozen = engine.snapshot()

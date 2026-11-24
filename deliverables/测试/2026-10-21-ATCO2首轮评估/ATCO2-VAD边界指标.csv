@@ -1,0 +1,3 @@
+﻿vad,referenceRegions,predictedRegions,matchedRegions,missedRegions,extraRegions,durationRecall,durationPrecision,startErrorMeanMs,startErrorMedianMs,startErrorP95Ms,endErrorMeanMs,endErrorMedianMs,endErrorP95Ms
+silero,52,67,45,7,22,0.8901446774621715,0.9736068465407983,509.8222222222222,318,1925.1999999999964,321.2,142,601.5999999999999
+webrtc,52,54,46,6,8,0.9809530130076984,0.9332146374725357,191.95652173913044,75.0,285.0,311.2173913043478,55.0,1189.5

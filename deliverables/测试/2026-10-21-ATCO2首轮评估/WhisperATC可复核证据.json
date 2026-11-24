@@ -1,0 +1,221 @@
+{
+  "date": "2026-10-21",
+  "projectDirectory": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪",
+  "rawOutputDirectory": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\outputs\\atco2-1h-20261021\\whisper-atc-20261021",
+  "counts": {
+    "frozenRecordings": 49,
+    "publishedValidationRecordings": 113,
+    "newWhisperModelConditionRows": 618,
+    "perModel": {
+      "atcosim": 196,
+      "mixed": 196
+    },
+    "validationRows": 226
+  },
+  "audit": {
+    "createdUtc": "2026-10-21T10:00:55.333598+00:00",
+    "publishedDatasetRevision": "3b96f5791582cf6f6f348ca46fd502a981918d85",
+    "publishedCounts": {
+      "train": 446,
+      "validation": 113
+    },
+    "sampleSplitCounts": {
+      "train": 38,
+      "validation": 10,
+      "unknown": 1
+    },
+    "pcmExactMatches": 48,
+    "referenceDifferences": 0,
+    "independentScorerComparisons": 588,
+    "scorerMismatches": 0,
+    "normalizationWarning": "authorSafe first removes marker tokens only; original greedy bracket removal can erase entity content; decimal separators and leading zeros can be lost in author normalization"
+  },
+  "decoderChecks": {
+    "nativeWhisperNoTimestampMatches": 9,
+    "nativeWhisperNoTimestampTotal": 9,
+    "nativeWhisperTimestampMatches": 8,
+    "nativeWhisperTimestampTotal": 9,
+    "xlsrOfficialMatches": 7,
+    "xlsrOfficialTotal": 7
+  },
+  "tokenLimits": {
+    "no_prompt": 3,
+    "metadata_prompt": 0
+  },
+  "models": {
+    "atcosim": {
+      "id": "jlvdoorn/whisper-large-v3-atcosim",
+      "revision": "99a8cc0071e479a494372925650737582241070a",
+      "sha256": "7f1f75dea64ed0f483a62edfcbbfcec40c10ee13b387fa9bfa1466343a86b10b",
+      "interpretation": "ATCOSIM-only declared fine-tuning; ATCO2 cross-corpus test",
+      "localPath": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\models\\whisper-large-v3-atcosim"
+    },
+    "mixed": {
+      "id": "jlvdoorn/whisper-large-v3-atco2-asr-atcosim",
+      "revision": "efd96bd7862709d2d6aeb55621934a9965db8ed7",
+      "sha256": "fdd401356e0e8eb5a6d6688a5f2df9f3c52215973151b8eff05b4cf7a152ea29",
+      "interpretation": "ATCO2 training overlap; full sample is diagnostic only",
+      "localPath": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\models\\whisper-large-v3-atco2-asr-atcosim"
+    }
+  },
+  "publishedValidationScores": [
+    {
+      "model": "mixed",
+      "condition": "no_prompt",
+      "subset": "validation",
+      "count": 113,
+      "errors": 0,
+      "scores": {
+        "strict": {
+          "N": 2276,
+          "S": 332,
+          "D": 572,
+          "I": 180,
+          "C": 1372,
+          "wer": 0.47627416520210897
+        },
+        "numeric": {
+          "N": 2291,
+          "S": 333,
+          "D": 575,
+          "I": 178,
+          "C": 1383,
+          "wer": 0.47402880838061984
+        },
+        "openai": {
+          "N": 1884,
+          "S": 341,
+          "D": 436,
+          "I": 202,
+          "C": 1107,
+          "wer": 0.5196390658174098
+        },
+        "authorSafe": {
+          "N": 2251,
+          "S": 331,
+          "D": 552,
+          "I": 181,
+          "C": 1368,
+          "wer": 0.4726788094180364
+        }
+      }
+    },
+    {
+      "model": "mixed",
+      "condition": "metadata_prompt",
+      "subset": "validation",
+      "count": 113,
+      "errors": 0,
+      "scores": {
+        "strict": {
+          "N": 2276,
+          "S": 203,
+          "D": 105,
+          "I": 78,
+          "C": 1968,
+          "wer": 0.1695957820738137
+        },
+        "numeric": {
+          "N": 2291,
+          "S": 200,
+          "D": 108,
+          "I": 77,
+          "C": 1983,
+          "wer": 0.1680488869489306
+        },
+        "openai": {
+          "N": 1884,
+          "S": 198,
+          "D": 92,
+          "I": 77,
+          "C": 1594,
+          "wer": 0.1947983014861996
+        },
+        "authorSafe": {
+          "N": 2251,
+          "S": 201,
+          "D": 105,
+          "I": 79,
+          "C": 1945,
+          "wer": 0.17103509551310528
+        }
+      }
+    }
+  ],
+  "frozenDependenciesVerified": true,
+  "downloadedModelHashesVerified": true,
+  "executedSourceArchiveHashesVerified": true,
+  "files": {
+    "experiment-plan.json": {
+      "path": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\outputs\\atco2-1h-20261021\\whisper-atc-20261021\\experiment-plan.json",
+      "sha256": "361d74d5b86dcbd45232382d1972811dbebfea4d47f302fc27e213ab4800559d"
+    },
+    "audit.json": {
+      "path": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\outputs\\atco2-1h-20261021\\whisper-atc-20261021\\audit.json",
+      "sha256": "d24dcd3faca76388fa88f12347fe7bdfd8264b83583779adb416d54040750e20"
+    },
+    "preprocessing-audit.json": {
+      "path": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\outputs\\atco2-1h-20261021\\whisper-atc-20261021\\preprocessing-audit.json",
+      "sha256": "4adffeb75d5596fa366d05328dbab2b7d3f73a1534bc9307d7e800e0400ebac6"
+    },
+    "xlsr-official-pipeline-audit.json": {
+      "path": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\outputs\\atco2-1h-20261021\\whisper-atc-20261021\\xlsr-official-pipeline-audit.json",
+      "sha256": "dcedc0dd6c968913628609c4b16f692591b2711323c4f557c330f4f81200510b"
+    },
+    "native-decoder-audit.json": {
+      "path": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\outputs\\atco2-1h-20261021\\whisper-atc-20261021\\native-decoder-audit.json",
+      "sha256": "0bd9e1d5e57ea11cc853088de986c337f7d4266fe29a35dd64503937ebc502ed"
+    },
+    "comparison-summary.json": {
+      "path": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\outputs\\atco2-1h-20261021\\whisper-atc-20261021\\comparison-summary.json",
+      "sha256": "650b08abade2c98515cce8a4c3b91cd559b2fec0ceeec9ff545a4a958357b2a6"
+    },
+    "whisper-atcosim-results.jsonl": {
+      "path": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\outputs\\atco2-1h-20261021\\whisper-atc-20261021\\whisper-atcosim-results.jsonl",
+      "sha256": "93a95334625ac261fe8c73c1a0cc4c383bb337bc21bfa60976665c477fd63a93"
+    },
+    "whisper-mixed-results.jsonl": {
+      "path": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\outputs\\atco2-1h-20261021\\whisper-atc-20261021\\whisper-mixed-results.jsonl",
+      "sha256": "8da36df323bd0aa415bea19443cf28f42c645a5bf8e3e13d175650da053f4098"
+    },
+    "published-validation-113/plan.json": {
+      "path": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\outputs\\atco2-1h-20261021\\whisper-atc-20261021\\published-validation-113\\plan.json",
+      "sha256": "f1a976479fc089bb634dd013021cbe89b3922e2489d5cdf08f7ee09b23fd3e39"
+    },
+    "published-validation-113/results.jsonl": {
+      "path": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\outputs\\atco2-1h-20261021\\whisper-atc-20261021\\published-validation-113\\results.jsonl",
+      "sha256": "59f2a6bbe853077335228ca1047f45ec1e0d4b68320a32929b380445613b72df"
+    },
+    "published-validation-113/summary-corrected.json": {
+      "path": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\outputs\\atco2-1h-20261021\\whisper-atc-20261021\\published-validation-113\\summary-corrected.json",
+      "sha256": "18d4c16d6df7b576e1b8dee486eb50b3e5c6937274e637f3c1d690f61e1c05c9"
+    },
+    "published-validation-113/postprocessing-audit.json": {
+      "path": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\outputs\\atco2-1h-20261021\\whisper-atc-20261021\\published-validation-113\\postprocessing-audit.json",
+      "sha256": "25024c9aedc7a3c6dc74dea157039d6e71a30fef3e996768f010d5a334f8655d"
+    },
+    "research/asset-provenance.json": {
+      "path": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\outputs\\atco2-1h-20261021\\whisper-atc-20261021\\research\\asset-provenance.json",
+      "sha256": "528fb283b3aa965398e4d7ed13aa612a912dc5a288d9fc44613e488e32ffe219"
+    },
+    "research/executed-sources/frozen-experiment.py": {
+      "path": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\outputs\\atco2-1h-20261021\\whisper-atc-20261021\\research\\executed-sources\\frozen-experiment.py",
+      "sha256": "ba8dd476619402c101cbe15289e3136f292c1933617d01f03a7ddc7f4131827d"
+    },
+    "research/executed-sources/published-validation-v1.py": {
+      "path": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\outputs\\atco2-1h-20261021\\whisper-atc-20261021\\research\\executed-sources\\published-validation-v1.py",
+      "sha256": "794460e21efd42bd6f7f27f2926d263157d38d3e11f50629354ef8655c03c86b"
+    },
+    "research/executed-sources/native-decoder-v1.py": {
+      "path": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\outputs\\atco2-1h-20261021\\whisper-atc-20261021\\research\\executed-sources\\native-decoder-v1.py",
+      "sha256": "5b9d186438f7f7d65de94c664f739a1469d1023e31f74969a42fcee2e40b1cf1"
+    }
+  },
+  "checks": {
+    "targetedPytest": "21 passed",
+    "ruff": "5 new tools + new experiment test passed",
+    "ruffFormat": "6 files formatted",
+    "pipCheck": "No broken requirements found"
+  },
+  "interpretation": "Public ATCO2, not VHHH. Mixed 49 includes 38 train members. 113 is author model-selection validation, metadata prompt uses extra information. No raw hypotheses altered."
+}

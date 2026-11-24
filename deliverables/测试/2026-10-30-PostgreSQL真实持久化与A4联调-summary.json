@@ -1,0 +1,86 @@
+{
+  "status": "passed",
+  "recordingId": "8ff1c260-57ff-439d-89cf-06f06c94db01",
+  "businessTaskId": "f4895b6d-7c96-4f40-9c8e-0839424bf3b4",
+  "asrJobId": "5feb264d-2d16-4d2d-b47b-e71c346b8378",
+  "transcriptIds": [
+    "a3a2c4ca-a622-4b46-9a46-4fae5cc04006",
+    "cc6d0745-ea61-4430-acda-54e706fd6ef9"
+  ],
+  "beforeSaveTranscriptCount": 0,
+  "savedTranscriptCount": 2,
+  "teammateCommit": "943d87f0e8e01b546932e33ca6042f91fd631b9a",
+  "sharedCanonicalTables": [
+    "aud.recording",
+    "aud.segment",
+    "asr.job",
+    "asr.transcript"
+  ],
+  "queryCompatibilityViews": "a4_query_2024141460331",
+  "textCopiedToQueryDatabase": false,
+  "databaseAndSpeechServiceRestartReadback": true,
+  "formats": [
+    {
+      "format": "json",
+      "itemCount": 2,
+      "zipSha256": "fbf65ad9b548816d495c6bde0e1c39ece9ddc1fd8fffc69e44d60858d2517ed8"
+    },
+    {
+      "format": "csv",
+      "itemCount": 2,
+      "zipSha256": "9ea49d9f60ca7289ea5e72736fbe5fb0289022cdb736659b9c245f18d79cb868"
+    },
+    {
+      "format": "srt",
+      "itemCount": 2,
+      "zipSha256": "37f6749fed912b1f3cc7c9b92cff57d1bc461f6af76e03552e7fe455520abd54"
+    },
+    {
+      "format": "vtt",
+      "itemCount": 2,
+      "zipSha256": "dfadea6d32271146cae33fa6eb47a038e4aaf144fd572b55d725c24ee808c0b5"
+    }
+  ],
+  "originalCaptureTimeKnown": false,
+  "executionSnapshot": {
+    "schemaVersion": 1,
+    "vad": {
+      "engineCode": "webrtc-vad",
+      "modelName": "webrtcvad-wheels",
+      "version": "2.0.14.post1",
+      "distributionVersion": "2.0.14.post1",
+      "parameters": {
+        "sampleRate": 16000,
+        "provider": "cpu",
+        "aggressiveness": 2,
+        "frameMs": 20,
+        "mergeSilenceMs": 500,
+        "minSpeechMs": 250,
+        "paddingMs": 0
+      }
+    },
+    "asr": {
+      "engineCode": "sensevoice",
+      "modelName": "SenseVoiceSmall-ATC-VHHH",
+      "version": "teacher-2025_0706-int8",
+      "modelSha256": "625facec8fb54410d0e34543947cd80c2e0b1e568df00395bd9a31d3d00f23e8",
+      "tokensSha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc",
+      "parameters": {
+        "sampleRate": 16000,
+        "numThreads": 2,
+        "provider": "cpu",
+        "language": "en",
+        "useItn": true
+      }
+    }
+  },
+  "databaseVersion": "16.15",
+  "a5SourceRef": "745db5cd4d9a52d8bf68adf38290e52f09904aca",
+  "regression": {
+    "passed": 418,
+    "skipped": 1,
+    "seconds": 19.0
+  },
+  "postgresIntegrationTests": 12,
+  "scope": "isolated local deployment; A3 capture and IAM integration pending"
+}

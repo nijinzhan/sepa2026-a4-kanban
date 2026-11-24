@@ -1,12 +1,30 @@
 # Local document validation workspace; only final artifacts are submitted.
 /.doc-sync-work/
+/docs/superpowers/plans/2026-10-17-a4-implementation.md
 /.venv/
+/.venv-xlsr/
 /models/
 /outputs/
 /build/
 /dist/
 /config.local.json
+/config.*.local.json
 /.pytest_cache/
 /.ruff_cache/
 **/__pycache__/
 *.egg-info/
+
+# Local communication drafts and optional shared-contract proposals are not course submissions.
+/deliverables/团队沟通/
+/deliverables/接口兼容修订/
+/docs/A4-10_20团队接口协作待确认清单.md
+/docs/A4-10_20既有约定与本轮变更核对.md
+/docs/A5需更新事项与交付清单_2026-10-24.md
+/docs/superpowers/
+
+# Markdown is the document source; Word/PDF exports stay local.
+*.docx
+*.pdf
+
+# Microsoft Office lock files are local temporary files.
+~$*

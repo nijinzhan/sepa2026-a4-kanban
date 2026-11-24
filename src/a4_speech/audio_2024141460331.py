@@ -1,6 +1,6 @@
 """Decode source audio without changing its relative time reference."""
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from io import BytesIO
 from math import gcd
 
@@ -13,6 +13,7 @@ class Audio:
 
     samples: np.ndarray
     sample_rate: int
+    processing_info: dict = field(default_factory=dict)
 
     def __post_init__(self) -> None:
         if type(self.sample_rate) is not int or self.sample_rate <= 0:
@@ -46,7 +47,10 @@ def decode_audio(data: bytes) -> Audio:
     except ImportError as exc:
         raise ValueError("audio decoding requires soundfile and scipy") from exc
     try:
-        samples, sample_rate = sf.read(BytesIO(data), dtype="float32", always_2d=True)
+        with sf.SoundFile(BytesIO(data)) as source:
+            sample_rate = source.samplerate
+            source_format, source_subtype = source.format, source.subtype
+            samples = source.read(dtype="float32", always_2d=True)
     except (RuntimeError, ValueError, OSError) as exc:
         raise ValueError("audio format is unsupported or the audio file is invalid") from exc
     if samples.shape[0] == 0:
@@ -54,7 +58,9 @@ def decode_audio(data: bytes) -> Audio:
     if not np.isfinite(samples).all():
         raise ValueError("audio contains non-finite samples")
     mono = np.mean(samples, axis=1, dtype=np.float32)
+    actions = ["downmix_to_mono"] if samples.shape[1] > 1 else []
     if sample_rate != 16000:
+        actions.append("resample")
         divisor = gcd(sample_rate, 16000)
         mono = resample_poly(
             mono,
@@ -62,4 +68,21 @@ def decode_audio(data: bytes) -> Audio:
             sample_rate // divisor,
             padtype="line" if len(mono) > 1 else "constant",
         )
-    return Audio(mono, 16000)
+    return Audio(
+        mono,
+        16000,
+        {
+            "sourceSampleRateHz": sample_rate,
+            "sourceChannels": samples.shape[1],
+            "sourceFormat": source_format,
+            "sourceSubtype": source_subtype,
+            "sourceSamples": samples.shape[0],
+            "sourceDurationMs": samples.shape[0] * 1000 / sample_rate,
+            "outputSampleRateHz": 16000,
+            "outputChannels": 1,
+            "outputSamples": len(mono),
+            "outputDurationMs": len(mono) * 1000 / 16000,
+            "outputDtype": "float32",
+            "actions": actions,
+        },
+    )

@@ -1,0 +1,77 @@
+{
+  "download": {
+    "downloadedUtc": "2026-10-23T12:46:55.028623+00:00",
+    "downloadPage": "https://www.zhangbudademao.com/GetATCFile.html?id=C15",
+    "publishedAudioUrl": "http://audio.zhangbudademao.com/atcfiles/C15.mp3",
+    "requestUrl": "http://audio.zhangbudademao.com/atcfiles/C15.mp3",
+    "effectiveUrl": "http://audio.zhangbudademao.com/atcfiles/C15.mp3",
+    "bytes": 4984947,
+    "sha256": "1128d111b56c4ed035ec1a8a11cda0e36cf7781deaa85f6e9a2ee23a46e3842f",
+    "contentType": "audio/mpeg",
+    "lastModified": "Fri, 18 May 2018 12:58:47 GMT",
+    "elapsedSeconds": 0.8116538000031142,
+    "referenceStatus": "Human-authored burned-in video subtitles confirmed; no independent subtitle file or reviewed transcript acquired."
+  },
+  "audio": {
+    "sourceFile": "C15.mp3",
+    "sourceFormat": "MP3",
+    "sourceSubtype": "MPEG_LAYER_III",
+    "sampleRateHz": 44100,
+    "channels": 1,
+    "sourceHeaderEstimatedDurationSeconds": 715.4707482993198,
+    "decodedDurationSeconds": 714.60575,
+    "decodedDurationMsCeil": 714606,
+    "decoded16kSamples": 11433692,
+    "derivedFile": "C15.16k.mono.wav",
+    "derivedSampleRateHz": 16000,
+    "derivedChannels": 1,
+    "derivedSubtype": "PCM_16",
+    "derivedSha256": "21c83396b32b596f4eee3f57fac51b5325773e4a1d34a875015ce16263dd3b50",
+    "timingNote": "Use actual decoded sample clock for relative timings. MP3 header frame estimate differs from decoded duration; original UTC and unedited source timeline are not verified."
+  },
+  "humanReferenceAcquired": false,
+  "sourceEditingVerified": false,
+  "sourceUtcVerified": false,
+  "trainingStarted": false,
+  "productionConfigurationChanged": false,
+  "videoSubtitleInspection": {
+    "checkedDate": "2026-10-23",
+    "videoUrl": "https://www.bilibili.com/video/BV1Pp411f7AH/",
+    "aid": 23571520,
+    "bvid": "BV1Pp411f7AH",
+    "cid": 39345110,
+    "videoDurationSeconds": 309,
+    "visibleFrame": {
+      "timeSeconds": 46.234767,
+      "width": 640,
+      "height": 360,
+      "method": "HTMLVideoElement pixels drawn onto canvas; author subtitles remain in raw frame",
+      "file": "video-subtitle-preview.png"
+    },
+    "initialStateSubtitleList": [],
+    "htmlVideoTextTracks": [],
+    "normalPlayerResponse": {
+      "code": 0,
+      "needLoginSubtitle": false,
+      "subtitle": {
+        "allow_submit": false,
+        "lan": "",
+        "lan_doc": "",
+        "subtitles": [],
+        "subtitle_position": null,
+        "font_size_type": 0
+      }
+    },
+    "conclusion": "Burned-in bilingual subtitles confirmed in video pixels. No separate platform subtitle track listed in the observed anonymous player response.",
+    "sourceAuthorship": "Uploader description states subtitles were manually transcribed. Independent correctness not verified.",
+    "downloadableSubtitleFileAcquired": false,
+    "ocrTranscriptExtracted": false,
+    "humanReferenceReviewed": false,
+    "audioAlignment": {
+      "videoSeconds": 309,
+      "downloadedMp3DecodedSeconds": 714.60575,
+      "verified": false,
+      "note": "Video description states denoising and silence removal. Video timestamps cannot be copied directly to the downloaded MP3; verify segment correspondence."
+    }
+  }
+}

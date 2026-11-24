@@ -1,0 +1,138 @@
+{
+  "checkedAt": "2026-11-07T12:08:23.928723+00:00",
+  "checks": {
+    "automation-current": {
+      "exitCode": 0,
+      "seconds": 31.62,
+      "log": "outputs\\week5-review-20261107\\automation-current.log",
+      "summaryFile": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\outputs\\postgres\\automation-http-86b0d4e94825\\summary.json",
+      "checksPassed": 9
+    },
+    "query-export-short-current": {
+      "exitCode": 0,
+      "seconds": 9.51,
+      "log": "outputs\\week5-review-20261107\\query-export-short-current.log",
+      "summaryFile": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\outputs\\postgres\\query-export-5aa1795feec3\\summary.json",
+      "checksPassed": 14
+    },
+    "query-export-user-audio-current": {
+      "exitCode": 1,
+      "seconds": 6.44,
+      "log": "outputs\\week5-review-20261107\\query-export-user-audio-current.log",
+      "runDirectories": [
+        "outputs\\postgres\\query-export-3ae5b7e11d30"
+      ],
+      "integerOverflowObserved": true
+    },
+    "personal-pytest-current": {
+      "exitCode": 0,
+      "seconds": 19.67,
+      "log": "outputs\\week5-review-20261107\\personal-pytest-current.log",
+      "tail": [
+        "..........................................................s              [100%]",
+        "=========================== short test summary info ===========================",
+        "SKIPPED [1] tests\\test_xlsr_webrtc_engine_2024141460331.py:273: set A4_XLSR_REAL_MODEL_TESTS=1 to run offline CUDA inference",
+        "418 passed, 1 skipped in 18.52s"
+      ]
+    },
+    "peer-targeted-current": {
+      "exitCode": 1,
+      "seconds": 2.66,
+      "log": "outputs\\week5-review-20261107\\peer-targeted-current.log",
+      "tail": [
+        "=========================== short test summary info ===========================",
+        "FAILED tests\\test_api.py::test_export_bundle_zip_with_audio_via_a3 - Assertio...",
+        "1 failed, 4 passed in 0.63s"
+      ]
+    }
+  },
+  "productionChanges": false,
+  "userAudioDatabaseReadback": {
+    "transcripts": 2,
+    "longestSegmentMs": 220260
+  },
+  "overflowMinimalRepro": {
+    "sqlState": "22003",
+    "observed": true
+  },
+  "checkedThrough": "2026-11-07T12:09:34.455073+00:00",
+  "week": "2026-11-02/2026-11-08",
+  "teamRef": "083d8cc1ea157297d46eeb61231e2461aa973c69",
+  "pBlueRef": "745db5cd4d9a52d8bf68adf38290e52f09904aca",
+  "iamReadOnlyInspection": {
+    "schemas": [
+      "anno",
+      "asr",
+      "aud",
+      "iam"
+    ],
+    "iamFunctions": [
+      {
+        "name": "fn_authenticate",
+        "arguments": "p_username text, p_password text, p_ip inet, p_user_agent text, p_max_failures smallint, p_lock_minutes smallint"
+      },
+      {
+        "name": "fn_set_password",
+        "arguments": "p_user_id uuid, p_plain_password text, p_must_change boolean, p_actor_user_id uuid"
+      }
+    ],
+    "iamTables": [
+      "iam.audit_log",
+      "iam.permission",
+      "iam.refresh_token",
+      "iam.role",
+      "iam.role_permission",
+      "iam.user_account",
+      "iam.user_role",
+      "iam.v_role_permission_matrix",
+      "iam.v_user_overview"
+    ],
+    "readOnly": true,
+    "credentialsPrinted": false
+  },
+  "realIdentityRevision": {
+    "status": "not_implemented",
+    "source": "src/a4_speech/postgres_2024141460331.py:571",
+    "observed": "revise_transcript unconditionally raises 503/REVISION_AUTH_UNAVAILABLE"
+  },
+  "a1Readiness": {
+    "scope": "source_review_only",
+    "snapshot": ".doc-sync-work/a1-audit-20261107/manifest.json",
+    "waveformAdapterPresent": true,
+    "defaultDataSource": "mock",
+    "timelineDataSource": "demo",
+    "annotationPersistence": "in_process_memory",
+    "browserAcceptanceRun": false
+  },
+  "srtFailureClassification": "CRLF vs LF assertion mismatch; product playback failure not established",
+  "forecastDatesConfirmedWithProviders": false,
+  "allRequirementsAccepted": false,
+  "report": "deliverables\\测试\\2026-11-07-本周成果与联调边界复核.md",
+  "artifacts": {
+    "designMarkdown": {
+      "path": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\docs\\A4-RQ-A-4-10_20_系统设计说明书.md",
+      "sha256": "394b3be0d049729f48cbd9a358aa38081476d7256ed7e8032963dc06e85d4375"
+    },
+    "localWord": {
+      "path": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\docs\\A4-RQ-A-4-10_20_系统设计说明书.docx",
+      "sha256": "34db80dab8385acd2cdbad3c43968b1f76f17b3e39a4c2bab765ef3fe1945e4a"
+    },
+    "designVerification": {
+      "path": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\deliverables\\测试\\2026-11-03-系统设计评估问题修正验证.md",
+      "sha256": "8e68fe9f317bd151d1d66f65c49f0f01be4bc9520647063b28239a97d0f40746"
+    },
+    "containerEvidence": {
+      "path": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\deliverables\\测试\\2026-11-03-ASR容器与512MiB内存验证.md",
+      "sha256": "f03e8fd99fa677972080efb60f3581578c99f062fe5a4cfaa8f6840f3bd738bd"
+    },
+    "integrationEvidence": {
+      "path": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\deliverables\\测试\\2026-11-07-本周计划复核与A3-A4-A5联调.md",
+      "sha256": "89e1321675563d651a8c25e7b853f4ca2ae3d4edbe2db719d6b7985044cb9a86"
+    },
+    "personalPlan": {
+      "path": "D:\\course_project\\现代软件工程\\homework\\进度简表修订\\outputs\\01a14902-1327-7a33-a785-1e546cadcd2e\\个人\\01-项目实施进度简表-RQ-A-4-10_20-李洪-里程碑修订.xlsx",
+      "sha256": "c693aa4f9f269c58aaf217d9848be7f268afa6426b6bbf39fd4dd73f967d9a4a"
+    }
+  },
+  "gitIndexSha256": "e64c3790b482eb99eb085df9072e02d67fce30888ad3c24daa898e2e7638c545"
+}

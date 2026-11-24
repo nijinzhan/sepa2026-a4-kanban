@@ -1,0 +1,206 @@
+{
+  "teamRef": "6cdbe573eda716e08b505da0c8bee498c46a48c9",
+  "currentDatabaseSourceRepo": "https://github.com/starshipmiyabi/P-Blue",
+  "currentDatabaseSourceRef": "745db5cd4d9a52d8bf68adf38290e52f09904aca",
+  "currentDatabaseContainer": "a4-lihong-postgres-20261031",
+  "currentDatabasePort": 54329,
+  "currentDatabaseFingerprintBefore": {
+    "jobs": 7,
+    "segments": 14,
+    "recordings": 8,
+    "transcripts": 14,
+    "recordingFingerprint": "8efd6126a956b79af445b76b3f41ec15",
+    "transcriptFingerprint": "18281536a66142700b4106195a26859c"
+  },
+  "teamMigrationsComparedToInstalled": [
+    {
+      "teamPath": "尹凯臣/migrations/R__01_core_reference.sql",
+      "teamSha256": "ea62fc2673664a61a2c1604503e5f0ee8ba82b0023b67cb040982c52b5e2a449",
+      "installedPath": "migrations/R__01_core_reference.sql",
+      "sameAsInstalledSource": true
+    },
+    {
+      "teamPath": "尹凯臣/migrations/R__02_vsp_data.sql",
+      "teamSha256": "e075e045c39670f22a04a334fe143028133770587e0a26498e861c4a0f86f8f9",
+      "installedPath": "migrations/R__02_vsp_data.sql",
+      "sameAsInstalledSource": true
+    },
+    {
+      "teamPath": "尹凯臣/migrations/R__05_api_registry.sql",
+      "teamSha256": "121f24bde5f33cfcd3d8cbbe219905ab82f8f917f271bcb06917b2df76580f19",
+      "installedPath": "migrations/R__05_api_registry.sql",
+      "sameAsInstalledSource": true
+    },
+    {
+      "teamPath": "尹凯臣/migrations/V12__grants_and_privileges.sql",
+      "teamSha256": "c0a7359963161acf9dcea53d9d1fb58982535ca4e381b1f63861c23e6faebaa2",
+      "installedPath": "migrations/V12__grants_and_privileges.sql",
+      "sameAsInstalledSource": true
+    },
+    {
+      "teamPath": "尹凯臣/migrations/V1__bootstrap_schemas_and_extensions.sql",
+      "teamSha256": "37c2e918d67b2c91543493ac1a83a799ddc4685c0959967314bc09aa2d57ad16",
+      "installedPath": "migrations/V1__bootstrap_schemas_and_extensions.sql",
+      "sameAsInstalledSource": true
+    },
+    {
+      "teamPath": "尹凯臣/migrations/V2__core_reference_data.sql",
+      "teamSha256": "a8ca3a28ec8e3d049dea5b10520a4401679f301e1694fdc1073c0017a0fc0594",
+      "installedPath": "migrations/V2__core_reference_data.sql",
+      "sameAsInstalledSource": true
+    },
+    {
+      "teamPath": "尹凯臣/migrations/V3__iam_identity.sql",
+      "teamSha256": "7c3f1db58e331aa9fa1c283caf77dfafcb63b7c3795da0232f83ed7e0e02f76d",
+      "installedPath": "migrations/V3__iam_identity.sql",
+      "sameAsInstalledSource": true
+    },
+    {
+      "teamPath": "尹凯臣/migrations/V4__vsp_aip_static_data.sql",
+      "teamSha256": "7e0d8d2e513de365688759cde4cd5b731de4899fe61b4c5f43b76bec5650d03f",
+      "installedPath": "migrations/V4__vsp_aip_static_data.sql",
+      "sameAsInstalledSource": true
+    }
+  ],
+  "installedSourcesAbsentFromTeamMain": [
+    "infra/postgres/init/00-bootstrap.sql",
+    "migrations/V5__trk_flight_and_track.sql",
+    "migrations/V6__aud_audio_capture.sql",
+    "migrations/V7__asr_transcription.sql",
+    "migrations/V8__anno_annotation.sql",
+    "migrations/V9__ops_platform.sql",
+    "migrations/V10__ui_views_and_functions.sql",
+    "migrations/V11__maintenance_functions.sql",
+    "migrations/V13__module_numbering_comments.sql",
+    "migrations/R__03_iam_engine_labels.sql",
+    "migrations/R__04_ops_config.sql"
+  ],
+  "teamSqlPaths": [
+    "刘希睿/src/V14__backup_and_restore.sql",
+    "刘希睿/src/verify_5_10_maintenance.sql",
+    "刘希睿/src/verify_5_10_purge.sql",
+    "刘希睿/src/verify_5_60_outbox.sql",
+    "刘希睿/代码/V14__backup_and_restore.sql",
+    "刘希睿/代码/verify_5_10_maintenance.sql",
+    "刘希睿/代码/verify_5_60_outbox.sql",
+    "尹凯臣/migrations/R__01_core_reference.sql",
+    "尹凯臣/migrations/R__02_vsp_data.sql",
+    "尹凯臣/migrations/R__05_api_registry.sql",
+    "尹凯臣/migrations/V12__grants_and_privileges.sql",
+    "尹凯臣/migrations/V1__bootstrap_schemas_and_extensions.sql",
+    "尹凯臣/migrations/V2__core_reference_data.sql",
+    "尹凯臣/migrations/V3__iam_identity.sql",
+    "尹凯臣/migrations/V4__vsp_aip_static_data.sql",
+    "朱炜亮/src/backend/sql/seed_a1_permissions.sql"
+  ],
+  "composeConfigExitCode": 1,
+  "composeHasNonCommentContent": false,
+  "isolatedSteps": [
+    {
+      "path": "尹凯臣/migrations/V1__bootstrap_schemas_and_extensions.sql",
+      "sha256": "37c2e918d67b2c91543493ac1a83a799ddc4685c0959967314bc09aa2d57ad16",
+      "exitCode": 0
+    },
+    {
+      "path": "尹凯臣/migrations/V2__core_reference_data.sql",
+      "sha256": "a8ca3a28ec8e3d049dea5b10520a4401679f301e1694fdc1073c0017a0fc0594",
+      "exitCode": 0
+    },
+    {
+      "path": "尹凯臣/migrations/V3__iam_identity.sql",
+      "sha256": "7c3f1db58e331aa9fa1c283caf77dfafcb63b7c3795da0232f83ed7e0e02f76d",
+      "exitCode": 0
+    },
+    {
+      "path": "尹凯臣/migrations/V4__vsp_aip_static_data.sql",
+      "sha256": "7e0d8d2e513de365688759cde4cd5b731de4899fe61b4c5f43b76bec5650d03f",
+      "exitCode": 0
+    },
+    {
+      "path": "尹凯臣/migrations/V12__grants_and_privileges.sql",
+      "sha256": "c0a7359963161acf9dcea53d9d1fb58982535ca4e381b1f63861c23e6faebaa2",
+      "exitCode": 3
+    }
+  ],
+  "currentDatabaseModified": false,
+  "peerSourceChanged": false,
+  "fullTeamMainIntegrationPassed": false,
+  "isolatedContainer": "a4-team-main-audit-20261107-16c7e8",
+  "isolatedContainerNoPublishedPorts": true,
+  "isolatedContainerNoPersistentVolume": true,
+  "unpreparedV1ExitCode": 3,
+  "platformPrerequisitesProvidedExplicitly": true,
+  "businessDdlImportedFromOtherRepo": false,
+  "firstMigrationFailure": "尹凯臣/migrations/V12__grants_and_privileges.sql",
+  "firstMigrationFailureMessage": "ERROR:  relation \"trk.flight\" does not exist\nCONTEXT:  SQL statement \"SELECT string_agg(x.priv, ', ')                      FROM (VALUES ('core.data_source'), ('trk.flight'), ('trk.track_point'),\n                   ('aud.recording'), ('aud.segment'), ('asr.transcript'),\n                   ('anno.annotation'), ('vsp.runway'), ('ops.outbox_message')) AS x(priv)\n     WHERE NOT has_table_privilege('alpha_rw', x.priv, 'SELECT')\"\nPL/pgSQL function inline_code_block line 5 at SQL statement",
+  "requiredObjectsInMainOnlyDatabase": {
+    "asr.job": null,
+    "asr.engine": null,
+    "aud.segment": null,
+    "aud.recording": null,
+    "ops.db_backup": null,
+    "asr.transcript": null,
+    "anno.export_job": null,
+    "asr.transcript_edit": null,
+    "asr.v_transcript_full": null,
+    "anno.fn_build_export_items(uuid)": null
+  },
+  "transcriptReadExitCode": 3,
+  "transcriptReadError": "ERROR:  relation \"asr.transcript\" does not exist\nLINE 1: SELECT count(*) FROM asr.transcript;\n                             ^",
+  "isolatedContainerRemoved": true,
+  "currentDatabaseFingerprintAfter": {
+    "jobs": 7,
+    "segments": 14,
+    "recordings": 8,
+    "transcripts": 14,
+    "recordingFingerprint": "8efd6126a956b79af445b76b3f41ec15",
+    "transcriptFingerprint": "18281536a66142700b4106195a26859c"
+  },
+  "currentDatabaseUnchanged": true,
+  "gitIndexUnchanged": true,
+  "snapshotSourceHashesUnchanged": true,
+  "teamSqlBusinessTableDefinitions": [
+    {
+      "file": "刘希睿/src/V14__backup_and_restore.sql",
+      "table": "ops.db_backup"
+    },
+    {
+      "file": "刘希睿/代码/V14__backup_and_restore.sql",
+      "table": "ops.db_backup"
+    }
+  ],
+  "v14Comparison": [
+    {
+      "teamPath": "刘希睿/src/V14__backup_and_restore.sql",
+      "sha256": "b99662ff1a70e9c0d0addd3bec05eab2174ef8556babbfd8eab6890c10b6045d",
+      "sameAsCooperationRepo": true
+    },
+    {
+      "teamPath": "刘希睿/代码/V14__backup_and_restore.sql",
+      "sha256": "b99662ff1a70e9c0d0addd3bec05eab2174ef8556babbfd8eab6890c10b6045d",
+      "sameAsCooperationRepo": true
+    }
+  ],
+  "databaseTestedRef": "6cdbe573eda716e08b505da0c8bee498c46a48c9",
+  "latestVerifiedTeamRef": "82ef964905383322cf94816074873700e05dc5d5",
+  "latestDatabaseFilesUnchanged": true,
+  "latestRefComparisonCount": 17,
+  "installedMigrationJournalMatchesInitialSource": true,
+  "srtLatestTests": {
+    "ref": "82ef964905383322cf94816074873700e05dc5d5",
+    "passed": 2,
+    "failed": 0,
+    "productionSourceUnmodified": true,
+    "log": "outputs/team-main-db-20261107-6cdbe573/srt-latest-82ef964.log"
+  },
+  "standaloneDeploymentStatus": "blocked_by_missing_business_migrations",
+  "executionPolicy": {
+    "databaseSource": "team_main_only",
+    "externalBusinessDdlFallbackAllowed": false,
+    "pBlueBusinessReplayAllowed": false,
+    "currentStage": "deployment_and_database_initialization_preflight",
+    "mainDatabaseBusinessIntegrationStarted": false,
+    "businessReplayPerformedAfterPolicyConfirmation": false,
+    "resumeWhen": "required_migrations_bootstrap_and_deployment_files_available_in_team_main_and_preflight_passes"
+  }
+}

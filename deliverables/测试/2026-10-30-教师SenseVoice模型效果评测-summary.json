@@ -1,0 +1,672 @@
+{
+  "finishedUtc": "2026-10-30T08:54:48.456898+00:00",
+  "planSha256": "c587ac2e5442338e059c9cefd20d92da1d98f996881e9d518d436c0293b62fd7",
+  "teacher": {
+    "recordings": 49,
+    "failedRecordings": 0,
+    "totalSegments": 54,
+    "processingSeconds": 61.71008770016488,
+    "asrSeconds": 41.62383509997744,
+    "audioSeconds": 327.616,
+    "rtf": 0.1883610315130057,
+    "strict": {
+      "S": 196,
+      "D": 107,
+      "I": 25,
+      "N": 892,
+      "wer": 0.36771300448430494
+    },
+    "numericNormalized": {
+      "S": 196,
+      "D": 111,
+      "I": 25,
+      "N": 902,
+      "wer": 0.36807095343680707
+    },
+    "callsigns": {
+      "total": 65,
+      "retained": 18,
+      "retentionRate": 0.27692307692307694
+    },
+    "numbers": {
+      "total": 111,
+      "retained": 75,
+      "retentionRate": 0.6756756756756757
+    },
+    "initializationSeconds": 1.5758917999919504,
+    "executionSnapshot": {
+      "schemaVersion": 1,
+      "vad": {
+        "engineCode": "webrtc-vad",
+        "modelName": "webrtcvad-wheels",
+        "version": "2.0.14.post1",
+        "distributionVersion": "2.0.14.post1",
+        "parameters": {
+          "sampleRate": 16000,
+          "provider": "cpu",
+          "aggressiveness": 2,
+          "frameMs": 20,
+          "mergeSilenceMs": 500,
+          "minSpeechMs": 250,
+          "paddingMs": 0
+        }
+      },
+      "asr": {
+        "engineCode": "sensevoice",
+        "modelName": "SenseVoiceSmall-ATC-VHHH",
+        "version": "teacher-2025_0706-int8",
+        "modelSha256": "625facec8fb54410d0e34543947cd80c2e0b1e568df00395bd9a31d3d00f23e8",
+        "tokensSha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc",
+        "parameters": {
+          "sampleRate": 16000,
+          "numThreads": 2,
+          "provider": "cpu",
+          "language": "en",
+          "useItn": true
+        }
+      }
+    },
+    "resultsSha256": "1163c1a3b66d35a80aec1a1ec8cf70335dff3dd51260c2ce624e47eb57103cbd",
+    "airports": {
+      "LKPR": {
+        "recordings": 7,
+        "failedRecordings": 0,
+        "totalSegments": 11,
+        "processingSeconds": 13.353017200017348,
+        "asrSeconds": 8.898728300002404,
+        "audioSeconds": 69.76,
+        "rtf": 0.19141366399107435,
+        "strict": {
+          "S": 31,
+          "D": 18,
+          "I": 7,
+          "N": 174,
+          "wer": 0.3218390804597701
+        },
+        "numericNormalized": {
+          "S": 30,
+          "D": 22,
+          "I": 7,
+          "N": 178,
+          "wer": 0.33146067415730335
+        },
+        "callsigns": {
+          "total": 12,
+          "retained": 3,
+          "retentionRate": 0.25
+        },
+        "numbers": {
+          "total": 23,
+          "retained": 13,
+          "retentionRate": 0.5652173913043478
+        }
+      },
+      "LKTB": {
+        "recordings": 7,
+        "failedRecordings": 0,
+        "totalSegments": 7,
+        "processingSeconds": 8.08022170001641,
+        "asrSeconds": 5.445676300209016,
+        "audioSeconds": 43.584,
+        "rtf": 0.18539422035647046,
+        "strict": {
+          "S": 24,
+          "D": 16,
+          "I": 2,
+          "N": 130,
+          "wer": 0.3230769230769231
+        },
+        "numericNormalized": {
+          "S": 21,
+          "D": 18,
+          "I": 2,
+          "N": 134,
+          "wer": 0.30597014925373134
+        },
+        "callsigns": {
+          "total": 8,
+          "retained": 1,
+          "retentionRate": 0.125
+        },
+        "numbers": {
+          "total": 11,
+          "retained": 8,
+          "retentionRate": 0.7272727272727273
+        }
+      },
+      "LSGS": {
+        "recordings": 7,
+        "failedRecordings": 0,
+        "totalSegments": 7,
+        "processingSeconds": 7.596984199830331,
+        "asrSeconds": 5.070488999946974,
+        "audioSeconds": 38.976,
+        "rtf": 0.1949144139940048,
+        "strict": {
+          "S": 26,
+          "D": 20,
+          "I": 4,
+          "N": 96,
+          "wer": 0.5208333333333334
+        },
+        "numericNormalized": {
+          "S": 26,
+          "D": 20,
+          "I": 4,
+          "N": 96,
+          "wer": 0.5208333333333334
+        },
+        "callsigns": {
+          "total": 9,
+          "retained": 0,
+          "retentionRate": 0.0
+        },
+        "numbers": {
+          "total": 10,
+          "retained": 6,
+          "retentionRate": 0.6
+        }
+      },
+      "LSZB": {
+        "recordings": 7,
+        "failedRecordings": 0,
+        "totalSegments": 7,
+        "processingSeconds": 8.725073500187136,
+        "asrSeconds": 6.013911999994889,
+        "audioSeconds": 57.152,
+        "rtf": 0.15266435995568198,
+        "strict": {
+          "S": 44,
+          "D": 10,
+          "I": 6,
+          "N": 147,
+          "wer": 0.40816326530612246
+        },
+        "numericNormalized": {
+          "S": 48,
+          "D": 9,
+          "I": 6,
+          "N": 148,
+          "wer": 0.42567567567567566
+        },
+        "callsigns": {
+          "total": 8,
+          "retained": 6,
+          "retentionRate": 0.75
+        },
+        "numbers": {
+          "total": 11,
+          "retained": 8,
+          "retentionRate": 0.7272727272727273
+        }
+      },
+      "LSZH": {
+        "recordings": 7,
+        "failedRecordings": 0,
+        "totalSegments": 7,
+        "processingSeconds": 8.127960600191727,
+        "asrSeconds": 5.486107499920763,
+        "audioSeconds": 43.584,
+        "rtf": 0.18648955121585276,
+        "strict": {
+          "S": 15,
+          "D": 21,
+          "I": 2,
+          "N": 116,
+          "wer": 0.3275862068965517
+        },
+        "numericNormalized": {
+          "S": 14,
+          "D": 21,
+          "I": 2,
+          "N": 116,
+          "wer": 0.31896551724137934
+        },
+        "callsigns": {
+          "total": 7,
+          "retained": 3,
+          "retentionRate": 0.42857142857142855
+        },
+        "numbers": {
+          "total": 17,
+          "retained": 11,
+          "retentionRate": 0.6470588235294118
+        }
+      },
+      "LZIB": {
+        "recordings": 7,
+        "failedRecordings": 0,
+        "totalSegments": 8,
+        "processingSeconds": 8.475938600022346,
+        "asrSeconds": 5.906207799911499,
+        "audioSeconds": 44.928,
+        "rtf": 0.18865604077685066,
+        "strict": {
+          "S": 33,
+          "D": 7,
+          "I": 4,
+          "N": 133,
+          "wer": 0.3308270676691729
+        },
+        "numericNormalized": {
+          "S": 33,
+          "D": 7,
+          "I": 4,
+          "N": 133,
+          "wer": 0.3308270676691729
+        },
+        "callsigns": {
+          "total": 10,
+          "retained": 1,
+          "retentionRate": 0.1
+        },
+        "numbers": {
+          "total": 19,
+          "retained": 16,
+          "retentionRate": 0.8421052631578947
+        }
+      },
+      "YSSY": {
+        "recordings": 7,
+        "failedRecordings": 0,
+        "totalSegments": 7,
+        "processingSeconds": 7.35089189989958,
+        "asrSeconds": 4.802714199991897,
+        "audioSeconds": 29.632,
+        "rtf": 0.2480727558011467,
+        "strict": {
+          "S": 23,
+          "D": 15,
+          "I": 0,
+          "N": 96,
+          "wer": 0.3958333333333333
+        },
+        "numericNormalized": {
+          "S": 24,
+          "D": 14,
+          "I": 0,
+          "N": 97,
+          "wer": 0.3917525773195876
+        },
+        "callsigns": {
+          "total": 11,
+          "retained": 4,
+          "retentionRate": 0.36363636363636365
+        },
+        "numbers": {
+          "total": 20,
+          "retained": 13,
+          "retentionRate": 0.65
+        }
+      }
+    }
+  },
+  "generic": {
+    "recordings": 49,
+    "failedRecordings": 0,
+    "totalSegments": 54,
+    "processingSeconds": 59.195483700488694,
+    "asrSeconds": 40.92281149968039,
+    "audioSeconds": 327.616,
+    "rtf": 0.18068556999807303,
+    "strict": {
+      "S": 360,
+      "D": 366,
+      "I": 8,
+      "N": 892,
+      "wer": 0.8228699551569507
+    },
+    "numericNormalized": {
+      "S": 254,
+      "D": 325,
+      "I": 15,
+      "N": 902,
+      "wer": 0.6585365853658537
+    },
+    "callsigns": {
+      "total": 65,
+      "retained": 1,
+      "retentionRate": 0.015384615384615385
+    },
+    "numbers": {
+      "total": 111,
+      "retained": 47,
+      "retentionRate": 0.42342342342342343
+    },
+    "initializationSeconds": 1.1743876999244094,
+    "executionSnapshot": {
+      "schemaVersion": 1,
+      "vad": {
+        "engineCode": "webrtc-vad",
+        "modelName": "webrtcvad-wheels",
+        "version": "2.0.14.post1",
+        "distributionVersion": "2.0.14.post1",
+        "parameters": {
+          "sampleRate": 16000,
+          "provider": "cpu",
+          "aggressiveness": 2,
+          "frameMs": 20,
+          "mergeSilenceMs": 500,
+          "minSpeechMs": 250,
+          "paddingMs": 0
+        }
+      },
+      "asr": {
+        "engineCode": "sensevoice",
+        "modelName": "SenseVoiceSmall",
+        "version": "2024-07-17",
+        "modelSha256": "c71f0ce00bec95b07744e116345e33d8cbbe08cef896382cf907bf4b51a2cd51",
+        "tokensSha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc",
+        "parameters": {
+          "sampleRate": 16000,
+          "numThreads": 2,
+          "provider": "cpu",
+          "language": "en",
+          "useItn": true
+        }
+      }
+    },
+    "resultsSha256": "f0bc0358eb989527462910368bb5cebb94be260bf2e6045ca9eaa99b127bf623",
+    "airports": {
+      "LKPR": {
+        "recordings": 7,
+        "failedRecordings": 0,
+        "totalSegments": 11,
+        "processingSeconds": 10.987160800024867,
+        "asrSeconds": 8.346960699884221,
+        "audioSeconds": 69.76,
+        "rtf": 0.15749943807375094,
+        "strict": {
+          "S": 83,
+          "D": 56,
+          "I": 3,
+          "N": 174,
+          "wer": 0.8160919540229885
+        },
+        "numericNormalized": {
+          "S": 59,
+          "D": 53,
+          "I": 4,
+          "N": 178,
+          "wer": 0.651685393258427
+        },
+        "callsigns": {
+          "total": 12,
+          "retained": 0,
+          "retentionRate": 0.0
+        },
+        "numbers": {
+          "total": 23,
+          "retained": 5,
+          "retentionRate": 0.21739130434782608
+        }
+      },
+      "LKTB": {
+        "recordings": 7,
+        "failedRecordings": 0,
+        "totalSegments": 7,
+        "processingSeconds": 7.97711350012105,
+        "asrSeconds": 5.368105900008231,
+        "audioSeconds": 43.584,
+        "rtf": 0.18302848522671275,
+        "strict": {
+          "S": 54,
+          "D": 52,
+          "I": 1,
+          "N": 130,
+          "wer": 0.823076923076923
+        },
+        "numericNormalized": {
+          "S": 38,
+          "D": 47,
+          "I": 3,
+          "N": 134,
+          "wer": 0.6567164179104478
+        },
+        "callsigns": {
+          "total": 8,
+          "retained": 0,
+          "retentionRate": 0.0
+        },
+        "numbers": {
+          "total": 11,
+          "retained": 4,
+          "retentionRate": 0.36363636363636365
+        }
+      },
+      "LSGS": {
+        "recordings": 7,
+        "failedRecordings": 0,
+        "totalSegments": 7,
+        "processingSeconds": 7.823146800044924,
+        "asrSeconds": 5.21486049995292,
+        "audioSeconds": 38.976,
+        "rtf": 0.20071702586322157,
+        "strict": {
+          "S": 31,
+          "D": 45,
+          "I": 2,
+          "N": 96,
+          "wer": 0.8125
+        },
+        "numericNormalized": {
+          "S": 19,
+          "D": 41,
+          "I": 3,
+          "N": 96,
+          "wer": 0.65625
+        },
+        "callsigns": {
+          "total": 9,
+          "retained": 0,
+          "retentionRate": 0.0
+        },
+        "numbers": {
+          "total": 10,
+          "retained": 3,
+          "retentionRate": 0.3
+        }
+      },
+      "LSZB": {
+        "recordings": 7,
+        "failedRecordings": 0,
+        "totalSegments": 7,
+        "processingSeconds": 8.550556000205688,
+        "asrSeconds": 5.893890300183557,
+        "audioSeconds": 57.152,
+        "rtf": 0.14961079227683524,
+        "strict": {
+          "S": 21,
+          "D": 102,
+          "I": 1,
+          "N": 147,
+          "wer": 0.8435374149659864
+        },
+        "numericNormalized": {
+          "S": 17,
+          "D": 92,
+          "I": 1,
+          "N": 148,
+          "wer": 0.7432432432432432
+        },
+        "callsigns": {
+          "total": 8,
+          "retained": 0,
+          "retentionRate": 0.0
+        },
+        "numbers": {
+          "total": 11,
+          "retained": 5,
+          "retentionRate": 0.45454545454545453
+        }
+      },
+      "LSZH": {
+        "recordings": 7,
+        "failedRecordings": 0,
+        "totalSegments": 7,
+        "processingSeconds": 8.008797199930996,
+        "asrSeconds": 5.379468799801543,
+        "audioSeconds": 43.584,
+        "rtf": 0.18375544236258706,
+        "strict": {
+          "S": 51,
+          "D": 36,
+          "I": 0,
+          "N": 116,
+          "wer": 0.75
+        },
+        "numericNormalized": {
+          "S": 34,
+          "D": 31,
+          "I": 0,
+          "N": 116,
+          "wer": 0.5603448275862069
+        },
+        "callsigns": {
+          "total": 7,
+          "retained": 0,
+          "retentionRate": 0.0
+        },
+        "numbers": {
+          "total": 17,
+          "retained": 9,
+          "retentionRate": 0.5294117647058824
+        }
+      },
+      "LZIB": {
+        "recordings": 7,
+        "failedRecordings": 0,
+        "totalSegments": 8,
+        "processingSeconds": 8.43777089996729,
+        "asrSeconds": 5.862209199811332,
+        "audioSeconds": 44.928,
+        "rtf": 0.18780651041593863,
+        "strict": {
+          "S": 65,
+          "D": 50,
+          "I": 1,
+          "N": 133,
+          "wer": 0.8721804511278195
+        },
+        "numericNormalized": {
+          "S": 49,
+          "D": 44,
+          "I": 2,
+          "N": 133,
+          "wer": 0.7142857142857143
+        },
+        "callsigns": {
+          "total": 10,
+          "retained": 0,
+          "retentionRate": 0.0
+        },
+        "numbers": {
+          "total": 19,
+          "retained": 6,
+          "retentionRate": 0.3157894736842105
+        }
+      },
+      "YSSY": {
+        "recordings": 7,
+        "failedRecordings": 0,
+        "totalSegments": 7,
+        "processingSeconds": 7.410938500193879,
+        "asrSeconds": 4.857316100038588,
+        "audioSeconds": 29.632,
+        "rtf": 0.25009916644822755,
+        "strict": {
+          "S": 55,
+          "D": 25,
+          "I": 0,
+          "N": 96,
+          "wer": 0.8333333333333334
+        },
+        "numericNormalized": {
+          "S": 38,
+          "D": 17,
+          "I": 2,
+          "N": 97,
+          "wer": 0.5876288659793815
+        },
+        "callsigns": {
+          "total": 11,
+          "retained": 1,
+          "retentionRate": 0.09090909090909091
+        },
+        "numbers": {
+          "total": 20,
+          "retained": 15,
+          "retentionRate": 0.75
+        }
+      }
+    }
+  },
+  "strictAbsoluteReductionPercentagePoints": 45.51569506726458,
+  "strictRelativeErrorReduction": 0.5531335149863761,
+  "recordingComparison": {
+    "better": 45,
+    "worse": 2,
+    "equal": 2
+  },
+  "worstTeacherRecordings": [
+    {
+      "recordingId": "YSSY_SYDNEY_Tower_120_5MHz_20210503_075331",
+      "airport": "YSSY",
+      "teacherStrictWER": 0.9285714285714286,
+      "genericStrictWER": 0.9285714285714286,
+      "delta": 0.0
+    },
+    {
+      "recordingId": "LSZH_ZURICH_Tower_118_1MHz_20210414_085600",
+      "airport": "LSZH",
+      "teacherStrictWER": 0.6818181818181818,
+      "genericStrictWER": 0.9545454545454546,
+      "delta": -0.2727272727272728
+    },
+    {
+      "recordingId": "LSGS_SION_Tower_118_3MHz_20210415_105647",
+      "airport": "LSGS",
+      "teacherStrictWER": 0.6666666666666666,
+      "genericStrictWER": 0.7777777777777778,
+      "delta": -0.11111111111111116
+    },
+    {
+      "recordingId": "YSSY_SYDNEY_Tower_120_5MHz_20210427_202441",
+      "airport": "YSSY",
+      "teacherStrictWER": 0.6666666666666666,
+      "genericStrictWER": 0.8333333333333334,
+      "delta": -0.16666666666666674
+    },
+    {
+      "recordingId": "LSGS_SION_Ground_Control_121_7MHz_20210502_061433",
+      "airport": "LSGS",
+      "teacherStrictWER": 0.625,
+      "genericStrictWER": 0.875,
+      "delta": -0.25
+    }
+  ],
+  "limitations": [
+    "reused diagnostic set; non-VHHH; not an independent holdout",
+    "teacher training membership unknown; no generalization claim",
+    "no real team HTTP service contacted; quality measurement calls actual local engine",
+    "XML callsign tags include correct_tagging=0; entity retention diagnostic only"
+  ],
+  "asOf": "2026-10-30",
+  "scope": "local real CPU models; frozen non-VHHH diagnostic set; no real team service",
+  "qualityAcceptanceVerified": false,
+  "trainingOverlapKnown": false,
+  "recordingsIndependentHoldout": false,
+  "scoringTests": {
+    "passed": 12,
+    "failed": 0
+  },
+  "independentEditDistanceAudit": {
+    "recordingConditions": 98,
+    "scoringConditionsPerRecording": 2,
+    "passed": true
+  },
+  "manifestSha256": "d332daf52355def630a3a08e3fb5fd543a8ff19636fedb4efee44e7f7151ccb3",
+  "referencesSha256": "fd9991448d5536931bdef8f82e560d4a1163512f5c3d7053c5c1e901b89b32c7",
+  "evaluationScriptSha256": "5c18ba2ec075b7c5dc00d3e59c5e6f644496b14d103935128f887b5699a95c9e",
+  "rawTranscriptsPublished": false
+}

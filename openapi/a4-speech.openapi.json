@@ -1,0 +1,3121 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "A-4-10/20 分段转写与文本服务",
+    "description": "RQ-A-4-10/20 独立 CPU 工作服务。同步转写、显式保存、按标识读取与修订。沿用 A-5 表结构及 P-Blue 路径；新增复合接口待 A-5/调用方确认登记。",
+    "version": "0.2.0"
+  },
+  "paths": {
+    "/speech/transcribe": {
+      "post": {
+        "tags": [
+          "RQ-A-4-10"
+        ],
+        "summary": "Transcribe 2024141460331",
+        "operationId": "transcribeSpeech_2024141460331",
+        "security": [
+          {
+            "ServiceApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[\\x20-\\x7e]{1,64}$",
+              "title": "Idempotency-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TranscribeRequest_2024141460331"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TranscriptionResult_2024141460331"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "请求格式错误",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "服务密钥缺失或无效",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "上游录音不存在",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "已有结果、重复提交或状态未确认",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "录音或时间语义不符合约定",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "单进程正在推理；本次未提交",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "内部异常",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "上游接口异常",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "模型、引擎登记或本地配置不可用",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        },
+        "x-alpha-module": "A-4",
+        "x-alpha-requirements": [
+          "RQ-A-4-10"
+        ],
+        "x-contract-status": "proposed"
+      }
+    },
+    "/speech/results/save": {
+      "post": {
+        "tags": [
+          "RQ-A-4-20"
+        ],
+        "summary": "Save Result 2024141460331",
+        "operationId": "saveSpeechResult_2024141460331",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveRequest_2024141460331"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavedResult_2024141460331"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数错误",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true,
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "凭据缺失或无效",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true,
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "无编辑权限",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true,
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "文本不存在",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true,
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "版本冲突或保存结果未确认",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true,
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "来源关联或业务校验不通过",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true,
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "内部异常",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true,
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ]
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "上游异常",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true,
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ]
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "本地存储、修订身份不可用或修订历史校验失败且已回滚",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true,
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ServiceApiKey": []
+          }
+        ],
+        "x-alpha-module": "A-4",
+        "x-alpha-requirements": [
+          "RQ-A-4-20"
+        ],
+        "x-contract-status": "proposed"
+      }
+    },
+    "/transcripts/{transcriptId}": {
+      "get": {
+        "tags": [
+          "RQ-A-4-20"
+        ],
+        "summary": "Read Transcript 2024141460331",
+        "operationId": "getTranscript_2024141460331",
+        "security": [
+          {
+            "ServiceApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "transcriptId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Transcriptid"
+            }
+          },
+          {
+            "name": "jobId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "可选来源任务标识",
+              "title": "Jobid"
+            },
+            "description": "可选来源任务标识"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TranscriptDetail_2024141460331"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数错误",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "凭据缺失或无效",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "无编辑权限",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "文本不存在",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "版本冲突或保存结果未确认",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "来源关联或业务校验不通过",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "内部异常",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "上游异常",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "本地存储、修订身份不可用或修订历史校验失败且已回滚",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        },
+        "x-alpha-module": "A-4",
+        "x-alpha-requirements": [
+          "RQ-A-4-20"
+        ],
+        "x-contract-status": "local-compatible-revision"
+      },
+      "patch": {
+        "tags": [
+          "RQ-A-4-20"
+        ],
+        "summary": "Revise Transcript 2024141460331",
+        "operationId": "updateTranscript_2024141460331",
+        "security": [
+          {
+            "ServiceApiKey": [],
+            "UserBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "transcriptId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Transcriptid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RevisionRequest_2024141460331"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TranscriptDetail_2024141460331"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数错误",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "凭据缺失或无效",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "无编辑权限",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "文本不存在",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "版本冲突或保存结果未确认",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "来源关联或业务校验不通过",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "内部异常",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "上游异常",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "本地存储、修订身份不可用或修订历史校验失败且已回滚",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "title",
+                    "status",
+                    "code",
+                    "requestId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "detail": {
+                      "type": "string"
+                    },
+                    "instance": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "requestId": {
+                      "type": "string"
+                    },
+                    "traceId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "saveConfirmed": {
+                      "type": "boolean"
+                    },
+                    "saveStatus": {
+                      "type": "string",
+                      "enum": [
+                        "failed",
+                        "unconfirmed"
+                      ]
+                    },
+                    "writeOutcome": {
+                      "type": "string",
+                      "enum": [
+                        "not_written",
+                        "rolled_back",
+                        "unknown"
+                      ],
+                      "description": "修订失败的本地提交证据；unknown须读回核对，不自动重发"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        },
+        "x-alpha-module": "A-4",
+        "x-alpha-requirements": [
+          "RQ-A-4-20"
+        ],
+        "x-contract-status": "local-compatible-revision"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RevisionRequest_2024141460331": {
+        "properties": {
+          "text": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 4000
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Text"
+          },
+          "reviewStatus": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "unreviewed",
+                  "accepted",
+                  "rejected",
+                  "needs_review",
+                  "skipped"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reviewstatus"
+          },
+          "expectedRevision": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Expectedrevision"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Reason"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "expectedRevision",
+          "reason"
+        ],
+        "title": "RevisionRequest_2024141460331"
+      },
+      "SaveRequest_2024141460331": {
+        "properties": {
+          "result": {
+            "properties": {
+              "businessTaskId": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            "additionalProperties": true,
+            "type": "object",
+            "required": [
+              "businessTaskId"
+            ],
+            "title": "Result",
+            "description": "分段转写返回的完整结果；businessTaskId 必须为 UUID 字符串，服务核验来源后独立保存"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "result"
+        ],
+        "title": "SaveRequest_2024141460331"
+      },
+      "SavedResult_2024141460331": {
+        "properties": {
+          "recordingId": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Recordingid"
+          },
+          "jobId": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Jobid"
+          },
+          "businessTaskId": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Businesstaskid"
+          },
+          "saveConfirmed": {
+            "type": "boolean",
+            "const": true,
+            "title": "Saveconfirmed"
+          },
+          "saveStatus": {
+            "type": "string",
+            "const": "confirmed",
+            "title": "Savestatus"
+          },
+          "transcripts": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Transcripts"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "recordingId",
+          "jobId",
+          "businessTaskId",
+          "saveConfirmed",
+          "saveStatus",
+          "transcripts"
+        ],
+        "title": "SavedResult_2024141460331"
+      },
+      "TranscribeRequest_2024141460331": {
+        "properties": {
+          "recordingId": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Recordingid",
+            "description": "A-3 已登记录音的 aud.recording.id"
+          },
+          "businessTaskId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Businesstaskid",
+            "description": "可选上层业务任务标识；通过 job.params/stats 扩展关联，非新增外键"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "recordingId"
+        ],
+        "title": "TranscribeRequest_2024141460331"
+      },
+      "TranscriptDetail_2024141460331": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "segmentId": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Segmentid"
+          },
+          "recordingId": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Recordingid"
+          },
+          "jobId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Jobid"
+          },
+          "resolvedJobId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Resolvedjobid",
+            "description": "由上下文与摘要核验的任务；不等于数据库外键已验证"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          },
+          "textRaw": {
+            "type": "string",
+            "title": "Textraw"
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Revision"
+          },
+          "reviewStatus": {
+            "type": "string",
+            "enum": [
+              "unreviewed",
+              "accepted",
+              "rejected",
+              "needs_review",
+              "skipped"
+            ],
+            "title": "Reviewstatus"
+          },
+          "isEdited": {
+            "type": "boolean",
+            "title": "Isedited"
+          },
+          "startMs": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Startms"
+          },
+          "endMs": {
+            "type": "integer",
+            "exclusiveMinimum": 0.0,
+            "title": "Endms"
+          },
+          "startAt": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Startat"
+          },
+          "endAt": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Endat"
+          },
+          "edits": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Edits"
+          },
+          "reviewHistoryStatus": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "recorded",
+                  "partial",
+                  "not_exposed",
+                  "not_applicable"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reviewhistorystatus",
+            "description": "审核前后状态历史的返回情况；not_exposed不表示没有真实编辑历史"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "id",
+          "segmentId",
+          "recordingId",
+          "text",
+          "textRaw",
+          "revision",
+          "reviewStatus",
+          "isEdited",
+          "startMs",
+          "endMs",
+          "startAt",
+          "endAt",
+          "edits"
+        ],
+        "title": "TranscriptDetail_2024141460331"
+      },
+      "TranscriptResult_2024141460331": {
+        "properties": {
+          "recordingId": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Recordingid"
+          },
+          "segmentId": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Segmentid"
+          },
+          "startMs": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Startms"
+          },
+          "endMs": {
+            "type": "integer",
+            "exclusiveMinimum": 0.0,
+            "title": "Endms"
+          },
+          "startAt": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Startat"
+          },
+          "endAt": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Endat"
+          },
+          "textRaw": {
+            "type": "string",
+            "title": "Textraw"
+          },
+          "language": {
+            "type": "string",
+            "title": "Language"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "recordingId",
+          "segmentId",
+          "startMs",
+          "endMs",
+          "startAt",
+          "endAt",
+          "textRaw",
+          "language"
+        ],
+        "title": "TranscriptResult_2024141460331"
+      },
+      "TranscriptionResult_2024141460331": {
+        "properties": {
+          "schemaVersion": {
+            "type": "integer",
+            "const": 1,
+            "title": "Schemaversion"
+          },
+          "recordingId": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Recordingid"
+          },
+          "businessTaskId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Businesstaskid"
+          },
+          "jobId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Jobid"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "succeeded",
+              "partial",
+              "failed",
+              "no_speech"
+            ],
+            "title": "Status"
+          },
+          "processedSegments": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Processedsegments"
+          },
+          "failedSegments": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Failedsegments"
+          },
+          "transcripts": {
+            "items": {
+              "$ref": "#/components/schemas/TranscriptResult_2024141460331"
+            },
+            "type": "array",
+            "title": "Transcripts"
+          },
+          "failedSegmentsDetails": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Failedsegmentsdetails"
+          },
+          "unprocessedSegmentIds": {
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "type": "array",
+            "title": "Unprocessedsegmentids"
+          },
+          "targetSegmentIds": {
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "type": "array",
+            "title": "Targetsegmentids"
+          },
+          "saveConfirmed": {
+            "type": "boolean",
+            "title": "Saveconfirmed"
+          },
+          "saveStatus": {
+            "type": "string",
+            "title": "Savestatus"
+          },
+          "executionSnapshot": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Executionsnapshot"
+          },
+          "audioProcessing": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Audioprocessing"
+          },
+          "processingTraceId": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Processingtraceid"
+          },
+          "traceId": {
+            "type": "string",
+            "title": "Traceid"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "schemaVersion",
+          "recordingId",
+          "jobId",
+          "status",
+          "processedSegments",
+          "failedSegments",
+          "transcripts",
+          "failedSegmentsDetails",
+          "unprocessedSegmentIds",
+          "saveConfirmed",
+          "saveStatus",
+          "traceId"
+        ],
+        "title": "TranscriptionResult_2024141460331"
+      }
+    },
+    "securitySchemes": {
+      "ServiceApiKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Api-Key"
+      },
+      "UserBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8001/api/v1/a4",
+      "description": "本地工作服务示例；真实部署地址待协商"
+    }
+  ],
+  "x-alpha-module": "A-4",
+  "x-alpha-requirements": [
+    "RQ-A-4-10",
+    "RQ-A-4-20"
+  ],
+  "x-contract-status": "local-compatible-revision"
+}

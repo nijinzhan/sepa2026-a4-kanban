@@ -1,0 +1,30 @@
+{
+  "a3Url": "http://127.0.0.1:8000/api/v1/a3",
+  "a4Url": "http://127.0.0.1:8000/api/v1/a4",
+  "apiKeyEnv": "A4_API_KEY",
+  "timeoutSeconds": 60,
+  "receiptDirectory": "outputs/requests",
+  "engine": {
+    "vad": {
+      "engineCode": "silero-vad",
+      "modelName": "silero-vad",
+      "version": "v5.0",
+      "modelPath": "models/silero_vad_v5.onnx",
+      "threshold": 0.5,
+      "minSilenceDuration": 0.5,
+      "minSpeechDuration": 0.25,
+      "maxSpeechDuration": 20,
+      "numThreads": 1
+    },
+    "asr": {
+      "engineCode": "sensevoice",
+      "modelName": "SenseVoiceSmall",
+      "version": "2024-07-17",
+      "modelPath": "models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/model.int8.onnx",
+      "tokensPath": "models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/tokens.txt",
+      "language": "en",
+      "useItn": true,
+      "numThreads": 2
+    }
+  }
+}

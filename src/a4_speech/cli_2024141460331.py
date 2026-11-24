@@ -2,17 +2,24 @@
 
 import argparse
 import json
-import logging
 import os
+from contextlib import contextmanager
 from pathlib import Path
 from urllib.parse import urlsplit
-from uuid import uuid4
 
 import httpx
 
 from .audio_2024141460331 import decode_audio
-from .client_2024141460331 import ApiError, TeamApi
+from .client_2024141460331 import ApiError, TeamApi, segment_limit_2024141460331
+from .diagnostics_2024141460331 import (
+    current_trace_id,
+    feedback,
+    log_event,
+    stderr_diagnostics,
+    trace_scope,
+)
 from .models_2024141460331 import SherpaEngine
+from .models_xlsr_webrtc_2024141460331 import WebRtcXlsrEngine
 from .service_2024141460331 import ProcessingError_2024141460331, SpeechService_2024141460331
 
 
@@ -27,6 +34,10 @@ def load_config_2024141460331(path: Path) -> dict:
         raise ConfigError_2024141460331("configuration cannot be read") from exc
     if not isinstance(config, dict):
         raise ConfigError_2024141460331("configuration must be an object")
+    try:
+        config["maxSegments"] = segment_limit_2024141460331(config.get("maxSegments", 500))
+    except ValueError as exc:
+        raise ConfigError_2024141460331(str(exc)) from None
     config["_directory"] = str(path.resolve().parent)
     return config
 
@@ -65,7 +76,54 @@ def _local_path_2024141460331(config: dict, value: str) -> Path:
     return path if path.is_absolute() else Path(config["_directory"]) / path
 
 
-def _engine_2024141460331(config: dict) -> SherpaEngine:
+@contextmanager
+def _api_context_2024141460331(config: dict):
+    """Select storage explicitly; importing the HTTP worker needs no psycopg."""
+    max_segments = segment_limit_2024141460331(config.get("maxSegments", 500))
+    storage = config.get("storage", {"mode": "http"})
+    if not isinstance(storage, dict) or storage.get("mode", "http") not in {"http", "postgres"}:
+        raise ConfigError_2024141460331("storage.mode must be http or postgres")
+    if storage.get("mode", "http") == "postgres":
+        env_name = storage.get("dsnEnv", "A4_DATABASE_URL")
+        root = storage.get("audioRoot")
+        if not isinstance(env_name, str) or not os.environ.get(env_name):
+            raise ConfigError_2024141460331("database credential environment is required")
+        if not isinstance(root, str) or not root.strip():
+            raise ConfigError_2024141460331("storage.audioRoot is required")
+        from .postgres_2024141460331 import PostgresTeamApi_2024141460331
+
+        a5 = _endpoint_2024141460331(config, "a5Url") if "a5Url" in config else None
+        with httpx.Client(
+            timeout=config.get("timeoutSeconds", 60), trust_env=False, follow_redirects=False
+        ) as identity:
+            yield PostgresTeamApi_2024141460331(
+                os.environ[env_name],
+                _local_path_2024141460331(config, root),
+                max_segments=max_segments,
+                a5_url=a5,
+                identity_client=identity,
+            )
+        return
+    a3 = _endpoint_2024141460331(config, "a3Url")
+    a4 = _endpoint_2024141460331(config, "a4Url")
+    env_name = config.get("apiKeyEnv", "A4_API_KEY")
+    if not isinstance(env_name, str) or not os.environ.get(env_name):
+        raise ConfigError_2024141460331("AUTH_ENV_MISSING")
+    timeout = config.get("timeoutSeconds", 60)
+    if type(timeout) not in (int, float) or not 0 < timeout <= 600:
+        raise ConfigError_2024141460331("timeoutSeconds must be in (0,600]")
+    with httpx.Client(
+        headers={
+            "X-Api-Key": os.environ[env_name],
+            "X-Request-Id": current_trace_id() or "startup",
+        },
+        timeout=timeout,
+        trust_env=False,
+    ) as http:
+        yield TeamApi(http, a3, a4, max_segments=max_segments)
+
+
+def _engine_2024141460331(config: dict) -> SherpaEngine | WebRtcXlsrEngine:
     model = config.get("engine")
     if not isinstance(model, dict):
         raise ConfigError_2024141460331("engine manifest is required for model execution")
@@ -78,7 +136,12 @@ def _engine_2024141460331(config: dict) -> SherpaEngine:
         for key in ("modelPath", "tokensPath"):
             if key in item and isinstance(item[key], str):
                 item[key] = str(_local_path_2024141460331(config, item[key]))
-    return SherpaEngine(model)
+    pair = (model["vad"].get("engineCode"), model["asr"].get("engineCode"))
+    if pair == ("webrtc-vad", "xlsr-atc"):
+        return WebRtcXlsrEngine(model)
+    if pair in {("silero-vad", "sensevoice"), ("webrtc-vad", "sensevoice")}:
+        return SherpaEngine(model)
+    raise ConfigError_2024141460331("engine manifest uses an unsupported VAD/ASR pair")
 
 
 def _parser_2024141460331() -> argparse.ArgumentParser:
@@ -108,8 +171,15 @@ def _parser_2024141460331() -> argparse.ArgumentParser:
 
 
 def main_2024141460331(argv: list[str] | None = None) -> int:
+    with trace_scope(), stderr_diagnostics() as logger:
+        log_event(logger, "A4.CLI.STARTED")
+        status = _execute_2024141460331(argv, logger)
+        log_event(logger, "A4.CLI.COMPLETED", status="succeeded" if status == 0 else "failed")
+        return status
+
+
+def _execute_2024141460331(argv, logger) -> int:
     args = _parser_2024141460331().parse_args(argv)
-    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s %(message)s")
     try:
         config = load_config_2024141460331(args.config)
         if args.command == "check-model":
@@ -117,10 +187,12 @@ def main_2024141460331(argv: list[str] | None = None) -> int:
             output = {"executionSnapshot": engine.snapshot(), "inferenceChecked": False}
             if args.audio is not None:
                 audio = decode_audio(args.audio.read_bytes())
+                log_event(logger, "A4.AUDIO.DECODED", **audio.processing_info)
                 spans = engine.detect(audio)
                 output.update(
                     inferenceChecked=True,
                     durationMs=audio.duration_ms,
+                    audioProcessing=audio.processing_info,
                     segments=[
                         {
                             "startMs": start,
@@ -132,32 +204,16 @@ def main_2024141460331(argv: list[str] | None = None) -> int:
                 )
                 output["asrInferenceChecked"] = bool(spans)
         else:
-            a3, a4 = (
-                _endpoint_2024141460331(config, "a3Url"),
-                _endpoint_2024141460331(config, "a4Url"),
-            )
-            env_name = config.get("apiKeyEnv", "A4_API_KEY")
-            if not isinstance(env_name, str):
-                raise ConfigError_2024141460331("apiKeyEnv must name an environment variable")
-            secret = os.environ.get(env_name)
-            if not secret:
-                print(json.dumps({"code": "AUTH_ENV_MISSING"}))
-                return 2
-            timeout = config.get("timeoutSeconds", 60)
-            if type(timeout) not in (int, float) or not 0 < timeout <= 600:
-                raise ConfigError_2024141460331("timeoutSeconds must be in (0,600]")
-            with httpx.Client(
-                headers={"X-Api-Key": secret, "X-Request-Id": str(uuid4())},
-                timeout=timeout,
-                trust_env=False,
-            ) as http:
-                api = TeamApi(http, a3, a4)
+            with _api_context_2024141460331(config) as api:
                 engine = _engine_2024141460331(config) if args.command == "transcribe" else None
                 receipt_dir = config.get("receiptDirectory", "outputs/requests")
                 if not isinstance(receipt_dir, str):
                     raise ConfigError_2024141460331("receiptDirectory must be a path")
                 service = SpeechService_2024141460331(
-                    api, engine, receipt_dir=_local_path_2024141460331(config, receipt_dir)
+                    api,
+                    engine,
+                    receipt_dir=_local_path_2024141460331(config, receipt_dir),
+                    max_segments=config.get("maxSegments", 500),
                 )
                 if args.command == "transcribe":
                     execute = (
@@ -179,10 +235,10 @@ def main_2024141460331(argv: list[str] | None = None) -> int:
                     output = service.save_result_2024141460331(result)
                 else:
                     output = service.read_transcript_2024141460331(args.transcript_id, args.job_id)
-        print(json.dumps(output, ensure_ascii=False, indent=2))
+        print(json.dumps(feedback(output), ensure_ascii=False, indent=2))
         return 0
-    except ConfigError_2024141460331:
-        error = {"code": "CONFIG_ERROR"}
+    except ConfigError_2024141460331 as exc:
+        error = {"code": "AUTH_ENV_MISSING" if str(exc) == "AUTH_ENV_MISSING" else "CONFIG_ERROR"}
     except ProcessingError_2024141460331 as exc:
         error = exc.as_dict_2024141460331()
     except ApiError as exc:
@@ -190,5 +246,13 @@ def main_2024141460331(argv: list[str] | None = None) -> int:
     except (ValueError, OSError):
         # Native decoder/model errors can contain paths; avoid leaking config/credentials.
         error = {"code": "MODEL_OR_INPUT_ERROR"}
-    print(json.dumps(error, ensure_ascii=False))
+    log_event(
+        logger,
+        "A4.CLI.FAILED",
+        code=error["code"],
+        jobId=error.get("jobId"),
+        requestId=error.get("requestId"),
+        httpStatus=error.get("httpStatus"),
+    )
+    print(json.dumps(feedback(error), ensure_ascii=False))
     return 2

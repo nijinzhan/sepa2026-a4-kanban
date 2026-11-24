@@ -1,0 +1,197 @@
+{
+  "asOf": "2026-11-07",
+  "requirements": [
+    "RQ-A-4-10",
+    "RQ-A-4-20"
+  ],
+  "pytest": {
+    "passed": 445,
+    "skipped": 1,
+    "seconds": 22.43,
+    "realPostgresAndCpuTestsEnabled": true,
+    "allTestsAreRealIntegration": false
+  },
+  "identityHttpAcceptance": {
+    "checks": [
+      "real-login-0",
+      "real-login-1",
+      "real-login-2",
+      "authorized-text-save",
+      "review-only-increments-revision",
+      "no-change-does-not-add-revision",
+      "viewer-forbidden",
+      "stale-version-conflict",
+      "invalid-token-denied",
+      "concurrent-edit-one-winner",
+      "disabled-user-denied",
+      "original-and-history-protected",
+      "actor-from-real-identity",
+      "fresh-db-connection-readback",
+      "worker-restart-preserves-revision-history"
+    ],
+    "identitySourceRef": "083d8cc1ea157297d46eeb61231e2461aa973c69",
+    "realIamLogin": true,
+    "sharedDdlChanged": false,
+    "status": "passed",
+    "checkCount": 15,
+    "temporaryProcessesStopped": true,
+    "testRowsRemoved": true
+  },
+  "existingChain": {
+    "automationSummary": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\outputs\\postgres\\automation-http-801f13f43883\\summary.json",
+    "automationChecks": 9,
+    "querySummary": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\outputs\\postgres\\query-export-e796b32f3c03\\summary.json",
+    "queryChecks": 14
+  },
+  "qualitySourceFindings": [
+    {
+      "file": "课程项目需求列表.xlsx",
+      "sheet": "可视化ATC地空通话语音标注系统",
+      "row": 25,
+      "content": "语音处理 | A-4 | RQ-A-4-10 | 使用sherpa-onnx，sensevoice，实现服务API接口，转写地空通话文本，并给出通话起止时间戳"
+    },
+    {
+      "file": "课程项目需求列表.xlsx",
+      "sheet": "可视化ATC地空通话语音标注系统",
+      "row": 26,
+      "content": "RQ-A-4-20 | 存储并管理生成的地空通话文本"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 44,
+      "content": "3.2.1 精度13"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 123,
+      "content": "    本系统旨在开发一个可视化的 ATC 地空通话语音标注系统，将航空器航迹信息与空中交通管制语音信息进行关联，并通过语音识别和可视化展示，辅助用户完成地空通话内容的查看、整理和标注。系统主要用于航空通信语音数据的辅助处理与标注，提高人工整理 ATC 语音信息的效率，使用户能够结合航迹信息更加直观地理解和分析地空通话内容。系统主要面向 ATC 地空通话语音及相关航迹数据的采集、识别、同步、展示和人工标注等功能，适用于课程项目中的航空通信数据处理与分析场景，不涉及实际航空交通管制指挥或飞行控制。"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 158,
+      "content": "语音片段起止时间、ASR 预标注文本、识别状态及相关模型信息。"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 193,
+      "content": "精度 / 验收指标"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 251,
+      "content": "精度 / 验收指标"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 269,
+      "content": "保留位置、高度、速度的最大浮点精度"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 270,
+      "content": "源数据经纬度/高度/速度 → 不做四舍五入或截断，按原值入库 → 高精度航迹点"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 289,
+      "content": "精度 / 验收指标"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 318,
+      "content": "A-4 负责 VAD 分段、ASR 转写、文本管理与导出。系统能力“多源时间同步与关联”由 RQ-A-1-50（航迹与语音按时间戳对齐）+ RQ-A-4-30（按通话起止时间查询）+ RQ-A-3-10/20（时间戳生成）+ RQ-A-2-20（航迹时标）共同承载；时间基准与精度要求见 3.2.1，关联规则与索引见 3.3。"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 322,
+      "content": "精度 / 验收指标"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 360,
+      "content": "精度 / 验收指标"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 400,
+      "content": "3.2.1 精度"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 401,
+      "content": "时间精度：所有航迹、音频片段和标注统一使用同一时间基准；数据库时间字段至少保存到毫秒级。界面联动定位的目标误差不大于1s，人工调整语音片段边界时最小步进建议为 0.1 s。"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 403,
+      "content": "航迹数据精度：系统不擅自提升或篡改外部 ADS-B 数据精度，应完整保留数据源提供的经纬度、高度、速度等原始精度，同时记录数据来源和采集时间。"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 405,
+      "content": "音频数据精度：下载与保存过程不得进行无说明的有损转换；若需要重采样用于 ASR，应保存转换参数，并保证原始或可追溯音频仍可用于复核。"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 407,
+      "content": "传输完整性：前后端通过 HTTP/HTTPS 传输结构化数据时，不得发生时间戳、坐标、文本编码或数值精度的无提示截断。"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 437,
+      "content": "精度/约束"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 442,
+      "content": "时间至少ms级保存；坐标保持数据源精度"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 458,
+      "content": "生成预标注文本和时间戳"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 540,
+      "content": "无自动预标注"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 592,
+      "content": "ASR 预标注文本、人工修订文本、VAD 片段边界及相关辅助信息。"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 610,
+      "content": "原始数据与修订数据分离：外部原始数据、ASR 预标注和人工最终标注必须可区分，避免人工修改覆盖原始结果。"
+    },
+    {
+      "file": "可视化ATC地空通话语音标注系统_需求规格说明书_v1.6.docx",
+      "paragraph": 780,
+      "content": "A-4 的 RQ-A-4-30 / RQ-A-4-40 仅有系统级描述，缺输入→处理→输出与精度指标，导致目标→RQ 追溯断裂"
+    }
+  ],
+  "maxSegments": {
+    "default": 500,
+    "positiveInteger": true,
+    "overLimitBeforePersistenceAndInference": true,
+    "configured501RealPostgresTest": true,
+    "automaticBatching": false
+  },
+  "sharedDdlChanged": false,
+  "otherOwnersSourceChanged": false,
+  "committed": false,
+  "gitIndexSha256": "e64c3790b482eb99eb085df9072e02d67fce30888ad3c24daa898e2e7638c545",
+  "sourceHashes": {
+    "src/a4_speech/api_2024141460331.py": "fcdef681d9538dc5e7605aeae85f46aeeff16dfd0daaf0464034f92c5f977835",
+    "src/a4_speech/cli_2024141460331.py": "962ba024ffbdcb7ced8354fe2f390207656d0dfff2b79840e8f3842780431582",
+    "src/a4_speech/client_2024141460331.py": "ab7b7a1dc119e08c26008dba1e592fe678b3a545e7d935f3d3ab878abdbb87d5",
+    "src/a4_speech/diagnostics_2024141460331.py": "cdc6bf59af88bc3575c11ccef4325f63c98d90ca98723a06d932b715e3016f7e",
+    "src/a4_speech/postgres_2024141460331.py": "9c4047309c34734ebfc4c7e08045e7cde3e6b7a2783ad877749c4d7fac7f395a",
+    "src/a4_speech/service_2024141460331.py": "f06eda9214b05c6cd6c94443851e1ecf56a9d9eeb18ec531664dbe80d16f682d",
+    "tests/test_limits_2024141460331.py": "bc2ba03eaa5f71788418302d304765a92422ae0944d6342663892c386cbf2a0d",
+    "tests/test_postgres_revision_2024141460331.py": "3435ee8c07a3137aa42c93646969757f8ccd40275bbbdc3143b9da75bddc51e2",
+    "tools/postgres_revision_integration_2024141460331.py": "971a8f34ba3dcbdf0166aa1788ec4e0aad49a4cb00ff3006793ef473ea85328c"
+  }
+}

@@ -1,0 +1,711 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-11-07",
+  "requirements": [
+    "RQ-A-4-10",
+    "RQ-A-4-20"
+  ],
+  "personalService": {
+    "version": "0.2.0",
+    "status": "local-implemented-tested",
+    "openapi": "openapi/a4-speech.openapi.json"
+  },
+  "sharedContract": {
+    "repository": "P-Blue",
+    "baseCommit": "a5f7ac650865fcef3a327da2fba893727117daff",
+    "a3Version": "1.1.0",
+    "a4Version": "2.0.0",
+    "migration": "V14__a4_revision_and_contract_compatibility.sql",
+    "status": "historical-proposal-not-adopted",
+    "historicalSqlSignaturePreserved": true,
+    "oldHttpEditRequestsRequireUpgrade": false,
+    "adoptionRequiredForPersonalService": false,
+    "proposedVersionWouldRequireOldHttpEditRequestsToUpgrade": true
+  },
+  "dataModel": {
+    "baseline": "A-5 existing PostgreSQL aud/asr",
+    "coreMappingPreserved": true,
+    "migrationAppliedToTeamDatabase": false
+  },
+  "inference": {
+    "vad": "WebRTC",
+    "runtime": "sherpa-onnx",
+    "asr": "Teacher-provided SenseVoice ATC INT8",
+    "device": "cpu",
+    "atcFineTunedWeightsVerified": true,
+    "asOf": "2026-10-29",
+    "modelName": "SenseVoiceSmall-ATC-VHHH",
+    "version": "teacher-2025_0706-int8",
+    "modelSha256": "625facec8fb54410d0e34543947cd80c2e0b1e568df00395bd9a31d3d00f23e8",
+    "tokensSha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc",
+    "defaultConfig": "config.example.json",
+    "verificationBasis": "User-confirmed teacher package; exact file hashes and real CPU execution verified. Training data and recipe not independently audited.",
+    "trainingPerformedByStudent": false,
+    "trainingDataIndependentlyAudited": false,
+    "realTeamRegistryVerified": false,
+    "qualityAcceptanceVerified": false
+  },
+  "sources": {
+    "a5DataStructure": {
+      "path": "D:/course_project/现代软件工程/homework/A-5-数据表结构.docx",
+      "sha256": "704d623820a10d6da74e07eeb27df2c327a253a258b1e939d2d629b3e5a94510"
+    },
+    "personalRequirements": {
+      "path": "docs/A4-RQ-A-4-10_20_需求规格说明书.md",
+      "sha256": "b0dced8cbb56d9480bbec1d4373cde0c9ebf9d437bfbc5925582f2916d61c8fd"
+    },
+    "personalSystemDesign": {
+      "path": "docs/A4-RQ-A-4-10_20_系统设计说明书.md",
+      "sha256": "5de15ab553218da6eb02a3b354763d3dd4c7c248befd1d87979af356345363ae"
+    }
+  },
+  "verification": {
+    "personalPassed": 401,
+    "personalSkipped": 1,
+    "realCpuModelIncluded": true,
+    "externalServices": "httpx.MockTransport at upstream HTTP boundary; not real team services",
+    "sqlRegressionGroups": 25,
+    "sqlRuntime": "@electric-sql/pglite@0.5.11",
+    "contractTests": 8,
+    "sharedOpenapiOperations": 109,
+    "targetPostgres16FullMigrationVerified": false,
+    "realTeamIntegrationVerified": false,
+    "realCpuModelTests": 2,
+    "legacyCompatibilityTests": 13,
+    "currentRunScope": "personal pytest suite including two opt-in CPU inference tests, Ruff, 32 source/test format checks, pip check, personal OpenAPI validation, seven requirements diagram rebuilds and 24-page Word layout inspection",
+    "publicProposalVerificationScope": "previous isolated SQL/contract evidence retained below; not rerun or adopted by this submission fix",
+    "saveRequestValidationCases": {
+      "total": 18,
+      "invalidZeroWrite": 13,
+      "validUuid": 5
+    },
+    "requirementsDiagramRebuilds": 7,
+    "requirementsDiagramPixelsMatch": true,
+    "systemDesignVersion": "0.3",
+    "systemDesignRenderedPages": 24,
+    "asOf": "2026-10-25"
+  },
+  "artifacts": [
+    {
+      "path": "openapi/a4-speech.openapi.json",
+      "sha256": "807c2ecbce8b15d20c2688b03a43623e53c3086b953afb0f8fc5fd1cb5619274"
+    },
+    {
+      "path": "docs/A4-10_20兼容适配与验证记录.md",
+      "sha256": "dcf45e465c37652bfce5da7f674252f07785e80843f9e65d82a526fa6b695a07"
+    },
+    {
+      "path": "docs/A4-RQ-A-4-10_20_需求规格说明书.md",
+      "sha256": "b0dced8cbb56d9480bbec1d4373cde0c9ebf9d437bfbc5925582f2916d61c8fd"
+    },
+    {
+      "path": "docs/A4-RQ-A-4-10_20_系统设计说明书.md",
+      "sha256": "5de15ab553218da6eb02a3b354763d3dd4c7c248befd1d87979af356345363ae"
+    },
+    {
+      "path": "deliverables/测试/2026-10-25-提交成果物问题修复验证.md",
+      "sha256": "ea84b5fb0d30d494d8e9b9514b4f4d7b67ea1aa33983d3acd979b5ad4749dbf6"
+    },
+    {
+      "path": "tools/atco2_silero_v6_eval_20261021_2024141460331.py",
+      "sha256": "f5b1cb8de33b676aa05841123202adcfd9924cf39f904e53e072254f92c9ebbf"
+    },
+    {
+      "path": "deliverables/测试/2026-10-29-Markdown文档迁移验证.md",
+      "sha256": "d299a0c2ea2870d6c18d962455f46774c7d7e5b7c14163ae57aaa531f3b46117"
+    },
+    {
+      "path": "config.example.json",
+      "sha256": "1ab0a3c6d48ec83411681e3a98cbdbedafb027b27d866672167e14c3536e3eb2"
+    },
+    {
+      "path": "config.teacher-sensevoice.example.json",
+      "sha256": "1ab0a3c6d48ec83411681e3a98cbdbedafb027b27d866672167e14c3536e3eb2"
+    },
+    {
+      "path": "config.generic-sensevoice.example.json",
+      "sha256": "089a40ff182fb18e5c7be0ab10bfae0fd88c242ea0755f0ade7b33442ebe274f"
+    },
+    {
+      "path": "docs/教师ATC微调SenseVoice接入说明.md",
+      "sha256": "9cfa9de854a34ec4d2e6b1d8d312e7336bb03863d74821a0d25ee8084c42a227"
+    },
+    {
+      "path": "docs/代码实现与测试说明.md",
+      "sha256": "7790bb12a19b7552e6c6ff6c9c912d122899679524ba048d426547591d4a68b3"
+    },
+    {
+      "path": "docs/A4-10_20实施基线与联调交付.md",
+      "sha256": "c41718acb3aaeb7fe7ae654fb403412ca8919690b56c3e60f95a8f50ca878c2c"
+    },
+    {
+      "path": "docs/模型选型与实验结论说明.md",
+      "sha256": "bdc3296e89232b188a2dd3983271034d8f10b5d5fde61a8f5e9c2af29f00d0c9"
+    },
+    {
+      "path": "docs/SenseVoice优化与VHHH录音核查.md",
+      "sha256": "0eb4f3aa42f00a507708ee22e2cab8ac6316cb6050cf3ae1cf06e984adda948c"
+    },
+    {
+      "path": "deliverables/测试/2026-10-30-教师SenseVoice模型效果评测.md",
+      "sha256": "06c0c9a13022b26e82fe11bc65ba44482e47ac2dc052e5a75cfef1cc118acd04"
+    },
+    {
+      "path": "deliverables/测试/2026-10-30-教师SenseVoice模型效果评测-summary.json",
+      "sha256": "eb6942215596b924b383df26771f2d06e53314f2f8028352a4b3d1746d20b323"
+    },
+    {
+      "path": "deliverables/测试/2026-10-31-A4新版查询导出与A3-A5更新联调核对.md",
+      "sha256": "870106745b0ecdc2446c79b02294eeacf85012653d1ef8cae7ce3506e6896c86"
+    },
+    {
+      "path": "deliverables/测试/2026-10-31-A4新版查询导出与A3-A5更新联调核对-summary.json",
+      "sha256": "4240f9c93ce52f4663c7065e6c50f7f2fa515fd97f73715e4744796827d504ab"
+    },
+    {
+      "path": "tools/query_export_integration_2024141460331.py",
+      "sha256": "ae333d7aaac8320509fcaa32aa6ed2b5c29945d7bbd294bb5875e13aa04a5b2f"
+    },
+    {
+      "path": "tools/automation_http_integration_2024141460331.py",
+      "sha256": "2396f17593bffae8afb785d4202d10d42383323eaebcd38c84d67626b6199c4f"
+    },
+    {
+      "path": "tools/postgres_local_2024141460331.py",
+      "sha256": "782a8b677e5c6a62f9cc6f9187d2e6ce78d268163b88596289541555b567a909"
+    },
+    {
+      "path": "docs/Docker与联调入门操作.md",
+      "sha256": "9bed62dc67cb0260453aa7ff4288f9164df4297351d2f55915764105a81911cb"
+    },
+    {
+      "path": "docs/PostgreSQL本地接入与组内联调.md",
+      "sha256": "b0b7cd85ea743721ec48ef4c68742c536b5434c2de9854230eacb6d673405378"
+    },
+    {
+      "path": "deliverables/测试/2026-10-31-系统设计修订与Word同步验证.md",
+      "sha256": "5927cf8da42fa9a3419e2da0bc05ff981cd3e76b9013b25d84aa9ef65e8effab"
+    },
+    {
+      "path": "deliverables/测试/2026-10-31-系统设计流程图位置修复验证.md",
+      "sha256": "c405b0ac5fe46251b20ddfb18232e3c0bf672930e7c158a5fc5641155c806942"
+    },
+    {
+      "path": "deliverables/测试/2026-11-03-系统设计评估问题修正验证.md",
+      "sha256": "8faf563a5a3c8e1cad12d3b69e7bbda499b4694582dcbe90470b024e62307d48"
+    },
+    {
+      "path": "deliverables/测试/系统设计CCFA一致性审核.md",
+      "sha256": "ad5fd29fcb28c13a54fefd8bd9ebeed180699c14a76187b012b31444fbfd4090"
+    },
+    {
+      "path": "deliverables/测试/2026-11-03-ASR容器与512MiB内存验证.md",
+      "sha256": "f03e8fd99fa677972080efb60f3581578c99f062fe5a4cfaa8f6840f3bd738bd"
+    },
+    {
+      "path": "deliverables/测试/2026-11-03-ASR容器与512MiB内存验证-summary.json",
+      "sha256": "5e7dee9d8157cad59c36f54bff8aa860b17b2c1d0b36f5dd59d6d5b663ce8b7a"
+    },
+    {
+      "path": "src/a4_speech/api_2024141460331.py",
+      "sha256": "fcdef681d9538dc5e7605aeae85f46aeeff16dfd0daaf0464034f92c5f977835"
+    },
+    {
+      "path": "src/a4_speech/cli_2024141460331.py",
+      "sha256": "3c984ab20f05a311d9442943115e420346f2099eedc8addd4aa3ce16835bceee"
+    },
+    {
+      "path": "src/a4_speech/client_2024141460331.py",
+      "sha256": "83e1c1b82e1266235c04e618880fd8b2523055d9c8263c3c3549ec96a56a9952"
+    },
+    {
+      "path": "src/a4_speech/diagnostics_2024141460331.py",
+      "sha256": "cdc6bf59af88bc3575c11ccef4325f63c98d90ca98723a06d932b715e3016f7e"
+    },
+    {
+      "path": "src/a4_speech/postgres_2024141460331.py",
+      "sha256": "9c4047309c34734ebfc4c7e08045e7cde3e6b7a2783ad877749c4d7fac7f395a"
+    },
+    {
+      "path": "src/a4_speech/service_2024141460331.py",
+      "sha256": "7b63233b060dd4643b3ba7a289b201245560ac4e67c84dad9b85719847ac3cc8"
+    },
+    {
+      "path": "tests/test_limits_2024141460331.py",
+      "sha256": "bc2ba03eaa5f71788418302d304765a92422ae0944d6342663892c386cbf2a0d"
+    },
+    {
+      "path": "tests/test_postgres_revision_2024141460331.py",
+      "sha256": "3435ee8c07a3137aa42c93646969757f8ccd40275bbbdc3143b9da75bddc51e2"
+    },
+    {
+      "path": "tools/postgres_revision_integration_2024141460331.py",
+      "sha256": "971a8f34ba3dcbdf0166aa1788ec4e0aad49a4cb00ff3006793ef473ea85328c"
+    },
+    {
+      "path": "config.postgres.example.json",
+      "sha256": "38f9948d0dd45f7b5653459b4a6c921ddc0b6a234a93af692963fb96bc9030b5"
+    },
+    {
+      "path": "deliverables/测试/2026-11-07-人工修订与处理上限修复验证.md",
+      "sha256": "2b002466a25a920eae819d69efa5ad82759522856d5f311202317bf7790016c9"
+    },
+    {
+      "path": "deliverables/测试/2026-11-07-人工修订与处理上限修复验证-summary.json",
+      "sha256": "70068da7af2b1f5ba7abb871eb843a2b62b82502e4e3a5309ad004f56aa252e1"
+    }
+  ],
+  "implementationFiles": [
+    {
+      "path": "src/a4_speech/api_2024141460331.py",
+      "sha256": "fcdef681d9538dc5e7605aeae85f46aeeff16dfd0daaf0464034f92c5f977835"
+    },
+    {
+      "path": "src/a4_speech/client_2024141460331.py",
+      "sha256": "83e1c1b82e1266235c04e618880fd8b2523055d9c8263c3c3549ec96a56a9952"
+    },
+    {
+      "path": "src/a4_speech/service_2024141460331.py",
+      "sha256": "7b63233b060dd4643b3ba7a289b201245560ac4e67c84dad9b85719847ac3cc8"
+    },
+    {
+      "path": "src/a4_speech/diagnostics_2024141460331.py",
+      "sha256": "cdc6bf59af88bc3575c11ccef4325f63c98d90ca98723a06d932b715e3016f7e"
+    },
+    {
+      "path": "tests/test_revision_service_2024141460331.py",
+      "sha256": "5a2c94c46a9a972956b3fd282c0fdeaeca68dcca30836fd1e49528e861c0620b"
+    },
+    {
+      "path": "tests/test_transcript_http_2024141460331.py",
+      "sha256": "ce08bb54ecc7622dd3bc6131c75d1afd17068ae2ea813693299807ace8d1af5e"
+    },
+    {
+      "path": "tests/test_service_2024141460331.py",
+      "sha256": "84b57e7056f0316b445e3d52e727e624b631fded4f4ffd9cd2461234cb9a297a"
+    },
+    {
+      "path": "tests/test_http_api_2024141460331.py",
+      "sha256": "18d26dbe94de82dceb6ba800c467b8b8e180170482b5adae0e48a7c2b36837a8"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "dc1bad47431ec7f5243e3dd2deb97d7df18f5921855c83a164b1644959a0592d"
+    },
+    {
+      "path": "tests/test_legacy_compatibility_2024141460331.py",
+      "sha256": "8d4eca2d9a804e9701be200cbe83778efd5574eecbea7e44bbe7452f5ffcb6e5"
+    },
+    {
+      "path": "tests/test_client_2024141460331.py",
+      "sha256": "8f0df788065c2d3313457caa7e597e481fb4987ce54ed4d47e5a80e41c36681c"
+    }
+  ],
+  "compatibilityPolicy": {
+    "strategy": "personal-adapter-first",
+    "record": "docs/A4-10_20兼容适配与验证记录.md",
+    "verifiedMandatoryUpstreamChanges": [],
+    "realServiceEvidenceRequiredBeforeRequestingChanges": true,
+    "clientRevisionReasonAndUserIdentityNeverInvented": true,
+    "rawAndEditsNeverFabricated": true
+  },
+  "localReferenceArtifacts": [
+    {
+      "path": "deliverables/接口兼容修订/2026-10-24/snapshot-manifest.json",
+      "sha256": "fbaf2c004b8e4e571795b23abbdbbbeee7b039d871f26b766f5f016594e6059e",
+      "published": false
+    },
+    {
+      "path": "deliverables/接口兼容修订/2026-10-24/openapi/alpha-a3-audio.openapi.yaml",
+      "sha256": "9b5ec3d2226064102e91c2479fc5c94bc2f6566c862ecc4e6a9fd25779031aee",
+      "published": false
+    },
+    {
+      "path": "deliverables/接口兼容修订/2026-10-24/openapi/alpha-a4-transcription.openapi.yaml",
+      "sha256": "5d09b46404667236a70438b947fb6f6cb5e53051f8977ffe437b435fc0ee686e",
+      "published": false
+    },
+    {
+      "path": "deliverables/接口兼容修订/2026-10-24/migrations/V14__a4_revision_and_contract_compatibility.sql",
+      "sha256": "31ea13838c848334402d2f6752d24e11a537fa14ec62631f08cb74f9559e48e7",
+      "published": false
+    },
+    {
+      "path": "deliverables/接口兼容修订/2026-10-24/migrations/R__05_api_registry.sql",
+      "sha256": "b2833c0e447eeadf3ed7747f2709a99405bb4d1d9a42b72252d101b9b2311d66",
+      "published": false
+    },
+    {
+      "path": "deliverables/接口兼容修订/2026-10-24/tools/gen_api_registry.py",
+      "sha256": "578d2e6103f26adccfb47cf9d2f5e792010d33de156ce0f543700f31eaf4034e",
+      "published": false
+    },
+    {
+      "path": "deliverables/接口兼容修订/2026-10-24/tools/test_contract_compatibility.py",
+      "sha256": "026cdd2d032c65ea79798ee8802a2160e972976ed312b0058e4344e1c1d84400",
+      "published": false
+    },
+    {
+      "path": "deliverables/接口兼容修订/2026-10-24/tools/test_a4_revision.mjs",
+      "sha256": "91be64bd208b04decced90aa9657491a46dea5f27b0cde332619b664798b99be",
+      "published": false
+    },
+    {
+      "path": "deliverables/接口兼容修订/2026-10-24/tools/requirements-contract-test.txt",
+      "sha256": "4def46d1cf5b47c950ee754279c4a0a25ecf5f4e2be40c3d49f3e536e6198414",
+      "published": false
+    },
+    {
+      "path": "deliverables/接口兼容修订/2026-10-24/docs/A4-A5-契约兼容修订交接-20261024.md",
+      "sha256": "921f1d1ea8184c294b8647e455e8e242e0a918ed67f3fa51ea776ba8ddcbc9c6",
+      "published": false
+    },
+    {
+      "path": "docs/A5需更新事项与交付清单_2026-10-24.md",
+      "sha256": "a13d582949ce4af0f07f4519674108c312662154025477a215430a41d47d972f",
+      "published": false
+    }
+  ],
+  "publicationScope": {
+    "included": "personal implementation, tests, formal Markdown requirements/design with inline Mermaid diagrams and experiment records",
+    "excluded": [
+      "deliverables/团队沟通/",
+      "deliverables/接口兼容修订/",
+      "docs/A4-10_20团队接口协作待确认清单.md",
+      "docs/A4-10_20既有约定与本轮变更核对.md",
+      "docs/A5需更新事项与交付清单_2026-10-24.md",
+      "docs/superpowers/"
+    ],
+    "teamDatabaseChanged": false
+  },
+  "hashBasis": "Git blob bytes; text line endings normalized by Git; binary files hashed as stored.",
+  "documentMigration": {
+    "asOf": "2026-10-29",
+    "sourceFormat": "Markdown with inline Mermaid",
+    "mermaidDiagrams": {
+      "requirements": 7,
+      "systemDesign": 8
+    },
+    "originalDocuments": [
+      {
+        "originalPath": "docs/A4-RQ-A-4-10_20_需求规格说明书.docx",
+        "sha256": "2a3ef939509ccc2adc21708e308f27e9c6b4868ce53118a5476e3523ed2ab638"
+      },
+      {
+        "originalPath": "docs/A4-RQ-A-4-10_20_系统设计说明书.docx",
+        "sha256": "909755b6211a924143bdfa70a5f21358a2475a9b84c91bd6b7550826dc8503f3"
+      }
+    ],
+    "removedDiagramCopies": 31,
+    "mermaidCliVersion": "12.0.0",
+    "pandocVersion": "3.8",
+    "record": "deliverables/测试/2026-10-29-Markdown文档迁移验证.md",
+    "implementationVerificationRerun": false
+  },
+  "teacherModelIntegration": {
+    "asOf": "2026-10-29",
+    "record": "docs/教师ATC微调SenseVoice接入说明.md",
+    "sourceArchive": "vhhh_sensevoice.zip",
+    "sourceArchiveSha256": "302778e6ccd4a2f6adfc0d9b87bc7a00e173d27e02d412c694f410a2723e35e3",
+    "sourceProvenance": "Teacher-provided ATC fine-tuned model as confirmed by the user; archive contains deployment assets only.",
+    "systemDesignVersion": "0.4",
+    "defaultPipeline": [
+      "audio decoding and 16 kHz mono conversion",
+      "WebRTC segmentation",
+      "teacher SenseVoice CPU recognition",
+      "processing metadata and immutable execution snapshot",
+      "explicit transcript save",
+      "read by transcript identifier"
+    ],
+    "executionSnapshot": {
+      "schemaVersion": 1,
+      "vad": {
+        "engineCode": "webrtc-vad",
+        "modelName": "webrtcvad-wheels",
+        "version": "2.0.14.post1",
+        "distributionVersion": "2.0.14.post1",
+        "parameters": {
+          "sampleRate": 16000,
+          "provider": "cpu",
+          "aggressiveness": 2,
+          "frameMs": 20,
+          "mergeSilenceMs": 500,
+          "minSpeechMs": 250,
+          "paddingMs": 0
+        }
+      },
+      "asr": {
+        "engineCode": "sensevoice",
+        "modelName": "SenseVoiceSmall-ATC-VHHH",
+        "version": "teacher-2025_0706-int8",
+        "modelSha256": "625facec8fb54410d0e34543947cd80c2e0b1e568df00395bd9a31d3d00f23e8",
+        "tokensSha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc",
+        "parameters": {
+          "sampleRate": 16000,
+          "numThreads": 2,
+          "provider": "cpu",
+          "language": "en",
+          "useItn": true
+        }
+      }
+    },
+    "personalPassed": 401,
+    "personalSkipped": 1,
+    "realCpuModelTests": 2,
+    "skippedScope": "Opt-in XLS-R CUDA experiment not enabled",
+    "defaultCliAsrInferenceChecked": true,
+    "realAtco2Recordings": 2,
+    "segmentsSavedAndReadBack": 3,
+    "transcribeSavedNothing": true,
+    "explicitSaveConfirmed": true,
+    "textReadbackMatched": true,
+    "staleRegistryError": "ENGINE_CONFIG_MISMATCH",
+    "upstreamBoundary": "httpx.MockTransport; in-memory persistence; no real team services",
+    "realTeamIntegrationVerified": false,
+    "qualityAcceptanceVerified": false,
+    "weightsIncludedInGit": false,
+    "historicalGenericExperimentResultsPreserved": true,
+    "genericComparisonConfig": "config.generic-sensevoice.example.json"
+  },
+  "teacherModelQualityEvaluation": {
+    "asOf": "2026-10-30",
+    "record": "deliverables/测试/2026-10-30-教师SenseVoice模型效果评测.md",
+    "summary": "deliverables/测试/2026-10-30-教师SenseVoice模型效果评测-summary.json",
+    "dataset": "49 reused frozen ATCO2 recordings, seven airports, non-VHHH; teacher training overlap unknown",
+    "referenceWords": 892,
+    "manifestSha256": "d332daf52355def630a3a08e3fb5fd543a8ff19636fedb4efee44e7f7151ccb3",
+    "referencesSha256": "fd9991448d5536931bdef8f82e560d4a1163512f5c3d7053c5c1e901b89b32c7",
+    "teacherStrict": {
+      "S": 196,
+      "D": 107,
+      "I": 25,
+      "N": 892,
+      "wer": 0.36771300448430494
+    },
+    "genericStrict": {
+      "S": 360,
+      "D": 366,
+      "I": 8,
+      "N": 892,
+      "wer": 0.8228699551569507
+    },
+    "absoluteReductionPercentagePoints": 45.51569506726458,
+    "relativeErrorReduction": 0.5531335149863761,
+    "recordingComparison": {
+      "better": 45,
+      "worse": 2,
+      "equal": 2
+    },
+    "scoringTestsPassed": 12,
+    "independentEditDistanceAuditPassed": true,
+    "realLocalCpuModelsUsed": true,
+    "realTeamIntegrationVerified": false,
+    "independentVhhhQualityVerified": false,
+    "qualityAcceptanceVerified": false,
+    "rawDatasetAndTranscriptsPublished": false
+  },
+  "queryExportIntegration20261031": {
+    "scope": "local independent HTTP processes; real CPU ASR; canonical A5 PostgreSQL views/functions/export tables",
+    "report": "deliverables/测试/2026-10-31-A4新版查询导出与A3-A5更新联调核对.md",
+    "summary": "deliverables/测试/2026-10-31-A4新版查询导出与A3-A5更新联调核对-summary.json",
+    "teammateCommit": "2601020032d2833cf115a8ef26a6fbf0be49774d",
+    "databaseCommit": "745db5cd4d9a52d8bf68adf38290e52f09904aca",
+    "automationChecksPassed": 9,
+    "queryExportChecksPassed": 14,
+    "upstreamTests": {
+      "passed": 53,
+      "failed": 1,
+      "realPostgresPassed": 4,
+      "failure": "test_export_bundle_zip_with_audio_via_a3: Windows CRLF versus LF"
+    },
+    "a3LiveProviderVerified": false,
+    "a5BearerAuthenticationVerified": false,
+    "legacyCompatibilityViewsUsed": false,
+    "allPersonalTestsRerun": false
+  },
+  "systemDesignRevision20261031": {
+    "asOf": "2026-10-31",
+    "version": "0.5",
+    "scope": "design semantics, Mermaid layout and local Word export; implementation unchanged",
+    "record": "deliverables/测试/2026-10-31-系统设计修订与Word同步验证.md",
+    "markdownSource": "docs/A4-RQ-A-4-10_20_系统设计说明书.md",
+    "mermaidDiagrams": 8,
+    "renderedDiagramsMatchWordImages": true,
+    "exportedWord": {
+      "path": "docs/A4-RQ-A-4-10_20_系统设计说明书.docx",
+      "sha256": "dc39bce3900b9d588ccf0bd017351bcf589455e71bb6ef68cf74da3818d1916b",
+      "gitIgnored": true,
+      "pages": 27,
+      "allPagesVisuallyInspected": true
+    },
+    "implementationVerificationRerun": false
+  },
+  "systemDesignFigurePlacement20261031": {
+    "asOf": "2026-10-31",
+    "version": "0.6",
+    "scope": "four flow figures moved under matching flow sections; design semantics unchanged from V0.5",
+    "record": "deliverables/测试/2026-10-31-系统设计流程图位置修复验证.md",
+    "markdownSource": "docs/A4-RQ-A-4-10_20_系统设计说明书.md",
+    "markdownSha256": "17eeb299bdf2c1ac81fef73446031d45880d59231288941805b8aa3421c1a67e",
+    "mermaidDiagrams": 8,
+    "mermaidSourcesUnchangedFromV05": true,
+    "wordImagesUnchangedFromV05": true,
+    "fourFiguresUnderCorrectFlowHeadings": true,
+    "exportedWord": {
+      "path": "docs/A4-RQ-A-4-10_20_系统设计说明书.docx",
+      "sha256": "4684ed255bfeeb79a0502203480f9d5dc6ae90cca8e898523ae519839f78ff90",
+      "gitIgnored": true,
+      "pages": 27,
+      "allPagesVisuallyInspected": true
+    },
+    "implementationVerificationRerun": false
+  },
+  "systemDesignReviewFixes20261103": {
+    "asOf": "2026-11-03",
+    "version": "0.8",
+    "scope": "template headings, module chapter names, operation-specific runtime controls and capacity requirements; design-only changes",
+    "record": "deliverables/测试/2026-11-03-系统设计评估问题修正验证.md",
+    "markdownSource": "docs/A4-RQ-A-4-10_20_系统设计说明书.md",
+    "markdownSha256": "578e08e012794f469a0c21f39439c14a28441fae3c2408fca58228be0a66ffcb",
+    "revisionHistoryEntries": 7,
+    "mermaidDiagrams": 8,
+    "mermaidSourcesUnchangedFromV07": true,
+    "wordImagesUnchangedFromV07": true,
+    "documentChecksPassed": 27,
+    "findingsResolvedInDesign": [
+      "C001",
+      "C002"
+    ],
+    "transcriptionGateDoesNotApplyToTextOperations": true,
+    "capacityRules": {
+      "scope": "shared project storage; not an additional module allocation",
+      "projectCapacityGB": 10,
+      "annualStructuredDataGrowthReservePercent": 30,
+      "alertUsagePercent": 80,
+      "pauseUsagePercent": 90,
+      "pauseScope": "nonessential bulk downloads or new large-file tasks; not a blanket stop on text operations",
+      "roles": [
+        "A5/public platform monitoring, quota and recovery admission",
+        "A3 download and recording file retention",
+        "personal module resource feedback and existing text protection"
+      ],
+      "runtimeAcceptanceVerifiedByThisChange": false
+    },
+    "exportedWord": {
+      "path": "docs/A4-RQ-A-4-10_20_系统设计说明书.docx",
+      "sha256": "39d77c22229893b784cebb706e65aee30efb6aca440ea15f29ba877864177ab7",
+      "gitIgnored": true,
+      "pages": 33,
+      "allPagesVisuallyInspected": true
+    },
+    "implementationVerificationRerun": false,
+    "teamDatabaseChanged": false
+  },
+  "systemDesignLimitRefinement20261103": {
+    "asOf": "2026-11-03",
+    "version": "0.9",
+    "scope": "configurable prototype segment limit, conditional batching and resource-qualified text-operation availability; design-only changes",
+    "record": "deliverables/测试/2026-11-03-系统设计评估问题修正验证.md",
+    "review": "deliverables/测试/系统设计CCFA一致性审核.md",
+    "markdownSource": "docs/A4-RQ-A-4-10_20_系统设计说明书.md",
+    "markdownSha256": "394b3be0d049729f48cbd9a358aa38081476d7256ed7e8032963dc06e85d4375",
+    "markdownHashBasis": "working-tree bytes matching Word synchronization record; sources/artifacts use Git-normalized bytes",
+    "revisionHistoryEntries": 8,
+    "mermaidDiagrams": 8,
+    "mermaidSourcesUnchangedFromV08": true,
+    "wordImagesUnchangedFromV08": true,
+    "documentChecksPassed": 31,
+    "refinedPassagesMatchedToWord": 12,
+    "findingsResolvedInDesign": [
+      "C003",
+      "C004"
+    ],
+    "previousFindingsRemainResolvedInDesign": [
+      "C001",
+      "C002"
+    ],
+    "ccfaReview": {
+      "mode": "writing",
+      "template": "ccfa-review-1",
+      "reportStructureValidated": true,
+      "independentReview": false,
+      "unresolvedBlockingDescriptionConflictsFound": false,
+      "newRuntimeVerificationPerformed": false
+    },
+    "segmentLimitDesign": {
+      "configuration": "maxSegments",
+      "prototypeDefault": 500,
+      "validation": "positive integer; validated at startup; frozen and recorded per run",
+      "oversize": "422/JOB_SEGMENT_LIMIT after VAD and before segment registration, ASR job creation or inference",
+      "automaticBatchingSupportedByCurrentEndpoint": false,
+      "batchingPrerequisite": "traceable A3/orchestration inputs and source-recording/time/segment linkage agreement",
+      "currentImplementationHardcodedLimit": 500,
+      "configurableLimitImplementedByThisChange": false
+    },
+    "availabilityScope": "text operations do not acquire the transcription model gate; shared resource contention, service availability and same-record transactions remain relevant",
+    "exportedWord": {
+      "path": "docs/A4-RQ-A-4-10_20_系统设计说明书.docx",
+      "sha256": "34db80dab8385acd2cdbad3c43968b1f76f17b3e39a4c2bab765ef3fe1945e4a",
+      "gitIgnored": true,
+      "pages": 33,
+      "allPagesVisuallyInspected": true
+    },
+    "implementationVerificationRerun": false,
+    "teamDatabaseChanged": false
+  },
+  "asrContainerMemoryExperiment20261103": {
+    "asOf": "2026-11-03",
+    "record": "deliverables/测试/2026-11-03-ASR容器与512MiB内存验证.md",
+    "summary": "deliverables/测试/2026-11-03-ASR容器与512MiB内存验证-summary.json",
+    "scope": "disposable isolated Linux container experiment; no production deployment switch or team database change",
+    "modelSha256": "625facec8fb54410d0e34543947cd80c2e0b1e568df00395bd9a31d3d00f23e8",
+    "containerInferenceFeasible": true,
+    "512MiBSufficientForTestedWorkload": false,
+    "512MiBOomReproductions": 2,
+    "swapEnabled": false,
+    "cpuLimit": 2,
+    "audioLengthsSeconds": [
+      20,
+      120
+    ],
+    "shortAudioRequestsPerContainer": 5,
+    "completedMemoryProbeBudgetMiB": 1024,
+    "completedMemoryProbeCgroupPeakMiB": 610.76171875,
+    "completedMemoryProbeProcessRssPeakMiB": 665.109,
+    "longAudioNonemptySegments": 5,
+    "longAudioEmptyTextRejectedSegments": 1,
+    "longAudioAllSegmentsSuccessfullyTranscribed": false,
+    "httpHealthAndOpenapiVerified": true,
+    "httpStartupTraceWrapperRequired": true,
+    "productionCodeChanged": false,
+    "fullUpstreamIntegrationRerun": false,
+    "longRunningStabilityVerified": false,
+    "historicalRegressionCountsUnchanged": true
+  },
+  "verification20261107": {
+    "personalPassed": 445,
+    "personalSkipped": 1,
+    "realIamHttpChecks": 15,
+    "automationHttpChecks": 9,
+    "shortQueryExportChecks": 14,
+    "fullTeamAcceptance": false,
+    "sharedDdlChanged": false,
+    "defaultMaxSegments": 500,
+    "maxSegmentsConfigImplemented": true,
+    "postgresIdentityRevisionImplemented": true,
+    "report": "deliverables/测试/2026-11-07-人工修订与处理上限修复验证.md",
+    "earlierVerificationFieldsAreHistorical": true
+  },
+  "submissionVerification20261107": {
+    "baseCommit": "82ef964905383322cf94816074873700e05dc5d5",
+    "record": "deliverables/测试/2026-11-07-本周成果提交验证.md",
+    "passed": 422,
+    "skipped": 24,
+    "postgresTestsSkipped": 23,
+    "optionalGpuTestsSkipped": 1,
+    "actualCpuModelTestsPassed": 2,
+    "teamDatabaseIntegrationRerun": false,
+    "originalIndexPreserved": true,
+    "scope": "李洪/ only; week 5 implementation, design, validation and weekly report"
+  }
+}

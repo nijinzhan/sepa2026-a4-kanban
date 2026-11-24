@@ -1,0 +1,1258 @@
+{
+  "record": "RQ-A-4-20 修订错误语义修复与白盒分析",
+  "author": {
+    "name": "李洪",
+    "student_id": "2024141460331"
+  },
+  "requirements": [
+    "RQ-A-4-20",
+    "RQ-A-4-10（部分成功状态链）"
+  ],
+  "started_at": "2026-11-10T18:32:48.372541+08:00",
+  "finished_at": "2026-11-10T18:32:58.719468+08:00",
+  "base_head": "12e3d4eabda0cf0327672e809cfc943bc17e8f23",
+  "worktree_dirty": true,
+  "version_basis": "actual SHA-256 of worktree source; HEAD alone is insufficient",
+  "red": {
+    "failures": 9,
+    "scope": "first nine new fault cases before the fix",
+    "explicit_rejection_failures": 6,
+    "artifact": "outputs\\revision-whitebox-20261110\\rejection-red.log"
+  },
+  "regression": {
+    "passed": 437,
+    "skipped": 27,
+    "failed": 0,
+    "database_skipped": 24,
+    "model_skipped": 3,
+    "new_passed": 17,
+    "new_database_skipped": 1,
+    "pytest_exit_code": 0
+  },
+  "checks": {
+    "ruff": "passed",
+    "format": "38 files already formatted",
+    "pip_check": "passed"
+  },
+  "environment": "A4_REAL_*, A4_XLSR_*, A4_TEST_DATABASE_URL removed in this process; no database or model service started",
+  "limits": [
+    "Docker engine unavailable; isolated database DSN not configured",
+    "transaction rollback tested with a SQL/connection boundary double, not a real database",
+    "real database regression added but skipped; no new real IAM/model/end-to-end validation"
+  ],
+  "graph": {
+    "scope": "revise_transcript_2024141460331, single submission and ApiError dispatch, lines 816-847; normal successor line 849",
+    "model": "one node for compound 4xx predicate, explicit call success/error edge; implicit exceptions and internals not expanded",
+    "nodes": 11,
+    "edges": [
+      [
+        "S",
+        "C"
+      ],
+      [
+        "C",
+        "K"
+      ],
+      [
+        "K",
+        "X"
+      ],
+      [
+        "C",
+        "E"
+      ],
+      [
+        "E",
+        "R2"
+      ],
+      [
+        "R2",
+        "X"
+      ],
+      [
+        "E",
+        "H"
+      ],
+      [
+        "H",
+        "R1"
+      ],
+      [
+        "R1",
+        "X"
+      ],
+      [
+        "H",
+        "V"
+      ],
+      [
+        "V",
+        "R3"
+      ],
+      [
+        "R3",
+        "X"
+      ],
+      [
+        "V",
+        "U"
+      ],
+      [
+        "U",
+        "X"
+      ]
+    ],
+    "cyclomatic_complexity": 5,
+    "formula": "14-11+2=5",
+    "independent_path_rank_GF2": 5,
+    "paths": [
+      {
+        "id": "P1",
+        "nodes": [
+          "S",
+          "C",
+          "K",
+          "X"
+        ],
+        "test": "tests/test_revision_service_2024141460331.py::test_revision_preserves_raw_and_returns_verified_edit_history",
+        "observed_required_lines": [
+          817,
+          848,
+          849
+        ],
+        "observed_source_lines": [
+          793,
+          794,
+          795,
+          796,
+          797,
+          798,
+          803,
+          804,
+          805,
+          808,
+          809,
+          811,
+          813,
+          816,
+          817,
+          818,
+          821,
+          822,
+          823,
+          824,
+          825,
+          848,
+          849,
+          850,
+          851,
+          852,
+          853,
+          854,
+          855,
+          856,
+          857,
+          858,
+          861,
+          862,
+          863,
+          864,
+          865,
+          866,
+          869,
+          870,
+          872,
+          873,
+          874,
+          876,
+          877,
+          879,
+          880,
+          881,
+          894,
+          895,
+          897
+        ],
+        "observed_line_arcs": [
+          [
+            793,
+            794
+          ],
+          [
+            794,
+            795
+          ],
+          [
+            794,
+            803
+          ],
+          [
+            795,
+            796
+          ],
+          [
+            796,
+            797
+          ],
+          [
+            797,
+            798
+          ],
+          [
+            798,
+            794
+          ],
+          [
+            803,
+            804
+          ],
+          [
+            804,
+            805
+          ],
+          [
+            805,
+            808
+          ],
+          [
+            808,
+            809
+          ],
+          [
+            809,
+            811
+          ],
+          [
+            811,
+            813
+          ],
+          [
+            813,
+            816
+          ],
+          [
+            816,
+            817
+          ],
+          [
+            817,
+            818
+          ],
+          [
+            817,
+            848
+          ],
+          [
+            818,
+            821
+          ],
+          [
+            821,
+            822
+          ],
+          [
+            822,
+            823
+          ],
+          [
+            823,
+            824
+          ],
+          [
+            824,
+            825
+          ],
+          [
+            825,
+            817
+          ],
+          [
+            848,
+            849
+          ],
+          [
+            849,
+            850
+          ],
+          [
+            850,
+            851
+          ],
+          [
+            851,
+            852
+          ],
+          [
+            852,
+            853
+          ],
+          [
+            853,
+            854
+          ],
+          [
+            854,
+            855
+          ],
+          [
+            855,
+            856
+          ],
+          [
+            856,
+            857
+          ],
+          [
+            857,
+            858
+          ],
+          [
+            858,
+            861
+          ],
+          [
+            861,
+            862
+          ],
+          [
+            862,
+            863
+          ],
+          [
+            863,
+            864
+          ],
+          [
+            864,
+            865
+          ],
+          [
+            865,
+            866
+          ],
+          [
+            866,
+            869
+          ],
+          [
+            869,
+            870
+          ],
+          [
+            870,
+            872
+          ],
+          [
+            872,
+            873
+          ],
+          [
+            873,
+            874
+          ],
+          [
+            874,
+            876
+          ],
+          [
+            876,
+            877
+          ],
+          [
+            877,
+            879
+          ],
+          [
+            879,
+            880
+          ],
+          [
+            880,
+            881
+          ],
+          [
+            881,
+            894
+          ],
+          [
+            894,
+            895
+          ],
+          [
+            894,
+            897
+          ],
+          [
+            895,
+            894
+          ]
+        ]
+      },
+      {
+        "id": "P2",
+        "nodes": [
+          "S",
+          "C",
+          "E",
+          "H",
+          "R1",
+          "X"
+        ],
+        "test": "tests/test_revision_service_2024141460331.py::test_atomic_upstream_conflict_is_not_retried",
+        "observed_required_lines": [
+          817,
+          828,
+          836,
+          837
+        ],
+        "observed_source_lines": [
+          793,
+          794,
+          795,
+          796,
+          797,
+          798,
+          803,
+          804,
+          805,
+          808,
+          809,
+          811,
+          813,
+          816,
+          817,
+          818,
+          821,
+          822,
+          823,
+          824,
+          825,
+          827,
+          828,
+          836,
+          837,
+          838,
+          839
+        ],
+        "observed_line_arcs": [
+          [
+            793,
+            794
+          ],
+          [
+            794,
+            795
+          ],
+          [
+            794,
+            803
+          ],
+          [
+            795,
+            796
+          ],
+          [
+            796,
+            797
+          ],
+          [
+            797,
+            798
+          ],
+          [
+            798,
+            794
+          ],
+          [
+            803,
+            804
+          ],
+          [
+            804,
+            805
+          ],
+          [
+            805,
+            808
+          ],
+          [
+            808,
+            809
+          ],
+          [
+            809,
+            811
+          ],
+          [
+            811,
+            813
+          ],
+          [
+            813,
+            816
+          ],
+          [
+            816,
+            817
+          ],
+          [
+            817,
+            818
+          ],
+          [
+            817,
+            827
+          ],
+          [
+            818,
+            821
+          ],
+          [
+            821,
+            822
+          ],
+          [
+            822,
+            823
+          ],
+          [
+            823,
+            824
+          ],
+          [
+            824,
+            825
+          ],
+          [
+            825,
+            817
+          ],
+          [
+            827,
+            828
+          ],
+          [
+            828,
+            836
+          ],
+          [
+            836,
+            837
+          ],
+          [
+            837,
+            838
+          ],
+          [
+            837,
+            839
+          ],
+          [
+            838,
+            837
+          ],
+          [
+            839,
+            837
+          ]
+        ]
+      },
+      {
+        "id": "P3",
+        "nodes": [
+          "S",
+          "C",
+          "E",
+          "R2",
+          "X"
+        ],
+        "test": "tests/test_revision_outcomes_2024141460331.py::test_local_identity_failure_reports_not_written_without_starting_transaction[unconfigured]",
+        "observed_required_lines": [
+          817,
+          828,
+          829,
+          830
+        ],
+        "observed_source_lines": [
+          793,
+          794,
+          795,
+          796,
+          797,
+          798,
+          803,
+          804,
+          805,
+          808,
+          809,
+          811,
+          813,
+          816,
+          817,
+          818,
+          821,
+          822,
+          823,
+          824,
+          825,
+          827,
+          828,
+          829,
+          830,
+          831,
+          832,
+          833,
+          834,
+          835
+        ],
+        "observed_line_arcs": [
+          [
+            793,
+            794
+          ],
+          [
+            794,
+            795
+          ],
+          [
+            794,
+            803
+          ],
+          [
+            795,
+            796
+          ],
+          [
+            796,
+            797
+          ],
+          [
+            797,
+            798
+          ],
+          [
+            798,
+            794
+          ],
+          [
+            803,
+            804
+          ],
+          [
+            804,
+            805
+          ],
+          [
+            805,
+            808
+          ],
+          [
+            808,
+            809
+          ],
+          [
+            809,
+            811
+          ],
+          [
+            811,
+            813
+          ],
+          [
+            813,
+            816
+          ],
+          [
+            816,
+            817
+          ],
+          [
+            817,
+            818
+          ],
+          [
+            817,
+            827
+          ],
+          [
+            818,
+            821
+          ],
+          [
+            821,
+            822
+          ],
+          [
+            822,
+            823
+          ],
+          [
+            823,
+            824
+          ],
+          [
+            824,
+            825
+          ],
+          [
+            825,
+            817
+          ],
+          [
+            827,
+            828
+          ],
+          [
+            828,
+            829
+          ],
+          [
+            829,
+            830
+          ],
+          [
+            830,
+            831
+          ],
+          [
+            830,
+            835
+          ],
+          [
+            831,
+            832
+          ],
+          [
+            832,
+            833
+          ],
+          [
+            833,
+            834
+          ],
+          [
+            834,
+            830
+          ],
+          [
+            835,
+            830
+          ]
+        ]
+      },
+      {
+        "id": "P4",
+        "nodes": [
+          "S",
+          "C",
+          "E",
+          "H",
+          "V",
+          "R3",
+          "X"
+        ],
+        "test": "tests/test_revision_service_2024141460331.py::test_revision_forbidden_preserves_authorization_failure",
+        "observed_required_lines": [
+          817,
+          828,
+          836,
+          840,
+          841
+        ],
+        "observed_source_lines": [
+          793,
+          794,
+          795,
+          796,
+          797,
+          798,
+          803,
+          804,
+          805,
+          808,
+          809,
+          811,
+          813,
+          816,
+          817,
+          818,
+          821,
+          822,
+          823,
+          824,
+          825,
+          827,
+          828,
+          836,
+          840,
+          841
+        ],
+        "observed_line_arcs": [
+          [
+            793,
+            794
+          ],
+          [
+            794,
+            795
+          ],
+          [
+            794,
+            803
+          ],
+          [
+            795,
+            796
+          ],
+          [
+            796,
+            797
+          ],
+          [
+            797,
+            798
+          ],
+          [
+            798,
+            794
+          ],
+          [
+            803,
+            804
+          ],
+          [
+            804,
+            805
+          ],
+          [
+            805,
+            808
+          ],
+          [
+            808,
+            809
+          ],
+          [
+            809,
+            811
+          ],
+          [
+            811,
+            813
+          ],
+          [
+            813,
+            816
+          ],
+          [
+            816,
+            817
+          ],
+          [
+            817,
+            818
+          ],
+          [
+            817,
+            827
+          ],
+          [
+            818,
+            821
+          ],
+          [
+            821,
+            822
+          ],
+          [
+            822,
+            823
+          ],
+          [
+            823,
+            824
+          ],
+          [
+            824,
+            825
+          ],
+          [
+            825,
+            817
+          ],
+          [
+            827,
+            828
+          ],
+          [
+            828,
+            836
+          ],
+          [
+            836,
+            840
+          ],
+          [
+            840,
+            841
+          ]
+        ]
+      },
+      {
+        "id": "P5",
+        "nodes": [
+          "S",
+          "C",
+          "E",
+          "H",
+          "V",
+          "U",
+          "X"
+        ],
+        "test": "tests/test_revision_outcomes_2024141460331.py::test_remote_error_code_and_claimed_outcome_do_not_prove_no_write[503-REVISION_AUTH_UNAVAILABLE]",
+        "observed_required_lines": [
+          817,
+          828,
+          836,
+          840,
+          842
+        ],
+        "observed_source_lines": [
+          793,
+          794,
+          795,
+          796,
+          797,
+          798,
+          803,
+          804,
+          805,
+          808,
+          809,
+          811,
+          813,
+          816,
+          817,
+          818,
+          821,
+          822,
+          823,
+          824,
+          825,
+          827,
+          828,
+          836,
+          840,
+          842,
+          843,
+          844,
+          845,
+          846,
+          847
+        ],
+        "observed_line_arcs": [
+          [
+            793,
+            794
+          ],
+          [
+            794,
+            795
+          ],
+          [
+            794,
+            803
+          ],
+          [
+            795,
+            796
+          ],
+          [
+            796,
+            797
+          ],
+          [
+            797,
+            798
+          ],
+          [
+            798,
+            794
+          ],
+          [
+            803,
+            804
+          ],
+          [
+            804,
+            805
+          ],
+          [
+            805,
+            808
+          ],
+          [
+            808,
+            809
+          ],
+          [
+            809,
+            811
+          ],
+          [
+            811,
+            813
+          ],
+          [
+            813,
+            816
+          ],
+          [
+            816,
+            817
+          ],
+          [
+            817,
+            818
+          ],
+          [
+            817,
+            827
+          ],
+          [
+            818,
+            821
+          ],
+          [
+            821,
+            822
+          ],
+          [
+            822,
+            823
+          ],
+          [
+            823,
+            824
+          ],
+          [
+            824,
+            825
+          ],
+          [
+            825,
+            817
+          ],
+          [
+            827,
+            828
+          ],
+          [
+            828,
+            836
+          ],
+          [
+            836,
+            840
+          ],
+          [
+            840,
+            842
+          ],
+          [
+            842,
+            843
+          ],
+          [
+            842,
+            847
+          ],
+          [
+            843,
+            844
+          ],
+          [
+            844,
+            845
+          ],
+          [
+            845,
+            846
+          ],
+          [
+            846,
+            842
+          ],
+          [
+            847,
+            842
+          ]
+        ]
+      }
+    ]
+  },
+  "source_sha256": {
+    "src/a4_speech/api_2024141460331.py": "bc658bb82ebd37ef46ed53309e0351065dcc489da2a1608b5d14cb8cff0bbd8f",
+    "src/a4_speech/audio_2024141460331.py": "0e23193b3fa7608c7c97358541005a1bfdacd3fce877d2068c87e1f828998992",
+    "src/a4_speech/client_2024141460331.py": "601cf8c59b74fde20947775d910a9048953bc0368c49d92fd4fd7b60252be082",
+    "src/a4_speech/cli_2024141460331.py": "3c984ab20f05a311d9442943115e420346f2099eedc8addd4aa3ce16835bceee",
+    "src/a4_speech/diagnostics_2024141460331.py": "cdc6bf59af88bc3575c11ccef4325f63c98d90ca98723a06d932b715e3016f7e",
+    "src/a4_speech/models_2024141460331.py": "d9848c673bf0e065c83619521facadcfe98ab8c36f9987024de7f8e27bb9366f",
+    "src/a4_speech/models_xlsr_webrtc_2024141460331.py": "2bccc2b12c177814f4ac1ec98ebc0d3ccbe0f7e3b69429faef07712c8227fd55",
+    "src/a4_speech/postgres_2024141460331.py": "f988f7bdb9998ec099d101df40128d8c7b44c9328319a01e5dc1a678c2e45d22",
+    "src/a4_speech/results_2024141460331.py": "7860a976c83dc7210cec6c2b029fc920c08088a858133a4f51e98aded6b8ad3c",
+    "src/a4_speech/segments_2024141460331.py": "29cc77b1ee388078378f0c4a71018313306196db345fb05ff7defeecdc9a2179",
+    "src/a4_speech/service_2024141460331.py": "0549703db6c1573f0eedd69b2337236ce4f7265041c067effb2233de36ea24b3",
+    "src/a4_speech/vad_webrtc_2024141460331.py": "caab21416e3e27511255073971a164ede2ac0b38a24dd3ae78c52f39c617f323",
+    "src/a4_speech/__init__.py": "2a7a7ffa77ec2b40d5ae0f08dbbb0c21d85890ab1f19febfdd561f697cc7db88",
+    "src/a4_speech/__main__.py": "80b3d11dc62dbb09af6857e639e0bf3c697dbfb3b830143db66c7413e7fedcfe",
+    "tests/support_2024141460331.py": "00b6561f43fe5c7f7f3c41ce7b9a6e232163436b8d1415b7b15e0d1137e8654e",
+    "tests/test_atco2_comparison_2024141460331.py": "59a6b7bf258537480aa908db3c8860b46a64b12f162932c9a9f990e1fe67d71b",
+    "tests/test_atco2_eval_2024141460331.py": "05a52a26938fc73ed17e0f1013004144a377cd9258af3729393eeeb185e9638c",
+    "tests/test_audio_2024141460331.py": "28906fe466c90381c8658fac8ad06a742a377ab8da86ed6a0c20bac3a3b7e773",
+    "tests/test_client_2024141460331.py": "33e452965d2be1e09420ac70c56c112dc95b20152f64a257216cf06622c90010",
+    "tests/test_cli_2024141460331.py": "325a356c73ca03764857b923cc16188f2095eac749de2450a059e29281b880c7",
+    "tests/test_diagnostics_2024141460331.py": "2bd5b0f7ae3dbb7d648189cb0f1a2a70df977cb6cbf12ffbdbf2f8400b60a6f5",
+    "tests/test_http_api_2024141460331.py": "18d26dbe94de82dceb6ba800c467b8b8e180170482b5adae0e48a7c2b36837a8",
+    "tests/test_legacy_compatibility_2024141460331.py": "8d4eca2d9a804e9701be200cbe83778efd5574eecbea7e44bbe7452f5ffcb6e5",
+    "tests/test_limits_2024141460331.py": "bc2ba03eaa5f71788418302d304765a92422ae0944d6342663892c386cbf2a0d",
+    "tests/test_models_2024141460331.py": "386312fc8ef5e6d522d83112aaa282f8f08a530ab89fd09a561ad5112ae90bd0",
+    "tests/test_outcomes_2024141460331.py": "14e092e84e15192705fb5112b29d39532b745a870b70e3566257e3cfd1eaf774",
+    "tests/test_postgres_2024141460331.py": "61e41dfb83fc88151a7c747f2dca2d0a37418d09684028a537f043aa3d9f3781",
+    "tests/test_postgres_revision_2024141460331.py": "d478440698bfbc83e852af6a9d66d4bd032c3b454b21c27aceff1af14d21c1c2",
+    "tests/test_revision_outcomes_2024141460331.py": "f11788b7cee706b38c40c75bde5b5ddd2c897f0d13db993ba662d9b9b50d6c9b",
+    "tests/test_revision_service_2024141460331.py": "8a52ccb7cdfa86f9b8c26fe68275d73e4a1f705a2b5639aae98b2f8f61a4ce59",
+    "tests/test_save_recovery_2024141460331.py": "16c3d4afb3bd377edf02d3a77f4292080f3c4d45c428aac90b99da12a48a1fed",
+    "tests/test_segments_2024141460331.py": "11a4e6acc3801149ccb946928d00eb88b2db837693317a17d63454c69eef2678",
+    "tests/test_service_2024141460331.py": "d9eecebe5aa413761c676f708e218cf2efc1d7625f8e9e9553e649d483e06aaf",
+    "tests/test_storage_config_2024141460331.py": "81e0ad3aa954e0b0024abfcebb2341ca633ae0dcd0681c36efbfab44fcd76a8f",
+    "tests/test_transcript_http_2024141460331.py": "98c127aaf4e7e1c67a41154ba543e5e8c2f19d6921cd56b90e00d77a5cd531ea",
+    "tests/test_webrtc_sensevoice_2024141460331.py": "d0d29def20cd66a159d18ee0552dc6b2f21624cc38f21207e18c3f235a1cef73",
+    "tests/test_whisper_atc_experiment_2024141460331.py": "62c992bba31bd4c27d98020bb4667604fd81c9516d48d126a5fd0c584be3fb84",
+    "tests/test_xlsr_webrtc_engine_2024141460331.py": "2e32551245f7ea89f852f02920d800dc1d776f4d6802d96de17ab446c5071e12"
+  },
+  "selected_test_results": {
+    "tests/test_postgres_revision_2024141460331.py::test_history_validation_failure_reports_rollback_and_preserves_real_storage": {
+      "outcome": "skipped",
+      "duration_seconds": 0.001934
+    },
+    "tests/test_revision_outcomes_2024141460331.py::test_local_identity_failure_reports_not_written_without_starting_transaction[unconfigured]": {
+      "outcome": "passed",
+      "duration_seconds": 0.064789
+    },
+    "tests/test_revision_outcomes_2024141460331.py::test_local_identity_failure_reports_not_written_without_starting_transaction[timeout]": {
+      "outcome": "passed",
+      "duration_seconds": 0.058675
+    },
+    "tests/test_revision_outcomes_2024141460331.py::test_local_identity_failure_reports_not_written_without_starting_transaction[invalid]": {
+      "outcome": "passed",
+      "duration_seconds": 0.060782
+    },
+    "tests/test_revision_outcomes_2024141460331.py::test_local_identity_failure_reports_not_written_without_starting_transaction[unavailable]": {
+      "outcome": "passed",
+      "duration_seconds": 0.059471
+    },
+    "tests/test_revision_outcomes_2024141460331.py::test_explicit_local_rejection_reports_not_written[401-REVISION_AUTH_REQUIRED-401]": {
+      "outcome": "passed",
+      "duration_seconds": 0.051537
+    },
+    "tests/test_revision_outcomes_2024141460331.py::test_explicit_local_rejection_reports_not_written[401-REVISION_AUTH_DENIED-401]": {
+      "outcome": "passed",
+      "duration_seconds": 0.051054
+    },
+    "tests/test_revision_outcomes_2024141460331.py::test_explicit_local_rejection_reports_not_written[403-REVISION_AUTH_DENIED-403]": {
+      "outcome": "passed",
+      "duration_seconds": 0.050669
+    },
+    "tests/test_revision_outcomes_2024141460331.py::test_explicit_local_rejection_reports_not_written[409-REVISION_CONFLICT-409]": {
+      "outcome": "passed",
+      "duration_seconds": 0.049732
+    },
+    "tests/test_revision_outcomes_2024141460331.py::test_explicit_local_rejection_reports_not_written[422-INVALID_REVISION-422]": {
+      "outcome": "passed",
+      "duration_seconds": 0.054447
+    },
+    "tests/test_revision_outcomes_2024141460331.py::test_history_failure_is_failed_only_after_confirmed_rollback[rolled_back]": {
+      "outcome": "passed",
+      "duration_seconds": 0.334376
+    },
+    "tests/test_revision_outcomes_2024141460331.py::test_history_failure_is_failed_only_after_confirmed_rollback[rollback_unknown]": {
+      "outcome": "passed",
+      "duration_seconds": 0.062812
+    },
+    "tests/test_revision_outcomes_2024141460331.py::test_remote_error_code_and_claimed_outcome_do_not_prove_no_write[503-REVISION_AUTH_UNAVAILABLE]": {
+      "outcome": "passed",
+      "duration_seconds": 0.054996
+    },
+    "tests/test_revision_outcomes_2024141460331.py::test_remote_error_code_and_claimed_outcome_do_not_prove_no_write[503-REVISION_HISTORY_INVALID]": {
+      "outcome": "passed",
+      "duration_seconds": 0.056569
+    },
+    "tests/test_revision_outcomes_2024141460331.py::test_remote_error_code_and_claimed_outcome_do_not_prove_no_write[400-INVALID_RESPONSE]": {
+      "outcome": "passed",
+      "duration_seconds": 0.053819
+    },
+    "tests/test_revision_outcomes_2024141460331.py::test_response_lost_after_commit_stays_unconfirmed_and_can_be_read_back": {
+      "outcome": "passed",
+      "duration_seconds": 0.06242
+    },
+    "tests/test_revision_outcomes_2024141460331.py::test_two_successive_revisions_keep_original_and_history_then_reject_stale_version": {
+      "outcome": "passed",
+      "duration_seconds": 0.0759
+    },
+    "tests/test_revision_service_2024141460331.py::test_revision_preserves_raw_and_returns_verified_edit_history": {
+      "outcome": "passed",
+      "duration_seconds": 0.011393
+    },
+    "tests/test_revision_service_2024141460331.py::test_atomic_upstream_conflict_is_not_retried": {
+      "outcome": "passed",
+      "duration_seconds": 0.004259
+    },
+    "tests/test_revision_service_2024141460331.py::test_revision_forbidden_preserves_authorization_failure": {
+      "outcome": "passed",
+      "duration_seconds": 0.004223
+    },
+    "tests/test_revision_service_2024141460331.py::test_uncertain_or_unverifiable_revision_is_not_reported_confirmed[lost_response]": {
+      "outcome": "passed",
+      "duration_seconds": 0.00433
+    },
+    "tests/test_revision_service_2024141460331.py::test_uncertain_or_unverifiable_revision_is_not_reported_confirmed[corrupt_raw]": {
+      "outcome": "passed",
+      "duration_seconds": 0.012093
+    },
+    "tests/test_revision_service_2024141460331.py::test_uncertain_or_unverifiable_revision_is_not_reported_confirmed[missing_history]": {
+      "outcome": "passed",
+      "duration_seconds": 0.006296
+    },
+    "tests/test_transcript_http_2024141460331.py::test_partial_transcription_save_read_revision_and_stale_edit_keep_each_state": {
+      "outcome": "passed",
+      "duration_seconds": 0.14546
+    }
+  },
+  "local_artifacts": {
+    "red.xml": {
+      "path": "outputs/revision-whitebox-20261110/red.xml",
+      "sha256": "4fd83d510d37d697fd215488ae8feb8d163383b8274cdd62e3ffc53fea154053"
+    },
+    "red.log": {
+      "path": "outputs/revision-whitebox-20261110/red.log",
+      "sha256": "00ab18ea9323440019819632849633c225d6778c58b666873a85969bd8577272"
+    },
+    "rejection-red.log": {
+      "path": "outputs/revision-whitebox-20261110/rejection-red.log",
+      "sha256": "1eb7e1080016514a6eba3fdf0b65d9377e219a105a6990eeac889cf8a5788408"
+    },
+    "pytest.xml": {
+      "path": "outputs/revision-whitebox-20261110/pytest.xml",
+      "sha256": "0e68e2b2e5b15bed06bcfb36eb3bcd182946fee0f0ff067864d1eb1473023c9e"
+    },
+    "pytest.log": {
+      "path": "outputs/revision-whitebox-20261110/pytest.log",
+      "sha256": "b5b2b446416a973054c5b8b18c120756db8937c5416941d44828045ddd73684d"
+    },
+    "verification.json": {
+      "path": "outputs/revision-whitebox-20261110/verification.json",
+      "sha256": "b322116250639f2cf3b02d7f63c2fed656a1c6d500e2fb939cd5eda52b7b6a27"
+    }
+  }
+}

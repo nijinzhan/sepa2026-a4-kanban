@@ -46,6 +46,14 @@ def test_no_speech_creates_no_empty_segments_or_asr_job(setup_service):
     assert not server.jobs and not server.writes
 
 
+def test_verified_recording_is_ready_under_the_a3_contract(setup_service):
+    service, server, engine = setup_service
+    server.recording["storageState"] = "verified"
+    result = service.transcribe_2024141460331(RID, "verified-storage-state")
+    assert result["status"] == "succeeded"
+    assert engine.calls == 3
+
+
 def test_second_segment_failure_retains_partial_text_and_saves_valid_subset(setup_service):
     service, server, engine = setup_service
     engine.fail_at = 2

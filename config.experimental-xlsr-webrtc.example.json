@@ -1,0 +1,27 @@
+{
+  "a3Url": "http://127.0.0.1:8000/api/v1/a3",
+  "a4Url": "http://127.0.0.1:8000/api/v1/a4",
+  "apiKeyEnv": "A4_API_KEY",
+  "timeoutSeconds": 60,
+  "receiptDirectory": "outputs/requests",
+  "engine": {
+    "vad": {
+      "engineCode": "webrtc-vad",
+      "modelName": "webrtcvad-wheels",
+      "version": "2.0.14.post1",
+      "aggressiveness": 2,
+      "frameMs": 20,
+      "mergeSilenceMs": 500,
+      "minSpeechMs": 250,
+      "paddingMs": 0
+    },
+    "asr": {
+      "engineCode": "xlsr-atc",
+      "modelName": "Jzuluaga/wav2vec2-xls-r-300m-en-atc-uwb-atcc-and-atcosim",
+      "version": "01a4853599abf22090b8963e6167b08a890b1e90",
+      "modelPath": "models/wav2vec2-xls-r-300m-en-atc-uwb-atcc-and-atcosim",
+      "language": "en",
+      "device": "cuda:0"
+    }
+  }
+}

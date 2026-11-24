@@ -1,0 +1,144 @@
+{
+  "asOf": "2026-11-07",
+  "responsibleRequirements": [
+    "RQ-A-4-10",
+    "RQ-A-4-20"
+  ],
+  "upstreamMain": "083d8cc1ea157297d46eeb61231e2461aa973c69",
+  "pblueMain": "745db5cd4d9a52d8bf68adf38290e52f09904aca",
+  "publicSourceFilesChecked": 151,
+  "database": {
+    "container": "a4-lihong-postgres-20261031",
+    "port": 54329,
+    "status": "running",
+    "previousVolumeReused": true,
+    "recreated": false
+  },
+  "shortC15Baseline": {
+    "automationChecksPassed": 9,
+    "queryExportChecksPassed": 14,
+    "liveA3ProviderVerified": false
+  },
+  "userProvidedAudio": {
+    "sourceFileName": "test_audio.mp3",
+    "sourceSha256": "d6cc0f5b5f334706c1482801b1fefe8242a4995efd031a009d991b742dba0348",
+    "sourceDurationMs": 256000.9977324263,
+    "sourceSampleRateHz": 44100,
+    "sourceChannels": 2,
+    "automationChecksPassed": 9,
+    "recordingId": "1309c00d-3185-457e-8ec0-6e37790591ce",
+    "asrJobId": "4b211c67-e6fa-4b53-9f2f-a95fb3ae6056",
+    "transcriptIds": [
+      "03f0528f-218d-4f68-ae06-fcc743d37d69",
+      "d31ec92f-b515-424c-88b2-a0febff4ebc2"
+    ],
+    "originalCaptureTimeKnown": false,
+    "testTimeAnchor": true,
+    "textQueryAndExports": "query, pagination, JSONL, CSV, text ZIP and accepted-empty filter completed before audio export failure",
+    "audioZipHttpStatus": 500,
+    "qualityAccepted": false,
+    "a3AutomaticNotificationVerified": false,
+    "sourceClassification": "song_non_atc",
+    "sourceClassificationConfirmedBy": "user",
+    "applicableToAtcQuality": false,
+    "countsAsAtcSample": false,
+    "qualityVerdict": "not_applicable_song",
+    "historicalFilePipelineOnly": true
+  },
+  "newDefect": {
+    "status": "reproduced",
+    "kind": "upstream-A5-export-int32-overflow",
+    "durationMs": 220260,
+    "effectiveBitrateKbps": 64,
+    "originalExpression": "(s.duration_ms * coalesce(c.bit_rate_kbps, 64) * 1000 / 8 / 1000)::bigint",
+    "originalExpressionFails": true,
+    "sqlState": "22003",
+    "bigintBeforeMultiplyResult": 1762080,
+    "onlyReadOnlySelectsUsed": true,
+    "sharedFunctionModified": false,
+    "audioExportHttpStatus": 500
+  },
+  "postgresRestartReadback": {
+    "status": "passed",
+    "container": "a4-lihong-postgres-20261031",
+    "recordingId": "1309c00d-3185-457e-8ec0-6e37790591ce",
+    "before": {
+      "transcriptCount": 2,
+      "transcriptRowsSha256": "9867d22642f856d7aad86654e24526606a9aba69ded45e61466a368e53973b9f",
+      "exportCount": 4,
+      "exportRowsSha256": "f689f7a8f0a40b7db5f1acb74e7ec58a93525290acbf7dc32895a9d0936f1017"
+    },
+    "after": {
+      "transcriptCount": 2,
+      "transcriptRowsSha256": "9867d22642f856d7aad86654e24526606a9aba69ded45e61466a368e53973b9f",
+      "exportCount": 4,
+      "exportRowsSha256": "f689f7a8f0a40b7db5f1acb74e7ec58a93525290acbf7dc32895a9d0936f1017"
+    },
+    "checks": "same transcript IDs/job links/original texts/offsets; same text export IDs/status/count/checksum after PostgreSQL restart"
+  },
+  "personalRegression": {
+    "passed": 418,
+    "skipped": 1,
+    "failed": 0,
+    "seconds": 19.1,
+    "realPostgresEnabled": true,
+    "realCpuModelEnabled": true,
+    "optionalGpuSkipped": true,
+    "exitCode": 0
+  },
+  "upstreamTargetedRetest": {
+    "passed": 4,
+    "failed": 1,
+    "failure": "Windows SRT CRLF vs LF",
+    "realPostgresTestsPassed": 4,
+    "exitCode": 1
+  },
+  "weeklyPlan": [
+    {
+      "item": 1,
+      "status": "completed",
+      "scope": "V0.9 design and Word synchronized; internal consistency review; group approval separate"
+    },
+    {
+      "item": 2,
+      "status": "partially_completed",
+      "completed": "latest A4 orchestration, own ASR and save/readback, A5 DB, peer query and text export; real uploaded audio used",
+      "remaining": "published real A3 recording download and automatic notification; authoritative capture UTC; audio export overflow"
+    },
+    {
+      "item": 3,
+      "status": "partially_completed",
+      "completed": "own full regression including 12 real PG cases; upstream 4 real PG tests; SRT issue retested",
+      "remaining": "upstream SRT fix; trusted-user revision, permissions, atomic conflict and real history integration"
+    },
+    {
+      "item": 4,
+      "status": "partially_completed",
+      "completed": "memory experiment, current real CPU/PG regression, candidate evidence and new-audio pipeline",
+      "remaining": "VHHH human reference and agreed quality standards; target deployment load/performance acceptance"
+    }
+  ],
+  "productionCodeChanged": false,
+  "upstreamSourceChanged": false,
+  "sharedSchemaOrFunctionChanged": false,
+  "weeklyReportOrPlanChanged": false,
+  "gitIndexSha256": "e64c3790b482eb99eb085df9072e02d67fce30888ad3c24daa898e2e7638c545",
+  "localEvidence": [
+    "outputs/postgres/automation-http-4ea4290742f7/summary.json",
+    "outputs/postgres/query-export-d070e433f667/summary.json",
+    "outputs/postgres/automation-http-cf9c45a7a3f1/summary.json",
+    "outputs/postgres/query-export-c9b4c558720e/query.log",
+    "outputs/week5-verification-20261107/personal-pytest.log",
+    "outputs/week5-verification-20261107/query-export-targeted-pytest.log",
+    "outputs/week5-verification-20261107/a5-long-segment-overflow-repro.json"
+  ],
+  "materialCorrection": {
+    "date": "2026-11-07",
+    "reason": "用户确认郭三媛提供的test_audio.mp3是一首歌，不是ATC语音，要求删除不适用样本。",
+    "excludedFromAtcQuality": true,
+    "databaseChanged": false,
+    "currentAtcSampleCount": 3,
+    "currentAtcSampleSeconds": 60,
+    "currentReport": "deliverables/测试/2026-11-07-VHHH轻量质量检查.md"
+  }
+}

@@ -1,4 +1,4 @@
-"""Trusted local Silero VAD and SenseVoice adapter using sherpa-onnx APIs.
+"""Local SenseVoice via sherpa-onnx, with explicit Silero or WebRTC VAD.
 
 Version labels come from the operator's local model manifest. Actual model and
 token bytes are SHA256 checked; a caller-provided version cannot replace them.
@@ -14,21 +14,26 @@ from typing import Any
 import numpy as np
 
 from .audio_2024141460331 import Audio
+from .vad_webrtc_2024141460331 import WebRtcVad
 
 
 class SherpaEngine:
-    """CPU Silero VAD and SenseVoice, constructed from a trusted local manifest."""
+    """CPU SenseVoice with explicitly selected Silero or WebRTC segmentation."""
 
     def __init__(self, config: dict) -> None:
         if not isinstance(config, dict):
             raise ValueError("model config must be an object with vad and asr")
         self._config = deepcopy(config)
         self._parameters: dict[str, dict[str, Any]] = {}
+        self._webrtc_vad = None
         common = {"engineCode", "modelName", "version", "modelPath", "numThreads", "provider"}
         for kind in ("vad", "asr"):
             item = self._config.get(kind)
             if not isinstance(item, dict):
                 raise ValueError(f"{kind} model configuration is missing")
+            if kind == "vad" and item.get("engineCode") == "webrtc-vad":
+                self._webrtc_vad = WebRtcVad(item)
+                continue
             extras = (
                 {
                     "threshold",
@@ -108,6 +113,9 @@ class SherpaEngine:
     def _current_snapshot(self) -> dict:
         snapshot = {"schemaVersion": 1}
         for kind in ("vad", "asr"):
+            if kind == "vad" and self._webrtc_vad is not None:
+                snapshot[kind] = self._webrtc_vad.snapshot()
+                continue
             item = self._config[kind]
             entry = {key: item[key] for key in ("engineCode", "modelName", "version")}
             entry["modelSha256"] = self._hash_file(item["modelPath"], kind)
@@ -115,6 +123,8 @@ class SherpaEngine:
                 entry["tokensSha256"] = self._hash_file(item["tokensPath"], "asr tokens")
             entry["parameters"] = deepcopy(self._parameters[kind])
             snapshot[kind] = entry
+        # Publish the automation log alias before freezing and hashing the snapshot.
+        snapshot["modelVersion"] = snapshot["asr"]["version"]
         return snapshot
 
     def snapshot(self) -> dict:
@@ -147,6 +157,10 @@ class SherpaEngine:
         """Flush the final VAD window; return source-relative millisecond spans."""
         self._validate_audio(audio)
         self.verify_snapshot(self._frozen)
+        if self._webrtc_vad is not None:
+            spans = self._webrtc_vad.detect(audio)
+            self.verify_snapshot(self._frozen)
+            return spans
         sherpa = self._sherpa()
         params = self._parameters["vad"]
         spans = []

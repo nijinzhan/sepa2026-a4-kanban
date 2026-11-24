@@ -328,7 +328,7 @@ def test_list_jobs_requires_items_and_page_envelope(api_factory, body):
         {"page": True},
         {"page": 2},
         {"pageSize": 0},
-        {"pageSize": 50},
+        {"pageSize": 101},
         {"pageSize": True},
         {"total": -1},
         {"total": True},

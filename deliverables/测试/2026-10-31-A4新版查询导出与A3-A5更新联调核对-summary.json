@@ -1,0 +1,270 @@
+{
+  "asOf": "2026-10-31",
+  "checkedAt": "2026-10-31T15:51:05.844444+08:00",
+  "teamCommit": "2601020032d2833cf115a8ef26a6fbf0be49774d",
+  "databaseCommit": "745db5cd4d9a52d8bf68adf38290e52f09904aca",
+  "previousTeamCommit": "943d87f0e8e01b546932e33ca6042f91fd631b9a",
+  "ownerLastCommits": {
+    "郭三媛": "ca790a771057ea827e7688b559eb071ac871b866 2026-10-27T15:08:19+08:00 Delete 郭三媛/Readme.md",
+    "吴美娴": "514cd4a69b9424bacaa926ef5cbf6ecbf404a476 2026-10-26T21:15:27+08:00 此次提交包括接口初步约定和时间戳生成骨架",
+    "刘亦含": "567dc09f6bc0d512e3daa1a5f5274b2631157367 2026-10-27T17:40:42+08:00 成果物完善",
+    "尹凯臣": "24b8ee5ad9c62bb902fd21cbc643573f11778fbb 2026-10-23T22:52:05+08:00 第三周工作提交",
+    "刘希睿": "447658dcd59cf2dc47e0d90a67d399311ae61d40 2026-10-28T17:12:45+08:00 ﻿回退超出范围的改动：仅保留设计说明书相关修改",
+    "于天名": "06d5d486527c56aabb9b6b0bdbf3d9202d22bd83 2026-10-31T10:59:12+08:00 修复了数据库管理系统字段错误，修正了数据库技术使用并与计划表对齐了窗口",
+    "刘睿": "c4497419a62a087bbef4873c5d34fe99dd89a5fa 2026-10-25T15:51:45+08:00 A-4-50/99 刘睿：完成第三周自动编排骨架、契约测试和需求模型修订"
+  },
+  "a3a5ChangesSincePreviousAudit": [],
+  "automation": {
+    "status": "passed",
+    "scope": "standalone automation HTTP -> speech HTTP -> PostgreSQL",
+    "notificationSender": "local test script; not live A3 provider",
+    "a3LiveProviderVerified": false,
+    "teammateCommit": "2601020032d2833cf115a8ef26a6fbf0be49774d",
+    "recordingId": "b81d3215-c196-471e-8e6e-200b0b1a6100",
+    "businessTaskId": "0debf913-e97e-4718-9278-320552939900",
+    "asrJobId": "f7b8e580-869b-400e-81da-406d8da4fe9f",
+    "transcriptIds": [
+      "6c08b5d4-638d-41f8-8e92-d04f059a2263",
+      "49087956-c9af-442a-af84-46c400a117ef"
+    ],
+    "originalCaptureTimeKnown": false,
+    "testTimeAnchor": true,
+    "checks": [
+      {
+        "case": "missing_credential",
+        "status": 401
+      },
+      {
+        "case": "invalid_uuid",
+        "status": 400
+      },
+      {
+        "case": "invalid_utc",
+        "status": 400
+      },
+      {
+        "case": "reversed_interval",
+        "status": 400
+      },
+      {
+        "case": "real_cpu_recognition_and_postgres_save",
+        "asrJobs": 1,
+        "transcripts": 2
+      },
+      {
+        "case": "duplicate_event_no_extra_job_or_transcript",
+        "status": 200
+      },
+      {
+        "case": "same_audio_conflicting_metadata",
+        "status": 409
+      },
+      {
+        "case": "database_rows_and_http_readback_match",
+        "rows": 2
+      },
+      {
+        "case": "automation_service_restart_retains_task_and_dedup",
+        "status": 200
+      }
+    ],
+    "executionSnapshot": {
+      "schemaVersion": 1,
+      "vad": {
+        "engineCode": "webrtc-vad",
+        "modelName": "webrtcvad-wheels",
+        "version": "2.0.14.post1",
+        "distributionVersion": "2.0.14.post1",
+        "parameters": {
+          "sampleRate": 16000,
+          "provider": "cpu",
+          "aggressiveness": 2,
+          "frameMs": 20,
+          "mergeSilenceMs": 500,
+          "minSpeechMs": 250,
+          "paddingMs": 0
+        }
+      },
+      "asr": {
+        "engineCode": "sensevoice",
+        "modelName": "SenseVoiceSmall-ATC-VHHH",
+        "version": "teacher-2025_0706-int8",
+        "modelSha256": "625facec8fb54410d0e34543947cd80c2e0b1e568df00395bd9a31d3d00f23e8",
+        "tokensSha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc",
+        "parameters": {
+          "sampleRate": 16000,
+          "numThreads": 2,
+          "provider": "cpu",
+          "language": "en",
+          "useItn": true
+        }
+      }
+    }
+  },
+  "queryExport": {
+    "status": "passed",
+    "verifiedAt": "2026-10-31T07:46:25.370484+00:00",
+    "teammateCommit": "2601020032d2833cf115a8ef26a6fbf0be49774d",
+    "databaseSourceCommit": "745db5cd4d9a52d8bf68adf38290e52f09904aca",
+    "recordingId": "b81d3215-c196-471e-8e6e-200b0b1a6100",
+    "transcriptIds": [
+      "6c08b5d4-638d-41f8-8e92-d04f059a2263",
+      "49087956-c9af-442a-af84-46c400a117ef"
+    ],
+    "checks": [
+      {
+        "case": "missing_credential",
+        "status": 401
+      },
+      {
+        "case": "canonical_view_query_matches_saved_transcripts",
+        "count": 2
+      },
+      {
+        "case": "query_includes_both_time_endpoints",
+        "count": 1
+      },
+      {
+        "case": "pagination_no_loss_or_duplicates",
+        "count": 2
+      },
+      {
+        "case": "invalid_query_problem_json",
+        "status": 400
+      },
+      {
+        "case": "audio_export_without_a3_configuration",
+        "status": 503
+      },
+      {
+        "case": "canonical_export_jsonl",
+        "status": "succeeded",
+        "count": 2
+      },
+      {
+        "case": "canonical_export_csv",
+        "status": "succeeded",
+        "count": 2
+      },
+      {
+        "case": "canonical_export_bundle_zip",
+        "status": "succeeded",
+        "count": 2
+      },
+      {
+        "case": "a5_manifest_review_filter_and_statistics",
+        "count": 0
+      },
+      {
+        "case": "real_wav_via_local_audio_http_fixture",
+        "clips": 2,
+        "downloads": 1,
+        "liveA3": false
+      },
+      {
+        "case": "audio_dependency_failure_preserves_text_export",
+        "status": "partial"
+      },
+      {
+        "case": "query_service_restart_persists_export_and_download",
+        "status": "succeeded"
+      },
+      {
+        "case": "completed_export_rejects_second_completion",
+        "status": 409
+      }
+    ],
+    "exports": [
+      {
+        "id": "23f27750-0545-42c7-96af-fe6e056f1983",
+        "format": "jsonl",
+        "includeAudio": false,
+        "status": "succeeded",
+        "segmentCount": 2,
+        "checksumSha256": "8e6041361750dae5f8bd48013a56acf41c3f5a7e9d0468647c4ce2dd6b22f45c"
+      },
+      {
+        "id": "bed62f4d-7641-4bb6-b412-e75cd6b43e3d",
+        "format": "csv",
+        "includeAudio": false,
+        "status": "succeeded",
+        "segmentCount": 2,
+        "checksumSha256": "36286ccb023640c7fe47483cf89e0dfa33ffa3531c58c4954cabb093faec20a3"
+      },
+      {
+        "id": "74e8d4b7-3d97-43cf-abf5-801d54506fac",
+        "format": "bundle_zip",
+        "includeAudio": false,
+        "status": "succeeded",
+        "segmentCount": 2,
+        "checksumSha256": "1aa9bd8218d302c2dc439b1ea587e2c854de4a842f5a116c81c99b00dcf2a390"
+      },
+      {
+        "id": "1e097a4f-b5b1-4ca3-82d4-b2ef8b66780d",
+        "format": "jsonl",
+        "includeAudio": false,
+        "status": "succeeded",
+        "segmentCount": 0,
+        "checksumSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "id": "c684bed1-49f5-449b-b3ed-e6ae9111bd71",
+        "format": "bundle_zip",
+        "includeAudio": true,
+        "status": "succeeded",
+        "segmentCount": 2,
+        "checksumSha256": "3b756336324dbc70abe72463c9e1451fd7546317b45e6c447b24b9068681fdea"
+      },
+      {
+        "id": "bf159a86-9d3b-4d8e-b3d1-3825561f3e59",
+        "format": "bundle_zip",
+        "includeAudio": true,
+        "status": "partial",
+        "segmentCount": 2,
+        "checksumSha256": "55c6dfc61150cc77e13c6746021d23c5d679df1970e6a6e5b79bb0eb53b7d409"
+      }
+    ],
+    "querySource": "asr.v_transcript_full",
+    "exportTable": "anno.export_job",
+    "exportFunctions": [
+      "anno.fn_build_export_items",
+      "ui.fn_export_manifest"
+    ],
+    "legacyCompatibilityViewsUsed": false,
+    "audioSender": "local HTTP protocol fixture with real WAV",
+    "a3LiveProviderVerified": false,
+    "a5BearerAuthenticationVerified": false,
+    "notificationSender": "local test script; not live A3 provider",
+    "originalCaptureTimeKnown": false,
+    "upstreamTests": {
+      "passed": 53,
+      "failed": 1,
+      "realPostgresPassed": 4,
+      "failure": "Windows CRLF vs LF assertion in SRT export"
+    }
+  },
+  "upstreamTests": {
+    "passed": 53,
+    "failed": 1,
+    "realPostgresPassed": 4,
+    "failure": "test_export_bundle_zip_with_audio_via_a3: Windows CRLF versus LF"
+  },
+  "databaseRecovery": {
+    "reason": "Windows TCP excluded range 55398-55497 contains old port 55433",
+    "port": 54329,
+    "container": "a4-lihong-postgres-20261031",
+    "sameVolume": true,
+    "previousContainerStopped": true,
+    "historyAndCurrentRowsVerified": true,
+    "originalStartupArgumentsPreserved": true
+  },
+  "fullPersonalSuiteRerun": false,
+  "peerSourcesModified": false,
+  "teamSqlModified": false,
+  "rawAudioAndTranscriptTextPublished": false,
+  "limitations": [
+    "live A3 recording registration, content endpoint and notification sender unavailable in reviewed public code",
+    "A5 Bearer authentication and teammate deployments unverified",
+    "original recording UTC unknown; test time anchor only"
+  ]
+}

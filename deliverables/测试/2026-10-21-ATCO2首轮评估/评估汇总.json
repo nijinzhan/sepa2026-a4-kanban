@@ -1,0 +1,204 @@
+{
+  "recordings": 49,
+  "successfulRecordings": 49,
+  "failedRecordings": 0,
+  "noVadRecordings": 0,
+  "audioSeconds": 327.616,
+  "processingSeconds": 70.90321920005954,
+  "vadSeconds": 22.126282300043385,
+  "asrSeconds": 47.27308900008211,
+  "referenceTurns": 66,
+  "vadSegments": 67,
+  "rtf": 0.21642172299295376,
+  "strict": {
+    "N": 892,
+    "S": 365,
+    "D": 368,
+    "I": 1,
+    "C": 159,
+    "wer": 0.8228699551569507
+  },
+  "numericNormalized": {
+    "N": 902,
+    "S": 279,
+    "D": 302,
+    "I": 5,
+    "C": 321,
+    "wer": 0.6496674057649667
+  },
+  "callsigns": {
+    "total": 65,
+    "retained": 2,
+    "notRetained": 63,
+    "retentionRate": 0.03076923076923077,
+    "taggingFlags": {
+      "0": 65
+    }
+  },
+  "numbers": {
+    "total": 111,
+    "retained": 51,
+    "notRetained": 60,
+    "retentionRate": 0.4594594594594595
+  },
+  "boundary": {
+    "reference_regions": 52,
+    "predicted_regions": 67,
+    "matched_regions": 45,
+    "missed_regions": 7,
+    "extra_regions": 22,
+    "reference_speech_ms": 301360,
+    "predicted_speech_ms": 275526,
+    "overlap_ms": 268254,
+    "startAbsErrorMs": {
+      "count": 45,
+      "mean": 509.8222222222222,
+      "median": 318.0,
+      "p95": 1925.1999999999964
+    },
+    "endAbsErrorMs": {
+      "count": 45,
+      "mean": 321.2,
+      "median": 142.0,
+      "p95": 601.5999999999999
+    },
+    "durationRecall": 0.8901446774621715,
+    "durationPrecision": 0.9736068465407983
+  },
+  "airports": {
+    "LKPR": {
+      "recordings": 7,
+      "audioSeconds": 69.76,
+      "strict": {
+        "N": 174,
+        "S": 78,
+        "D": 70,
+        "I": 0,
+        "wer": 0.8505747126436781
+      },
+      "numericNormalized": {
+        "N": 178,
+        "S": 53,
+        "D": 63,
+        "I": 1,
+        "wer": 0.6573033707865169
+      }
+    },
+    "LKTB": {
+      "recordings": 7,
+      "audioSeconds": 43.584,
+      "strict": {
+        "N": 130,
+        "S": 63,
+        "D": 43,
+        "I": 1,
+        "wer": 0.823076923076923
+      },
+      "numericNormalized": {
+        "N": 134,
+        "S": 46,
+        "D": 37,
+        "I": 2,
+        "wer": 0.6343283582089553
+      }
+    },
+    "LSGS": {
+      "recordings": 7,
+      "audioSeconds": 38.976,
+      "strict": {
+        "N": 96,
+        "S": 25,
+        "D": 51,
+        "I": 0,
+        "wer": 0.7916666666666666
+      },
+      "numericNormalized": {
+        "N": 96,
+        "S": 26,
+        "D": 35,
+        "I": 0,
+        "wer": 0.6354166666666666
+      }
+    },
+    "LSZB": {
+      "recordings": 7,
+      "audioSeconds": 57.152,
+      "strict": {
+        "N": 147,
+        "S": 47,
+        "D": 68,
+        "I": 0,
+        "wer": 0.782312925170068
+      },
+      "numericNormalized": {
+        "N": 148,
+        "S": 42,
+        "D": 57,
+        "I": 0,
+        "wer": 0.668918918918919
+      }
+    },
+    "LSZH": {
+      "recordings": 7,
+      "audioSeconds": 43.584,
+      "strict": {
+        "N": 116,
+        "S": 45,
+        "D": 47,
+        "I": 0,
+        "wer": 0.7931034482758621
+      },
+      "numericNormalized": {
+        "N": 116,
+        "S": 34,
+        "D": 40,
+        "I": 0,
+        "wer": 0.6379310344827587
+      }
+    },
+    "LZIB": {
+      "recordings": 7,
+      "audioSeconds": 44.928,
+      "strict": {
+        "N": 133,
+        "S": 60,
+        "D": 56,
+        "I": 0,
+        "wer": 0.8721804511278195
+      },
+      "numericNormalized": {
+        "N": 133,
+        "S": 43,
+        "D": 47,
+        "I": 2,
+        "wer": 0.6917293233082706
+      }
+    },
+    "YSSY": {
+      "recordings": 7,
+      "audioSeconds": 29.632,
+      "strict": {
+        "N": 96,
+        "S": 47,
+        "D": 33,
+        "I": 0,
+        "wer": 0.8333333333333334
+      },
+      "numericNormalized": {
+        "N": 97,
+        "S": 35,
+        "D": 23,
+        "I": 0,
+        "wer": 0.5979381443298969
+      }
+    }
+  },
+  "files": {
+    "plan.json": "bd4fb87f748cd2014f02189e57d554619861fce916c278898670a309b2fc7329",
+    "manifest.json": "d332daf52355def630a3a08e3fb5fd543a8ff19636fedb4efee44e7f7151ccb3",
+    "references.json": "fd9991448d5536931bdef8f82e560d4a1163512f5c3d7053c5c1e901b89b32c7",
+    "inventory.json": "db06b52eaeb544885202b0d0bcd1f53fd0803f4fc6c17a7d889531b575e7ce67",
+    "runtime.json": "0971cf4c2be53c22dd3290c55ac2ea0f57b0c4ed1d7915b79c49491d42bc693d",
+    "results.jsonl": "38fce502da55cbaa286a5ae162a669ba9bfc0df28ad20c73be4e82a3eaf280f7"
+  }
+}

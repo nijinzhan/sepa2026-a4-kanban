@@ -1,0 +1,295 @@
+{
+  "date": "2026-11-07",
+  "scope": "课程项目首轮离线小样本检查与复核材料",
+  "teamRef": "82ef964905383322cf94816074873700e05dc5d5",
+  "criteria": {
+    "accuracyThreshold": null,
+    "werCerRequired": false,
+    "fullManualReferenceRequired": false,
+    "humanListeningUnknownIsNotFailure": true,
+    "partialWordCallsignNumberErrorsAllowed": true,
+    "noTrainingRequired": true
+  },
+  "sampleCount": 3,
+  "totalSampleSeconds": 60,
+  "sampleSelectionFixedBeforeInference": true,
+  "inputSources": [
+    {
+      "id": "C15",
+      "fileName": "C15.mp3",
+      "sha256": "1128d111b56c4ed035ec1a8a11cda0e36cf7781deaa85f6e9a2ee23a46e3842f",
+      "decodedDurationMs": 714605.75,
+      "audioProcessing": {
+        "sourceSampleRateHz": 44100,
+        "sourceChannels": 1,
+        "sourceFormat": "MP3",
+        "sourceSubtype": "MPEG_LAYER_III",
+        "sourceSamples": 31514112,
+        "sourceDurationMs": 714605.7142857143,
+        "outputSampleRateHz": 16000,
+        "outputChannels": 1,
+        "outputSamples": 11433692,
+        "outputDurationMs": 714605.75,
+        "outputDtype": "float32",
+        "actions": [
+          "resample"
+        ]
+      },
+      "provenance": "Existing C15 public VHHH material record",
+      "originalCaptureUtcKnown": false
+    }
+  ],
+  "model": {
+    "schemaVersion": 1,
+    "vad": {
+      "engineCode": "webrtc-vad",
+      "modelName": "webrtcvad-wheels",
+      "version": "2.0.14.post1",
+      "distributionVersion": "2.0.14.post1",
+      "parameters": {
+        "sampleRate": 16000,
+        "provider": "cpu",
+        "aggressiveness": 2,
+        "frameMs": 20,
+        "mergeSilenceMs": 500,
+        "minSpeechMs": 250,
+        "paddingMs": 0
+      }
+    },
+    "asr": {
+      "engineCode": "sensevoice",
+      "modelName": "SenseVoiceSmall-ATC-VHHH",
+      "version": "teacher-2025_0706-int8",
+      "modelSha256": "625facec8fb54410d0e34543947cd80c2e0b1e568df00395bd9a31d3d00f23e8",
+      "tokensSha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc",
+      "parameters": {
+        "sampleRate": 16000,
+        "numThreads": 2,
+        "provider": "cpu",
+        "language": "en",
+        "useItn": true
+      }
+    }
+  },
+  "codeSources": [
+    {
+      "path": "李洪/src/a4_speech/__init__.py",
+      "sha256": "2a7a7ffa77ec2b40d5ae0f08dbbb0c21d85890ab1f19febfdd561f697cc7db88"
+    },
+    {
+      "path": "李洪/src/a4_speech/audio_2024141460331.py",
+      "sha256": "eec8b15b24142e95a26d26ca89b619f732af9dba83dbb4a73e9ad770c1381657"
+    },
+    {
+      "path": "李洪/src/a4_speech/models_2024141460331.py",
+      "sha256": "0a83312ebcb4077e3c6544cab6892382d9c65eca60ea1230b66a5122d0ca2dd6"
+    },
+    {
+      "path": "李洪/src/a4_speech/vad_webrtc_2024141460331.py",
+      "sha256": "caab21416e3e27511255073971a164ede2ac0b38a24dd3ae78c52f39c617f323"
+    },
+    {
+      "path": "李洪/config.teacher-sensevoice.example.json",
+      "sha256": "9a8c012bdf859b5e3b5a4d7d95f0b75f6dffdaf1f302e002695aeb11ad00dead"
+    }
+  ],
+  "machineExecutionSucceededCount": 3,
+  "explicitEmptyTextFailureCount": 0,
+  "machineExecutionFractionIsNotRecognitionAccuracy": true,
+  "relativeTimeBoundsCheckedCount": 3,
+  "humanListeningPerformed": true,
+  "contentQualityVerdict": "首轮定性抽查：噪声较大、部分内容正确，C15-02明显漏识别；原因未单独归因，不设准确率门槛",
+  "modelLoadSeconds": 1.324,
+  "environment": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]",
+    "sherpaOnnx": "1.13.8",
+    "webrtcVad": "2.0.14.post1",
+    "numpy": "2.5.4"
+  },
+  "samples": [
+    {
+      "id": "C15-01",
+      "source": "C15",
+      "sourceStartMs": 0,
+      "sourceEndMs": 20000,
+      "durationMs": 20000.0,
+      "wav": "clips\\C15-01.wav",
+      "listeningMp3": "clips\\C15-01.mp3",
+      "wavSha256": "8abfc46c7f036f62e25808810b7d734ee432287a670e602ad8f1d42c5daef33b",
+      "status": "succeeded",
+      "segmentCount": 2,
+      "successfulSegments": 2,
+      "textRaw": "uniced seven two tree one five alpha two seven three five five nine two tree alpha\nmlf hold short alpha six sichuan eight seven seven tree",
+      "segments": [
+        {
+          "startMsInClip": 60,
+          "endMsInClip": 16260,
+          "startMsInSource": 60,
+          "endMsInSource": 16260,
+          "textRaw": "uniced seven two tree one five alpha two seven three five five nine two tree alpha",
+          "status": "succeeded"
+        },
+        {
+          "startMsInClip": 16800,
+          "endMsInClip": 20000,
+          "startMsInSource": 16800,
+          "endMsInSource": 20000,
+          "textRaw": "mlf hold short alpha six sichuan eight seven seven tree",
+          "status": "succeeded"
+        }
+      ],
+      "elapsedSeconds": 2.123,
+      "relativeTimeBoundsValid": true,
+      "utf8JsonRoundTrip": true,
+      "automaticRepetitionHints": [],
+      "humanListeningStatus": "待确认",
+      "contentCorrespondence": "未独立确认",
+      "callSignAndNumberCorrectness": "not_independently_confirmed",
+      "observation": "已生成两段机器初稿，含滑行/等待等词语；内容对应性待抽听，不要求逐字准确。"
+    },
+    {
+      "id": "C15-02",
+      "source": "C15",
+      "sourceStartMs": 240000,
+      "sourceEndMs": 260000,
+      "durationMs": 20000.0,
+      "wav": "clips\\C15-02.wav",
+      "listeningMp3": "clips\\C15-02.mp3",
+      "wavSha256": "7db185c8c97b595d81964fd572c8757064e170d9ef72024ad4f2cfa987aeeec2",
+      "status": "succeeded",
+      "segmentCount": 1,
+      "successfulSegments": 1,
+      "textRaw": "air two niner tree dec five nine nine niner tree",
+      "segments": [
+        {
+          "startMsInClip": 0,
+          "endMsInClip": 20000,
+          "startMsInSource": 240000,
+          "endMsInSource": 260000,
+          "textRaw": "air two niner tree dec five nine nine niner tree",
+          "status": "succeeded"
+        }
+      ],
+      "elapsedSeconds": 1.744,
+      "relativeTimeBoundsValid": true,
+      "utf8JsonRoundTrip": true,
+      "automaticRepetitionHints": [],
+      "humanListeningStatus": "用户已抽听：明显漏识别",
+      "contentCorrespondence": "局部对应，存在明显漏识别",
+      "callSignAndNumberCorrectness": "not_independently_confirmed",
+      "observation": "用户抽听确认文本未覆盖全部可听内容。原录音噪声较大，部分内容识别正确。完整20秒已送入模型，未发现页面截断；根因未单独确定。",
+      "humanReviewSource": "user_feedback",
+      "diagnostic": {
+        "full20SecondsSubmittedToRecognizer": true,
+        "sameInputSameText": true,
+        "segmentationVariantAccuracyConfirmed": false,
+        "rootCauseUniquelyIdentified": false
+      }
+    },
+    {
+      "id": "C15-03",
+      "source": "C15",
+      "sourceStartMs": 480000,
+      "sourceEndMs": 500000,
+      "durationMs": 20000.0,
+      "wav": "clips\\C15-03.wav",
+      "listeningMp3": "clips\\C15-03.mp3",
+      "wavSha256": "c05ae0317d564b184ffa9e50afe05963c547673574dc875cdba697ae9a4605a6",
+      "status": "succeeded",
+      "segmentCount": 2,
+      "successfulSegments": 2,
+      "textRaw": "one tree eight zero nine five approach right\ner eight two eight zero contact one two one decimal",
+      "segments": [
+        {
+          "startMsInClip": 0,
+          "endMsInClip": 13660,
+          "startMsInSource": 480000,
+          "endMsInSource": 493660,
+          "textRaw": "one tree eight zero nine five approach right",
+          "status": "succeeded"
+        },
+        {
+          "startMsInClip": 14420,
+          "endMsInClip": 20000,
+          "startMsInSource": 494420,
+          "endMsInSource": 500000,
+          "textRaw": "er eight two eight zero contact one two one decimal",
+          "status": "succeeded"
+        }
+      ],
+      "elapsedSeconds": 2.085,
+      "relativeTimeBoundsValid": true,
+      "utf8JsonRoundTrip": true,
+      "automaticRepetitionHints": [],
+      "humanListeningStatus": "待确认",
+      "contentCorrespondence": "未独立确认",
+      "callSignAndNumberCorrectness": "not_independently_confirmed",
+      "observation": "已生成两段机器稿，含进近、转频等词语；固定窗口可能截断一句话，予以注明。"
+    }
+  ],
+  "databaseUsed": false,
+  "pBlueUsed": false,
+  "fullIntegrationExecuted": false,
+  "fullRecordingQualityAccepted": false,
+  "longRecordingRepetitionResolved": false,
+  "originalCaptureUtcKnown": false,
+  "asrInput": "Source decoded float32 16kHz mono windows; PCM16 WAV and MP3 files are listening copies",
+  "localEvidenceDirectory": "outputs/vhhh-light-20261107-82ef9649-run2",
+  "replayTool": "tools/vhhh_light_check_2024141460331.py",
+  "replayToolSha256": "9ca26b70797e069d8ee41dc76da491d2da028d0e0c3b17854b911a95da5c755e",
+  "includedSegmentCount": 5,
+  "scopeCorrection": {
+    "recordedUtc": "2026-11-07T14:05:02.120111+00:00",
+    "confirmedBy": "user",
+    "sourceClassification": "song_non_atc",
+    "reason": "用户确认郭三媛提供的test_audio.mp3是一首歌，不是ATC语音，要求删除不适用样本。",
+    "sourceFileName": "test_audio.mp3",
+    "sourceSha256": "d6cc0f5b5f334706c1482801b1fefe8242a4995efd031a009d991b742dba0348",
+    "excludedSampleIds": [
+      "GUO-01",
+      "GUO-02"
+    ],
+    "exclusionBasis": "source_content_type_not_asr_result",
+    "includedSampleIds": [
+      "C15-01",
+      "C15-02",
+      "C15-03"
+    ],
+    "includedSampleCount": 3,
+    "includedSampleSeconds": 60,
+    "rawRunSampleCount": 5,
+    "rawRunSummary": "summary.json",
+    "activeSummary": "active-summary.json",
+    "rawRecordIsCurrentQualityEvidence": false,
+    "originalDownloadedFileDeleted": false,
+    "deletedGeneratedMedia": [
+      "clips/GUO-01.wav",
+      "clips/GUO-01.mp3",
+      "clips/GUO-02.wav",
+      "clips/GUO-02.mp3"
+    ],
+    "databaseChanged": false
+  },
+  "sampleSelectionNote": "保留原先固定的三个C15窗口；另两段因用户确认来源是歌曲而排除，未按识别结果筛选。",
+  "humanReviewedSampleCount": 1,
+  "humanListeningCoverage": "用户给出C15-02的具体漏识别结论和总体噪声观察；其余两个样本未逐项确认",
+  "humanReview": {
+    "recordedUtc": "2026-11-07T14:31:24.946009+00:00",
+    "reviewerSource": "user_feedback",
+    "specificSampleFeedback": {
+      "sampleId": "C15-02",
+      "category": "partial_correspondence_with_obvious_omissions",
+      "observation": "用户确认C15-02短文本明显没有识别完全。"
+    },
+    "generalObservation": "用户反馈原录音噪声较大，识别效果较差，但也有识别正确的内容。",
+    "otherSamplesIndividuallyConfirmed": false,
+    "assistantListenedToAudio": false,
+    "snrMeasured": false,
+    "wordErrorRateCalculated": false,
+    "completeHumanTranscriptRequired": false,
+    "qualityThresholdIntroduced": false,
+    "rootCauseUniquelyIdentified": false
+  },
+  "diagnosticRecord": "deliverables/测试/2026-11-07-VHHH轻量质量检查-C15-02诊断.json"
+}

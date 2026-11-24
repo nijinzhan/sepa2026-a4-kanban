@@ -1,0 +1,6 @@
+﻿样本,来源,源录音范围,运行结果,片段数,机器原文,相对时间检查,抽听状态,观察与备注
+C15-01,C15,0—20秒,生成机器初稿,2,"uniced seven two tree one five alpha two seven three five five nine two tree alpha
+mlf hold short alpha six sichuan eight seven seven tree",范围有效,待确认,已生成两段机器初稿，含滑行/等待等词语；内容对应性待抽听，不要求逐字准确。
+C15-02,C15,240—260秒,生成机器初稿,1,air two niner tree dec five nine nine niner tree,范围有效,用户已抽听：明显漏识别,用户抽听确认文本未覆盖全部可听内容。原录音噪声较大，部分内容识别正确。完整20秒已送入模型，未发现页面截断；根因未单独确定。
+C15-03,C15,480—500秒,生成机器初稿,2,"one tree eight zero nine five approach right
+er eight two eight zero contact one two one decimal",范围有效,待确认,已生成两段机器稿，含进近、转频等词语；固定窗口可能截断一句话，予以注明。

@@ -1,0 +1,1474 @@
+{
+  "asOf": "2026-11-03",
+  "verifiedAt": "2026-11-03T10:45:21.573615+00:00",
+  "scope": "disposable feasibility experiment; no PostgreSQL or real upstream calls",
+  "image": "a4-lihong-asr-probe:20261103",
+  "imageId": "sha256:98bda6177b74632e81e60309833d4a5b84cb98065f6f8604f89e586055581779",
+  "modelSha256": "625facec8fb54410d0e34543947cd80c2e0b1e568df00395bd9a31d3d00f23e8",
+  "extendedProbeImageId": "sha256:4b0df5e43c02176abd6c992a155251fa8c6fa59cbbb61f0a6b248847bb6edb95",
+  "extendedProbeNote": "Logging adds long-segment boundaries; memory-load probe continues after actual empty-text exceptions and counts them. Production worker fail-stop semantics unchanged.",
+  "sourceHashes": {
+    "__init__.py": "2a7a7ffa77ec2b40d5ae0f08dbbb0c21d85890ab1f19febfdd561f697cc7db88",
+    "__main__.py": "80b3d11dc62dbb09af6857e639e0bf3c697dbfb3b830143db66c7413e7fedcfe",
+    "api_2024141460331.py": "f37884f2c20b17a85bad879c0b9838e86b266e3436500c3e2630168f8ecefd69",
+    "audio_2024141460331.py": "0e23193b3fa7608c7c97358541005a1bfdacd3fce877d2068c87e1f828998992",
+    "cli_2024141460331.py": "e95b95e5cd8cc52cd8d18cb645296334dbb420da67fe9de1e87ac5da43bc921c",
+    "client_2024141460331.py": "4c0d5e598f13e2a49c9ad08eaf729c0f5b59a29d6c97211656b77c010d099d0a",
+    "diagnostics_2024141460331.py": "7d1978ceaf3daeb1002911490d4b960c8ee6c521048df74499f3fe0fbfa6ff66",
+    "models_2024141460331.py": "d9848c673bf0e065c83619521facadcfe98ab8c36f9987024de7f8e27bb9366f",
+    "models_xlsr_webrtc_2024141460331.py": "2bccc2b12c177814f4ac1ec98ebc0d3ccbe0f7e3b69429faef07712c8227fd55",
+    "postgres_2024141460331.py": "9f7c4c0975fe2f56b0eb0284ac02c6dc1fee2a6e68054ccd091b02e7af9a8536",
+    "results_2024141460331.py": "7860a976c83dc7210cec6c2b029fc920c08088a858133a4f51e98aded6b8ad3c",
+    "segments_2024141460331.py": "29cc77b1ee388078378f0c4a71018313306196db345fb05ff7defeecdc9a2179",
+    "service_2024141460331.py": "ddee359a550ae5b521771f29a80421a316a54fb60a6a2d6d8183482c3d4530a5",
+    "vad_webrtc_2024141460331.py": "caab21416e3e27511255073971a164ede2ac0b38a24dd3ae78c52f39c617f323"
+  },
+  "sampleSha256": {
+    "c15-first-20s.wav": "8abfc46c7f036f62e25808810b7d734ee432287a670e602ad8f1d42c5daef33b",
+    "c15-first-120s.wav": "68d1c172b7ea0cd99858be7cedaeb201112ee34e84cc968af3bad7b2789afabe"
+  },
+  "cases": [
+    {
+      "name": "a4-lihong-asr-512m-cold1-v2-20261103",
+      "containerId": "275c4cf2550726721f45feacfb9adf9da28dea5d587f9e8a98db54b6bca9ec22",
+      "memoryMiB": 512,
+      "memorySwapBytes": 536870912,
+      "cpuLimit": 2.0,
+      "exitCode": 137,
+      "oomKilled": true,
+      "timedOut": false,
+      "elapsedSeconds": 56.5,
+      "passed": false,
+      "lastStage": "between_requests",
+      "lastReportedCgroupPeakMiB": 449.3671875,
+      "lastReportedProcessRssPeakMiB": 503.75,
+      "events": [
+        {
+          "stage": "process_started",
+          "elapsedSeconds": 0.0,
+          "rssPeakMiB": 23.523,
+          "memory.current": 16293888,
+          "memory.peak": 16629760,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          }
+        },
+        {
+          "stage": "service_modules_imported",
+          "elapsedSeconds": 0.32,
+          "rssPeakMiB": 56.496,
+          "memory.current": 40255488,
+          "memory.peak": 40255488,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "versions": {
+            "numpy": "2.5.4",
+            "scipy": "1.18.1",
+            "sherpa-onnx": "1.13.8",
+            "sherpa-onnx-core": "1.13.8",
+            "fastapi": "0.162.0",
+            "uvicorn": "0.54.0"
+          }
+        },
+        {
+          "stage": "model_manifest_verified",
+          "elapsedSeconds": 1.957,
+          "rssPeakMiB": 58.496,
+          "memory.current": 40001536,
+          "memory.peak": 42352640,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "modelSha256": "625facec8fb54410d0e34543947cd80c2e0b1e568df00395bd9a31d3d00f23e8"
+        },
+        {
+          "stage": "model_loaded",
+          "elapsedSeconds": 4.894,
+          "rssPeakMiB": 427.266,
+          "memory.current": 398942208,
+          "memory.peak": 411799552,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          }
+        },
+        {
+          "stage": "recognition_completed",
+          "elapsedSeconds": 14.48,
+          "rssPeakMiB": 502.75,
+          "memory.current": 469602304,
+          "memory.peak": 469721088,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 1,
+          "durationMs": 20000.0,
+          "segmentCount": 2,
+          "durationSeconds": 9.58
+        },
+        {
+          "stage": "between_requests",
+          "elapsedSeconds": 14.498,
+          "rssPeakMiB": 502.75,
+          "memory.current": 469602304,
+          "memory.peak": 469721088,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 1
+        },
+        {
+          "stage": "recognition_completed",
+          "elapsedSeconds": 21.446,
+          "rssPeakMiB": 503.75,
+          "memory.current": 470757376,
+          "memory.peak": 470761472,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 2,
+          "durationMs": 20000.0,
+          "segmentCount": 2,
+          "durationSeconds": 6.948
+        },
+        {
+          "stage": "between_requests",
+          "elapsedSeconds": 21.464,
+          "rssPeakMiB": 503.75,
+          "memory.current": 470757376,
+          "memory.peak": 470761472,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 2
+        },
+        {
+          "stage": "recognition_completed",
+          "elapsedSeconds": 29.519,
+          "rssPeakMiB": 503.75,
+          "memory.current": 470777856,
+          "memory.peak": 471023616,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 3,
+          "durationMs": 20000.0,
+          "segmentCount": 2,
+          "durationSeconds": 8.055
+        },
+        {
+          "stage": "between_requests",
+          "elapsedSeconds": 29.536,
+          "rssPeakMiB": 503.75,
+          "memory.current": 470777856,
+          "memory.peak": 471023616,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 3
+        },
+        {
+          "stage": "recognition_completed",
+          "elapsedSeconds": 36.804,
+          "rssPeakMiB": 503.75,
+          "memory.current": 470515712,
+          "memory.peak": 471040000,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 4,
+          "durationMs": 20000.0,
+          "segmentCount": 2,
+          "durationSeconds": 7.268
+        },
+        {
+          "stage": "between_requests",
+          "elapsedSeconds": 36.822,
+          "rssPeakMiB": 503.75,
+          "memory.current": 470515712,
+          "memory.peak": 471040000,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 4
+        },
+        {
+          "stage": "recognition_completed",
+          "elapsedSeconds": 43.357,
+          "rssPeakMiB": 503.75,
+          "memory.current": 471195648,
+          "memory.peak": 471195648,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 5,
+          "durationMs": 20000.0,
+          "segmentCount": 2,
+          "durationSeconds": 6.534
+        },
+        {
+          "stage": "between_requests",
+          "elapsedSeconds": 43.375,
+          "rssPeakMiB": 503.75,
+          "memory.current": 471195648,
+          "memory.peak": 471195648,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 5
+        }
+      ],
+      "evidenceLog": "a4-lihong-asr-512m-cold1-v2-20261103.log"
+    },
+    {
+      "name": "a4-lihong-asr-512m-cold2-v2-20261103",
+      "containerId": "80e91be2960f5b36a4df9a5cda10605169bbe496d16f77ea55dda4255f210e73",
+      "memoryMiB": 512,
+      "memorySwapBytes": 536870912,
+      "cpuLimit": 2.0,
+      "exitCode": 137,
+      "oomKilled": true,
+      "timedOut": false,
+      "elapsedSeconds": 53.875,
+      "passed": false,
+      "lastStage": "between_requests",
+      "lastReportedCgroupPeakMiB": 450.6328125,
+      "lastReportedProcessRssPeakMiB": 504.547,
+      "events": [
+        {
+          "stage": "process_started",
+          "elapsedSeconds": 0.0,
+          "rssPeakMiB": 23.953,
+          "memory.current": 16433152,
+          "memory.peak": 16773120,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          }
+        },
+        {
+          "stage": "service_modules_imported",
+          "elapsedSeconds": 0.303,
+          "rssPeakMiB": 56.672,
+          "memory.current": 40873984,
+          "memory.peak": 40873984,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "versions": {
+            "numpy": "2.5.4",
+            "scipy": "1.18.1",
+            "sherpa-onnx": "1.13.8",
+            "sherpa-onnx-core": "1.13.8",
+            "fastapi": "0.162.0",
+            "uvicorn": "0.54.0"
+          }
+        },
+        {
+          "stage": "model_manifest_verified",
+          "elapsedSeconds": 1.937,
+          "rssPeakMiB": 58.672,
+          "memory.current": 40824832,
+          "memory.peak": 42971136,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "modelSha256": "625facec8fb54410d0e34543947cd80c2e0b1e568df00395bd9a31d3d00f23e8"
+        },
+        {
+          "stage": "model_loaded",
+          "elapsedSeconds": 5.079,
+          "rssPeakMiB": 429.055,
+          "memory.current": 401600512,
+          "memory.peak": 414195712,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          }
+        },
+        {
+          "stage": "recognition_completed",
+          "elapsedSeconds": 12.377,
+          "rssPeakMiB": 502.797,
+          "memory.current": 470196224,
+          "memory.peak": 470196224,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 1,
+          "durationMs": 20000.0,
+          "segmentCount": 2,
+          "durationSeconds": 7.292
+        },
+        {
+          "stage": "between_requests",
+          "elapsedSeconds": 12.395,
+          "rssPeakMiB": 502.797,
+          "memory.current": 470196224,
+          "memory.peak": 470196224,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 1
+        },
+        {
+          "stage": "recognition_completed",
+          "elapsedSeconds": 19.1,
+          "rssPeakMiB": 504.547,
+          "memory.current": 472485888,
+          "memory.peak": 472485888,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 2,
+          "durationMs": 20000.0,
+          "segmentCount": 2,
+          "durationSeconds": 6.705
+        },
+        {
+          "stage": "between_requests",
+          "elapsedSeconds": 19.118,
+          "rssPeakMiB": 504.547,
+          "memory.current": 472485888,
+          "memory.peak": 472485888,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 2
+        },
+        {
+          "stage": "recognition_completed",
+          "elapsedSeconds": 26.136,
+          "rssPeakMiB": 504.547,
+          "memory.current": 472154112,
+          "memory.peak": 472522752,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 3,
+          "durationMs": 20000.0,
+          "segmentCount": 2,
+          "durationSeconds": 7.018
+        },
+        {
+          "stage": "between_requests",
+          "elapsedSeconds": 26.154,
+          "rssPeakMiB": 504.547,
+          "memory.current": 472154112,
+          "memory.peak": 472522752,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 3
+        },
+        {
+          "stage": "recognition_completed",
+          "elapsedSeconds": 33.018,
+          "rssPeakMiB": 504.547,
+          "memory.current": 472231936,
+          "memory.peak": 472522752,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 4,
+          "durationMs": 20000.0,
+          "segmentCount": 2,
+          "durationSeconds": 6.864
+        },
+        {
+          "stage": "between_requests",
+          "elapsedSeconds": 33.039,
+          "rssPeakMiB": 504.547,
+          "memory.current": 472231936,
+          "memory.peak": 472522752,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 4
+        },
+        {
+          "stage": "recognition_completed",
+          "elapsedSeconds": 39.789,
+          "rssPeakMiB": 504.547,
+          "memory.current": 472227840,
+          "memory.peak": 472522752,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 5,
+          "durationMs": 20000.0,
+          "segmentCount": 2,
+          "durationSeconds": 6.75
+        },
+        {
+          "stage": "between_requests",
+          "elapsedSeconds": 39.807,
+          "rssPeakMiB": 504.547,
+          "memory.current": 472227840,
+          "memory.peak": 472522752,
+          "memory.max": 536870912,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 5
+        }
+      ],
+      "evidenceLog": "a4-lihong-asr-512m-cold2-v2-20261103.log"
+    },
+    {
+      "name": "a4-lihong-asr-1024m-compare-v2-20261103",
+      "containerId": "fd40b26ddaf980328dd2d4ff0a36665b26e8ffdbe1b2ba323ed2b37c7d042098",
+      "memoryMiB": 1024,
+      "memorySwapBytes": 1073741824,
+      "cpuLimit": 2.0,
+      "exitCode": 1,
+      "oomKilled": false,
+      "timedOut": false,
+      "elapsedSeconds": 61.109,
+      "passed": false,
+      "lastStage": "between_requests",
+      "lastReportedCgroupPeakMiB": 450.1796875,
+      "lastReportedProcessRssPeakMiB": 505.195,
+      "events": [
+        {
+          "stage": "process_started",
+          "elapsedSeconds": 0.0,
+          "rssPeakMiB": 23.59,
+          "memory.current": 15581184,
+          "memory.peak": 15917056,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          }
+        },
+        {
+          "stage": "service_modules_imported",
+          "elapsedSeconds": 0.304,
+          "rssPeakMiB": 56.559,
+          "memory.current": 40128512,
+          "memory.peak": 40128512,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "versions": {
+            "numpy": "2.5.4",
+            "scipy": "1.18.1",
+            "sherpa-onnx": "1.13.8",
+            "sherpa-onnx-core": "1.13.8",
+            "fastapi": "0.162.0",
+            "uvicorn": "0.54.0"
+          }
+        },
+        {
+          "stage": "model_manifest_verified",
+          "elapsedSeconds": 2.26,
+          "rssPeakMiB": 58.559,
+          "memory.current": 40103936,
+          "memory.peak": 42225664,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "modelSha256": "625facec8fb54410d0e34543947cd80c2e0b1e568df00395bd9a31d3d00f23e8"
+        },
+        {
+          "stage": "model_loaded",
+          "elapsedSeconds": 5.548,
+          "rssPeakMiB": 428.469,
+          "memory.current": 399810560,
+          "memory.peak": 412708864,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          }
+        },
+        {
+          "stage": "recognition_completed",
+          "elapsedSeconds": 12.755,
+          "rssPeakMiB": 502.945,
+          "memory.current": 469852160,
+          "memory.peak": 469852160,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 1,
+          "durationMs": 20000.0,
+          "segmentCount": 2,
+          "durationSeconds": 7.201
+        },
+        {
+          "stage": "between_requests",
+          "elapsedSeconds": 12.772,
+          "rssPeakMiB": 502.945,
+          "memory.current": 469852160,
+          "memory.peak": 469852160,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 1
+        },
+        {
+          "stage": "recognition_completed",
+          "elapsedSeconds": 19.436,
+          "rssPeakMiB": 505.195,
+          "memory.current": 471941120,
+          "memory.peak": 472047616,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 2,
+          "durationMs": 20000.0,
+          "segmentCount": 2,
+          "durationSeconds": 6.664
+        },
+        {
+          "stage": "between_requests",
+          "elapsedSeconds": 19.454,
+          "rssPeakMiB": 505.195,
+          "memory.current": 471941120,
+          "memory.peak": 472047616,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 2
+        },
+        {
+          "stage": "recognition_completed",
+          "elapsedSeconds": 26.056,
+          "rssPeakMiB": 505.195,
+          "memory.current": 471941120,
+          "memory.peak": 472047616,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 3,
+          "durationMs": 20000.0,
+          "segmentCount": 2,
+          "durationSeconds": 6.602
+        },
+        {
+          "stage": "between_requests",
+          "elapsedSeconds": 26.073,
+          "rssPeakMiB": 505.195,
+          "memory.current": 471941120,
+          "memory.peak": 472047616,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 3
+        },
+        {
+          "stage": "recognition_completed",
+          "elapsedSeconds": 32.487,
+          "rssPeakMiB": 505.195,
+          "memory.current": 471937024,
+          "memory.peak": 472047616,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 4,
+          "durationMs": 20000.0,
+          "segmentCount": 2,
+          "durationSeconds": 6.413
+        },
+        {
+          "stage": "between_requests",
+          "elapsedSeconds": 32.502,
+          "rssPeakMiB": 505.195,
+          "memory.current": 471937024,
+          "memory.peak": 472047616,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 4
+        },
+        {
+          "stage": "recognition_completed",
+          "elapsedSeconds": 39.453,
+          "rssPeakMiB": 505.195,
+          "memory.current": 471937024,
+          "memory.peak": 472047616,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 5,
+          "durationMs": 20000.0,
+          "segmentCount": 2,
+          "durationSeconds": 6.951
+        },
+        {
+          "stage": "between_requests",
+          "elapsedSeconds": 39.486,
+          "rssPeakMiB": 505.195,
+          "memory.current": 471937024,
+          "memory.peak": 472047616,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 5
+        }
+      ],
+      "evidenceLog": "a4-lihong-asr-1024m-compare-v2-20261103.log"
+    },
+    {
+      "name": "a4-lihong-asr-1024m-extended-v2-20261103",
+      "containerId": "1ae7f59aa617ead563c27327a2228646ba279ee343b4edebe58db39cb46d83db",
+      "imageId": "sha256:4b0df5e43c02176abd6c992a155251fa8c6fa59cbbb61f0a6b248847bb6edb95",
+      "memoryMiB": 1024,
+      "memorySwapBytes": 1073741824,
+      "cpuLimit": 2.0,
+      "exitCode": 0,
+      "oomKilled": false,
+      "timedOut": false,
+      "elapsedSeconds": 59.781,
+      "memoryProbeCompleted": true,
+      "passed": false,
+      "lastStage": "memory_probe_completed",
+      "lastReportedCgroupPeakMiB": 610.76171875,
+      "lastReportedProcessRssPeakMiB": 665.109,
+      "events": [
+        {
+          "stage": "process_started",
+          "elapsedSeconds": 0.0,
+          "rssPeakMiB": 23.723,
+          "memory.current": 15953920,
+          "memory.peak": 16285696,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          }
+        },
+        {
+          "stage": "service_modules_imported",
+          "elapsedSeconds": 0.305,
+          "rssPeakMiB": 56.672,
+          "memory.current": 40574976,
+          "memory.peak": 40574976,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "versions": {
+            "numpy": "2.5.4",
+            "scipy": "1.18.1",
+            "sherpa-onnx": "1.13.8",
+            "sherpa-onnx-core": "1.13.8",
+            "fastapi": "0.162.0",
+            "uvicorn": "0.54.0"
+          }
+        },
+        {
+          "stage": "model_manifest_verified",
+          "elapsedSeconds": 1.818,
+          "rssPeakMiB": 58.672,
+          "memory.current": 40337408,
+          "memory.peak": 42672128,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "modelSha256": "625facec8fb54410d0e34543947cd80c2e0b1e568df00395bd9a31d3d00f23e8"
+        },
+        {
+          "stage": "model_loaded",
+          "elapsedSeconds": 4.631,
+          "rssPeakMiB": 428.137,
+          "memory.current": 400306176,
+          "memory.peak": 413163520,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          }
+        },
+        {
+          "stage": "recognition_completed",
+          "elapsedSeconds": 11.556,
+          "rssPeakMiB": 502.863,
+          "memory.current": 469532672,
+          "memory.peak": 469532672,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 1,
+          "durationMs": 20000.0,
+          "segmentCount": 2,
+          "durationSeconds": 6.921
+        },
+        {
+          "stage": "between_requests",
+          "elapsedSeconds": 11.575,
+          "rssPeakMiB": 502.863,
+          "memory.current": 469532672,
+          "memory.peak": 469532672,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 1
+        },
+        {
+          "stage": "recognition_completed",
+          "elapsedSeconds": 18.159,
+          "rssPeakMiB": 504.613,
+          "memory.current": 471912448,
+          "memory.peak": 471916544,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 2,
+          "durationMs": 20000.0,
+          "segmentCount": 2,
+          "durationSeconds": 6.584
+        },
+        {
+          "stage": "between_requests",
+          "elapsedSeconds": 18.175,
+          "rssPeakMiB": 504.613,
+          "memory.current": 471912448,
+          "memory.peak": 471916544,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 2
+        },
+        {
+          "stage": "recognition_completed",
+          "elapsedSeconds": 24.65,
+          "rssPeakMiB": 504.613,
+          "memory.current": 472174592,
+          "memory.peak": 472174592,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 3,
+          "durationMs": 20000.0,
+          "segmentCount": 2,
+          "durationSeconds": 6.475
+        },
+        {
+          "stage": "between_requests",
+          "elapsedSeconds": 24.668,
+          "rssPeakMiB": 504.613,
+          "memory.current": 472174592,
+          "memory.peak": 472174592,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 3
+        },
+        {
+          "stage": "recognition_completed",
+          "elapsedSeconds": 31.554,
+          "rssPeakMiB": 504.613,
+          "memory.current": 471846912,
+          "memory.peak": 472174592,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 4,
+          "durationMs": 20000.0,
+          "segmentCount": 2,
+          "durationSeconds": 6.886
+        },
+        {
+          "stage": "between_requests",
+          "elapsedSeconds": 31.571,
+          "rssPeakMiB": 504.613,
+          "memory.current": 471846912,
+          "memory.peak": 472174592,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 4
+        },
+        {
+          "stage": "recognition_completed",
+          "elapsedSeconds": 38.259,
+          "rssPeakMiB": 504.613,
+          "memory.current": 472104960,
+          "memory.peak": 472174592,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 5,
+          "durationMs": 20000.0,
+          "segmentCount": 2,
+          "durationSeconds": 6.688
+        },
+        {
+          "stage": "between_requests",
+          "elapsedSeconds": 38.279,
+          "rssPeakMiB": 504.613,
+          "memory.current": 472104960,
+          "memory.peak": 472174592,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "iteration": 5
+        },
+        {
+          "stage": "long_audio_started",
+          "elapsedSeconds": 38.279,
+          "rssPeakMiB": 504.613,
+          "memory.current": 472104960,
+          "memory.peak": 472174592,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          }
+        },
+        {
+          "stage": "long_audio_decoded_and_segmented",
+          "elapsedSeconds": 39.952,
+          "rssPeakMiB": 533.859,
+          "memory.current": 502628352,
+          "memory.peak": 502775808,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "durationMs": 120000.0,
+          "spans": [
+            [
+              100,
+              16260
+            ],
+            [
+              16800,
+              29320
+            ],
+            [
+              29940,
+              39860
+            ],
+            [
+              40540,
+              61880
+            ],
+            [
+              62560,
+              119100
+            ],
+            [
+              119660,
+              120000
+            ]
+          ]
+        },
+        {
+          "stage": "long_segment_started",
+          "elapsedSeconds": 39.953,
+          "rssPeakMiB": 533.859,
+          "memory.current": 502628352,
+          "memory.peak": 502775808,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "segmentIndex": 0,
+          "startMs": 100,
+          "endMs": 16260
+        },
+        {
+          "stage": "long_segment_started",
+          "elapsedSeconds": 42.748,
+          "rssPeakMiB": 533.859,
+          "memory.current": 502366208,
+          "memory.peak": 502775808,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "segmentIndex": 1,
+          "startMs": 16800,
+          "endMs": 29320
+        },
+        {
+          "stage": "long_segment_started",
+          "elapsedSeconds": 45.268,
+          "rssPeakMiB": 533.859,
+          "memory.current": 502362112,
+          "memory.peak": 502775808,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "segmentIndex": 2,
+          "startMs": 29940,
+          "endMs": 39860
+        },
+        {
+          "stage": "long_segment_started",
+          "elapsedSeconds": 47.671,
+          "rssPeakMiB": 533.859,
+          "memory.current": 502624256,
+          "memory.peak": 502775808,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "segmentIndex": 3,
+          "startMs": 40540,
+          "endMs": 61880
+        },
+        {
+          "stage": "long_segment_started",
+          "elapsedSeconds": 50.581,
+          "rssPeakMiB": 568.359,
+          "memory.current": 538804224,
+          "memory.peak": 538804224,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "segmentIndex": 4,
+          "startMs": 62560,
+          "endMs": 119100
+        },
+        {
+          "stage": "long_segment_started",
+          "elapsedSeconds": 55.237,
+          "rssPeakMiB": 665.109,
+          "memory.current": 640360448,
+          "memory.peak": 640430080,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "segmentIndex": 5,
+          "startMs": 119660,
+          "endMs": 120000
+        },
+        {
+          "stage": "long_segment_empty_text_rejected",
+          "elapsedSeconds": 57.462,
+          "rssPeakMiB": 665.109,
+          "memory.current": 640360448,
+          "memory.peak": 640430080,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "segmentIndex": 5
+        },
+        {
+          "stage": "long_recognition_completed",
+          "elapsedSeconds": 57.462,
+          "rssPeakMiB": 665.109,
+          "memory.current": 640360448,
+          "memory.peak": 640430080,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "durationMs": 120000.0,
+          "segmentCount": 6,
+          "durationSeconds": 19.183,
+          "nonemptySegments": 5,
+          "emptyTextRejectedSegments": 1,
+          "allSegmentsSuccessfullyTranscribed": false
+        },
+        {
+          "stage": "memory_probe_completed",
+          "elapsedSeconds": 57.462,
+          "rssPeakMiB": 665.109,
+          "memory.current": 640360448,
+          "memory.peak": 640430080,
+          "memory.max": 1073741824,
+          "memory.swap.max": 0,
+          "memory.events": {
+            "low": "0",
+            "high": "0",
+            "max": "0",
+            "oom": "0",
+            "oom_kill": "0",
+            "oom_group_kill": "0"
+          },
+          "completedShortRequests": 5,
+          "segmentCounts": [
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "scope": "serial real VHHH sample; actual personal ASR core and HTTP-module imports; not full upstream integration or a long-running stability guarantee"
+        }
+      ],
+      "evidenceLog": "a4-lihong-asr-1024m-extended-v2-20261103.log"
+    }
+  ],
+  "httpStartup": {
+    "container": "a4-lihong-asr-http-probe-v2-20261103",
+    "memoryMiB": 1024,
+    "scope": "existing HTTP worker with experimental startup trace wrapper; health and OpenAPI only; no real upstream or database calls",
+    "startupTraceWrapperRequired": true,
+    "imageId": "sha256:6f096c315863f1c7aca6d487030d80d1591b2c14c25d8ace72bd0cdbe504145f",
+    "health": {
+      "status": 200,
+      "body": {
+        "status": "ok"
+      }
+    },
+    "openapiStatus": 200,
+    "apiVersion": "0.2.0",
+    "paths": [
+      "/api/v1/a4/speech/results/save",
+      "/api/v1/a4/speech/transcribe",
+      "/api/v1/a4/transcripts/{transcriptId}",
+      "/health"
+    ],
+    "passed": true,
+    "exitCode": 0,
+    "oomKilled": false
+  },
+  "initialFingerprintPreflightAttemptsExcluded": 2,
+  "findings": {
+    "containerInferenceFeasible": true,
+    "512MiBSufficientForTestedWorkload": false,
+    "smallestCompletedMemoryProbeBudgetMiB": 1024,
+    "allLongAudioSegmentsSuccessfullyTranscribed": false,
+    "longRunningOrFullUpstreamStabilityVerified": false
+  }
+}

@@ -1,4 +1,4 @@
-"""Manual execution of the two personal requirements, without a scheduler or database."""
+"""Execution core for the two personal requirements, without a scheduler or database."""
 
 import hashlib
 import json
@@ -8,10 +8,22 @@ import tempfile
 from copy import deepcopy
 from math import ceil
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 
 from .audio_2024141460331 import decode_audio
-from .client_2024141460331 import ApiError
+from .client_2024141460331 import (
+    ApiError,
+    revision_payload,
+    segment_limit_2024141460331,
+    transcript_edits,
+)
+from .diagnostics_2024141460331 import (
+    chinese_message,
+    current_trace_id,
+    log_event,
+    new_trace_id,
+    traced_operation,
+)
 from .results_2024141460331 import result_digest, validate_outcome
 from .segments_2024141460331 import ensure_segments, utc_time, verify_segment
 
@@ -28,6 +40,9 @@ class ProcessingError_2024141460331(RuntimeError):
         failed_segments: int = 0,
         request_id: str | None = None,
         http_status: int | None = None,
+        segment_count: int | None = None,
+        max_segments: int | None = None,
+        write_outcome: Literal["not_written", "rolled_back", "unknown"] | None = None,
     ):
         super().__init__(code)
         self.code = code
@@ -36,7 +51,10 @@ class ProcessingError_2024141460331(RuntimeError):
         self.failed_segments = failed_segments
         self.request_id = request_id
         self.http_status = http_status
+        self.segment_count, self.max_segments = segment_count, max_segments
+        self.write_outcome = write_outcome
         self.processing_result: dict | None = None
+        self.trace_id = current_trace_id() or new_trace_id()
 
     def as_dict_2024141460331(self) -> dict:
         result = {
@@ -48,16 +66,26 @@ class ProcessingError_2024141460331(RuntimeError):
             "saveConfirmed": False,
             "requestId": self.request_id,
             "httpStatus": self.http_status,
+            "traceId": self.trace_id,
+            "message": chinese_message(self.code),
         }
         if self.processing_result is not None or self.code.startswith("SAVE_"):
             result["saveStatus"] = "unconfirmed" if self.code == "SAVE_UNCONFIRMED" else "failed"
+        if self.write_outcome is not None:
+            result["writeOutcome"] = self.write_outcome
+            result["saveStatus"] = "unconfirmed" if self.write_outcome == "unknown" else "failed"
+        if self.segment_count is not None:
+            result.update(segmentCount=self.segment_count, maxSegments=self.max_segments)
         return result
 
 
 class SpeechService_2024141460331:
-    def __init__(self, api: Any, engine: Any = None, *, receipt_dir: Path | None = None):
+    def __init__(
+        self, api: Any, engine: Any = None, *, receipt_dir: Path | None = None, max_segments=500
+    ):
         self.api, self.engine = api, engine
         self.receipt_dir = Path(receipt_dir) if receipt_dir is not None else None
+        self.max_segments = segment_limit_2024141460331(max_segments)
 
     def _reserve_2024141460331(self, recording_id: str, key: str) -> tuple[Path, dict | None]:
         if not key or len(key) > 64 or any(ord(c) < 32 or ord(c) > 126 for c in key):
@@ -124,6 +152,7 @@ class SpeechService_2024141460331:
             raise ProcessingError_2024141460331("JOB_CONTEXT_MISMATCH", job_id=job.get("id"))
         return value
 
+    @traced_operation("run")
     def run_2024141460331(
         self, recording_id: str, idempotency_key: str, business_task_id: str | None = None
     ) -> dict:
@@ -152,10 +181,12 @@ class SpeechService_2024141460331:
             exc.failed_segments = result["failedSegments"]
             raise
 
+    @traced_operation("transcribe")
     def transcribe_2024141460331(
         self, recording_id: str, idempotency_key: str, business_task_id: str | None = None
     ) -> dict:
         """Execute once locally; receipts prevent blind replay after an uncertain write."""
+        max_segments = self.max_segments
         if business_task_id is not None and (
             not isinstance(business_task_id, str) or not business_task_id.strip()
         ):
@@ -206,6 +237,8 @@ class SpeechService_2024141460331:
             ):
                 raise ProcessingError_2024141460331("AUDIO_CHECKSUM_MISMATCH")
             audio = decode_audio(raw)
+            audio_processing = deepcopy(audio.processing_info)
+            log_event(LOG, "A4.AUDIO.DECODED", recordingId=recording_id, **audio_processing)
             if abs(audio.duration_ms - duration) > 50:
                 raise ProcessingError_2024141460331("AUDIO_DURATION_MISMATCH")
             snapshot = deepcopy(self.engine.snapshot())
@@ -234,9 +267,16 @@ class SpeechService_2024141460331:
                     "unprocessedSegmentIds": [],
                     "saveConfirmed": False,
                     "saveStatus": "not_requested",
+                    "audioProcessing": audio_processing,
+                    "processingTraceId": current_trace_id(),
                 }
-            if len(spans) > 500:
-                raise ProcessingError_2024141460331("JOB_SEGMENT_LIMIT")
+            if len(spans) > max_segments:
+                raise ProcessingError_2024141460331(
+                    "JOB_SEGMENT_LIMIT",
+                    http_status=422,
+                    segment_count=len(spans),
+                    max_segments=max_segments,
+                )
             try:
                 self.engine.prepare()
             except ValueError as exc:
@@ -255,6 +295,7 @@ class SpeechService_2024141460331:
             targets = [s["id"] for s in segments]
             context = {
                 "recordingId": recording_id,
+                "maxSegments": max_segments,
                 "targetSegmentIds": targets,
                 "executionSnapshot": snapshot,
             }
@@ -265,11 +306,12 @@ class SpeechService_2024141460331:
             )
             job_id = job["id"]
             self._record_job_2024141460331(path, recording_id, job_id)
-            LOG.info(
-                "job created jobId=%s recordingId=%s totalSegments=%d",
-                job_id,
-                recording_id,
-                len(targets),
+            log_event(
+                LOG,
+                "A4.JOB.CREATED",
+                jobId=job_id,
+                recordingId=recording_id,
+                totalSegments=len(targets),
             )
             if (
                 self._context_2024141460331(job) != context
@@ -280,7 +322,14 @@ class SpeechService_2024141460331:
                 return self._confirmed_result_2024141460331(job, expected_context=context)
             if job["status"] != "queued":
                 raise ProcessingError_2024141460331("REQUEST_ALREADY_SUBMITTED", job_id=job_id)
-            stats = {"a4_10_20": {**context, "totalSegments": len(targets)}}
+            stats = {
+                "a4_10_20": {
+                    **context,
+                    "totalSegments": len(targets),
+                    "audioProcessing": audio_processing,
+                    "processingTraceId": current_trace_id(),
+                }
+            }
             try:
                 self.engine.verify_snapshot(snapshot)
             except ValueError as exc:
@@ -349,6 +398,8 @@ class SpeechService_2024141460331:
                 "unprocessedSegmentIds": targets[processed:],
                 "executionSnapshot": snapshot,
                 "saveConfirmed": False,
+                "audioProcessing": audio_processing,
+                "processingTraceId": current_trace_id(),
                 "saveStatus": "not_requested",
                 "processingRecorded": False,
             }
@@ -364,8 +415,15 @@ class SpeechService_2024141460331:
                         "stats": stats,
                     },
                 )
-            except ApiError:
-                pass
+            except ApiError as exc:
+                log_event(
+                    LOG,
+                    "A4.PROCESSING.WRITE_UNCONFIRMED",
+                    level=logging.WARNING,
+                    jobId=job_id,
+                    code=exc.code,
+                    requestId=exc.request_id,
+                )
             try:
                 recorded = self.api.get_job(job_id)
                 result["processingRecorded"] = (
@@ -374,16 +432,25 @@ class SpeechService_2024141460331:
                     and recorded.get("failedSegments") == failed
                     and self._personal_data_2024141460331(recorded, "stats") == details
                 )
-            except (ApiError, ProcessingError_2024141460331):
-                pass
+            except (ApiError, ProcessingError_2024141460331) as exc:
+                log_event(
+                    LOG,
+                    "A4.PROCESSING.READ_UNCONFIRMED",
+                    level=logging.WARNING,
+                    jobId=job_id,
+                    code=exc.code,
+                    requestId=exc.request_id,
+                )
             return result
         except ProcessingError_2024141460331 as exc:
-            LOG.warning(
-                "processing failed jobId=%s code=%s processed=%d failed=%d",
-                exc.job_id,
-                exc.code,
-                exc.processed_segments,
-                exc.failed_segments,
+            log_event(
+                LOG,
+                "A4.PROCESSING.FAILED",
+                level=logging.WARNING,
+                jobId=exc.job_id,
+                code=exc.code,
+                processedSegments=exc.processed_segments,
+                failedSegments=exc.failed_segments,
             )
             raise
         except ApiError as exc:
@@ -434,7 +501,9 @@ class SpeechService_2024141460331:
                 },
             )
         except ApiError:
-            LOG.warning("failure status unconfirmed jobId=%s code=%s", job_id, code)
+            log_event(
+                LOG, "A4.JOB.FAILURE_UNCONFIRMED", level=logging.WARNING, jobId=job_id, code=code
+            )
 
     @staticmethod
     def _text_digest_2024141460331(text: dict) -> str:
@@ -448,6 +517,7 @@ class SpeechService_2024141460331:
             )
         ).hexdigest()
 
+    @traced_operation("save")
     def save_result_2024141460331(self, result: dict) -> dict:
         """Save a previously obtained result; never performs model inference."""
         try:
@@ -701,10 +771,151 @@ class SpeechService_2024141460331:
             "businessTaskAssociationVerifiedBy": "job_metadata_roundtrip",
             "businessTaskForeignKeyVerified": False,
             "sourceJobLinkVerified": False,
+            **{
+                key: deepcopy(stats[key])
+                for key in ("audioProcessing", "processingTraceId")
+                if key in stats
+            },
         }
 
-    def read_transcript_2024141460331(self, transcript_id: str, job_id: str | None = None) -> dict:
+    @traced_operation("revise")
+    def revise_transcript_2024141460331(
+        self,
+        transcript_id: str,
+        *,
+        text: str | None = None,
+        review_status: str | None = None,
+        expected_revision: int,
+        reason: str,
+        bearer_token: str | None = None,
+    ) -> dict:
+        """Submit one compare-and-set edit and confirm original text and audit history."""
+        try:
+            revision_payload(
+                text=text,
+                review_status=review_status,
+                expected_revision=expected_revision,
+                reason=reason,
+            )
+        except ValueError as exc:
+            raise ProcessingError_2024141460331("INVALID_REVISION", http_status=422) from exc
+        if (
+            not isinstance(bearer_token, str)
+            or not bearer_token
+            or any(ord(char) < 33 or ord(char) > 126 for char in bearer_token)
+        ):
+            raise ProcessingError_2024141460331("REVISION_AUTH_REQUIRED", http_status=401)
+        original = self.api.get_transcript_by_id(transcript_id)
+        if not isinstance(original.get("textRaw"), str):
+            raise ProcessingError_2024141460331("READBACK_INVALID", http_status=502)
+        if original["revision"] != expected_revision:
+            raise ProcessingError_2024141460331("REVISION_CONFLICT", http_status=409)
+        changed = (text is not None and text != original["text"]) or (
+            review_status is not None and review_status != original["reviewStatus"]
+        )
+        try:
+            written = self.api.revise_transcript(
+                transcript_id,
+                # The historical PATCH requires text even for a review-only edit.
+                # Use the observed value with the caller's revision, never a guessed version.
+                text=original["text"] if text is None else text,
+                review_status=review_status,
+                expected_revision=expected_revision,
+                reason=reason,
+                bearer_token=bearer_token,
+            )
+        except ApiError as exc:
+            if exc.write_outcome in {"not_written", "rolled_back"}:
+                code = "REVISION_CONFLICT" if exc.status == 409 else exc.code
+                raise ProcessingError_2024141460331(
+                    code,
+                    http_status=exc.status,
+                    request_id=exc.request_id,
+                    write_outcome=exc.write_outcome,
+                ) from exc
+            if exc.status == 409:
+                raise ProcessingError_2024141460331(
+                    "REVISION_CONFLICT", http_status=409, request_id=exc.request_id
+                ) from exc
+            if 400 <= exc.status < 500 and exc.code != "INVALID_RESPONSE":
+                raise
+            raise ProcessingError_2024141460331(
+                "REVISION_UNCONFIRMED",
+                http_status=502,
+                request_id=exc.request_id,
+                write_outcome="unknown",
+            ) from exc
+        try:
+            result = self.read_transcript_2024141460331(transcript_id, include_history=True)
+            current = result["transcript"]
+            wanted_text = original["text"] if text is None else text
+            wanted_status = original["reviewStatus"] if review_status is None else review_status
+            wanted_revision = expected_revision + int(changed)
+            before_texts = [original["text"]]
+            after_texts = [wanted_text]
+            if original["text"] == original["textRaw"]:
+                before_texts.append(None)
+            if wanted_text == original["textRaw"]:
+                after_texts.append(None)
+            if (
+                written["revision"] != wanted_revision
+                or written["reviewStatus"] != wanted_status
+                or current["revision"] != wanted_revision
+                or current["textRaw"] != original["textRaw"]
+                or current["text"] != wanted_text
+                or current["reviewStatus"] != wanted_status
+            ):
+                raise ValueError("revision readback mismatch")
+            if changed:
+                edit = next(item for item in result["edits"] if item["revision"] == wanted_revision)
+                if (
+                    edit["reason"] != reason
+                    or not isinstance(edit["editorUserId"], str)
+                    or not edit["editorUserId"].strip()
+                    or (
+                        "beforeReviewStatus" in edit
+                        and edit["beforeReviewStatus"] != original["reviewStatus"]
+                    )
+                    or ("afterReviewStatus" in edit and edit["afterReviewStatus"] != wanted_status)
+                    or edit["beforeText"] not in before_texts
+                    or edit["afterText"] not in after_texts
+                ):
+                    raise ValueError("revision history mismatch")
+        except (
+            ApiError,
+            ValueError,
+            KeyError,
+            StopIteration,
+            ProcessingError_2024141460331,
+        ) as exc:
+            raise ProcessingError_2024141460331(
+                "REVISION_UNCONFIRMED", http_status=502, write_outcome="unknown"
+            ) from exc
+        result.update(
+            revisionConfirmed=True, saveConfirmed=True, saveStatus="confirmed", changed=changed
+        )
+        return result
+
+    @traced_operation("read")
+    def read_transcript_2024141460331(
+        self, transcript_id: str, job_id: str | None = None, *, include_history: bool = False
+    ) -> dict:
         text = self.api.get_transcript_by_id(transcript_id)
+        edits = None
+        if include_history:
+            if not isinstance(text.get("textRaw"), str):
+                raise ProcessingError_2024141460331("READBACK_INVALID", http_status=502)
+            try:
+                edits = transcript_edits(text)
+                for edit in edits:
+                    utc_time(edit["editedAt"])
+            except ValueError as exc:
+                code = (
+                    "HISTORY_UNAVAILABLE"
+                    if str(exc) == "HISTORY_UNAVAILABLE"
+                    else "READBACK_INVALID"
+                )
+                raise ProcessingError_2024141460331(code, http_status=502) from exc
         try:
             recording = self.api.get_recording(text["recordingId"])
             verify_segment(recording, {**text, "id": text["segmentId"]})
@@ -718,13 +929,39 @@ class SpeechService_2024141460331:
         except (KeyError, ValueError, TypeError) as exc:
             raise ProcessingError_2024141460331("READBACK_INVALID", job_id=job_id) from exc
         result = {"transcript": text, "executionSnapshot": None, "historyStatus": "not_recorded"}
+        result["sourceJobLinkVerified"] = False
+        if edits is not None:
+            text["edits"] = deepcopy(edits)
+            result["edits"] = deepcopy(edits)
+            legacy = any(edit["revision"] == 1 for edit in edits)
+            result["editHistoryStatus"] = "legacy_recorded" if legacy else "recorded"
+            review_fields = {"beforeReviewStatus", "afterReviewStatus"}
+            if not edits:
+                result["reviewHistoryStatus"] = "not_applicable"
+            elif all(review_fields <= edit.keys() for edit in edits):
+                result["reviewHistoryStatus"] = "recorded"
+            elif any(review_fields & edit.keys() for edit in edits):
+                result["reviewHistoryStatus"] = "partial"
+            else:
+                result["reviewHistoryStatus"] = "not_exposed"
+            if legacy:
+                result["legacyRevisionHistory"] = True
+        linked_job = text.get("jobId")
+        if linked_job is not None:
+            if not isinstance(linked_job, str) or not linked_job.strip():
+                raise ProcessingError_2024141460331("HISTORY_ASSOCIATION", job_id=job_id)
+            if job_id is not None and linked_job != job_id:
+                raise ProcessingError_2024141460331("HISTORY_ASSOCIATION", job_id=job_id)
+            job_id = linked_job
         if job_id is None:
             matches = []
             for candidate in self.api.list_jobs(text["recordingId"]):
                 if candidate.get("status") not in {"succeeded", "partial"}:
                     continue
                 try:
-                    history = self.read_transcript_2024141460331(transcript_id, candidate["id"])
+                    history = self.read_transcript_2024141460331(
+                        transcript_id, candidate["id"], include_history=include_history
+                    )
                 except ProcessingError_2024141460331:
                     continue
                 if history.get("historyStatus") == "recorded":
@@ -743,6 +980,7 @@ class SpeechService_2024141460331:
             or text.get("recordingId") != context.get("recordingId")
         ):
             raise ProcessingError_2024141460331("HISTORY_ASSOCIATION", job_id=job_id)
+        result["sourceJobLinkVerified"] = linked_job == job_id
         snapshot = context.get("executionSnapshot")
         stats = self._personal_data_2024141460331(job, "stats")
         actual = stats.get("executionSnapshot")
@@ -774,8 +1012,8 @@ class SpeechService_2024141460331:
             executionSnapshot=snapshot or actual,
             historyStatus="recorded" if snapshot or actual else "not_recorded",
         )
-        # The public transcript schema does not return jobId: target membership is
-        # checked, but server-side transcript.job_id linkage still needs live validation.
+        # The compatibility contract may return jobId. Older responses only prove
+        # target membership and the raw digest, never the database foreign-key value.
         if stats.get("successfulSegmentIds") is not None:
             try:
                 successful = validate_outcome(
@@ -794,5 +1032,12 @@ class SpeechService_2024141460331:
         result["businessTaskAssociationVerifiedBy"] = "job_metadata_roundtrip"
         result["businessTaskForeignKeyVerified"] = False
         result["associationVerifiedBy"] = "explicit_job_targets_and_raw_text_digest"
-        result["sourceJobLinkVerified"] = False
+        result["sourceJobLinkVerified"] = linked_job == job_id
+        result.update(
+            {
+                key: deepcopy(stats[key])
+                for key in ("audioProcessing", "processingTraceId")
+                if key in stats
+            }
+        )
         return result

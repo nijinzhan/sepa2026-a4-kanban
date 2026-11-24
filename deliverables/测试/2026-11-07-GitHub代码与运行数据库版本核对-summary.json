@@ -1,0 +1,586 @@
+{
+  "source-comparison": {
+    "teamRef": "083d8cc1ea157297d46eeb61231e2461aa973c69",
+    "pBlueRef": "745db5cd4d9a52d8bf68adf38290e52f09904aca",
+    "allSqlPaths": [
+      "刘希睿/src/V14__backup_and_restore.sql",
+      "刘希睿/src/verify_5_10_maintenance.sql",
+      "刘希睿/src/verify_5_10_purge.sql",
+      "刘希睿/src/verify_5_60_outbox.sql",
+      "刘希睿/代码/V14__backup_and_restore.sql",
+      "刘希睿/代码/verify_5_10_maintenance.sql",
+      "刘希睿/代码/verify_5_60_outbox.sql",
+      "尹凯臣/migrations/R__01_core_reference.sql",
+      "尹凯臣/migrations/R__02_vsp_data.sql",
+      "尹凯臣/migrations/R__05_api_registry.sql",
+      "尹凯臣/migrations/V12__grants_and_privileges.sql",
+      "尹凯臣/migrations/V1__bootstrap_schemas_and_extensions.sql",
+      "尹凯臣/migrations/V2__core_reference_data.sql",
+      "尹凯臣/migrations/V3__iam_identity.sql",
+      "尹凯臣/migrations/V4__vsp_aip_static_data.sql",
+      "朱炜亮/src/backend/sql/seed_a1_permissions.sql"
+    ],
+    "teamDatabaseSqlComparison": [
+      {
+        "path": "刘希睿/src/V14__backup_and_restore.sql",
+        "bytes": 12185,
+        "sameAsPBlue": true,
+        "mentionsTranscript": false,
+        "conflictMarkers": false
+      },
+      {
+        "path": "刘希睿/src/verify_5_10_maintenance.sql",
+        "bytes": 2927,
+        "sameAsPBlue": null,
+        "mentionsTranscript": false,
+        "conflictMarkers": false
+      },
+      {
+        "path": "刘希睿/src/verify_5_10_purge.sql",
+        "bytes": 9442,
+        "sameAsPBlue": null,
+        "mentionsTranscript": false,
+        "conflictMarkers": false
+      },
+      {
+        "path": "刘希睿/src/verify_5_60_outbox.sql",
+        "bytes": 5981,
+        "sameAsPBlue": null,
+        "mentionsTranscript": false,
+        "conflictMarkers": false
+      },
+      {
+        "path": "刘希睿/代码/V14__backup_and_restore.sql",
+        "bytes": 12185,
+        "sameAsPBlue": true,
+        "mentionsTranscript": false,
+        "conflictMarkers": false
+      },
+      {
+        "path": "刘希睿/代码/verify_5_10_maintenance.sql",
+        "bytes": 2927,
+        "sameAsPBlue": null,
+        "mentionsTranscript": false,
+        "conflictMarkers": false
+      },
+      {
+        "path": "刘希睿/代码/verify_5_60_outbox.sql",
+        "bytes": 5981,
+        "sameAsPBlue": null,
+        "mentionsTranscript": false,
+        "conflictMarkers": false
+      },
+      {
+        "path": "尹凯臣/migrations/R__01_core_reference.sql",
+        "bytes": 7675,
+        "sameAsPBlue": true,
+        "mentionsTranscript": false,
+        "conflictMarkers": false
+      },
+      {
+        "path": "尹凯臣/migrations/R__02_vsp_data.sql",
+        "bytes": 25214,
+        "sameAsPBlue": true,
+        "mentionsTranscript": false,
+        "conflictMarkers": false
+      },
+      {
+        "path": "尹凯臣/migrations/R__05_api_registry.sql",
+        "bytes": 24972,
+        "sameAsPBlue": true,
+        "mentionsTranscript": false,
+        "conflictMarkers": false
+      },
+      {
+        "path": "尹凯臣/migrations/V12__grants_and_privileges.sql",
+        "bytes": 5137,
+        "sameAsPBlue": true,
+        "mentionsTranscript": true,
+        "conflictMarkers": false
+      },
+      {
+        "path": "尹凯臣/migrations/V1__bootstrap_schemas_and_extensions.sql",
+        "bytes": 3994,
+        "sameAsPBlue": true,
+        "mentionsTranscript": false,
+        "conflictMarkers": false
+      },
+      {
+        "path": "尹凯臣/migrations/V2__core_reference_data.sql",
+        "bytes": 7446,
+        "sameAsPBlue": true,
+        "mentionsTranscript": false,
+        "conflictMarkers": false
+      },
+      {
+        "path": "尹凯臣/migrations/V3__iam_identity.sql",
+        "bytes": 20137,
+        "sameAsPBlue": true,
+        "mentionsTranscript": false,
+        "conflictMarkers": false
+      },
+      {
+        "path": "尹凯臣/migrations/V4__vsp_aip_static_data.sql",
+        "bytes": 23616,
+        "sameAsPBlue": true,
+        "mentionsTranscript": false,
+        "conflictMarkers": false
+      }
+    ],
+    "personalCodeComparison": [
+      {
+        "path": "李洪/src/a4_speech/__init__.py",
+        "sameAsLocal": true,
+        "remoteSyntax": "ok"
+      },
+      {
+        "path": "李洪/src/a4_speech/__main__.py",
+        "sameAsLocal": true,
+        "remoteSyntax": "ok"
+      },
+      {
+        "path": "李洪/src/a4_speech/api_2024141460331.py",
+        "sameAsLocal": true,
+        "remoteSyntax": "ok"
+      },
+      {
+        "path": "李洪/src/a4_speech/audio_2024141460331.py",
+        "sameAsLocal": true,
+        "remoteSyntax": "ok"
+      },
+      {
+        "path": "李洪/src/a4_speech/cli_2024141460331.py",
+        "sameAsLocal": true,
+        "remoteSyntax": "ok"
+      },
+      {
+        "path": "李洪/src/a4_speech/client_2024141460331.py",
+        "sameAsLocal": true,
+        "remoteSyntax": "ok"
+      },
+      {
+        "path": "李洪/src/a4_speech/diagnostics_2024141460331.py",
+        "sameAsLocal": true,
+        "remoteSyntax": "ok"
+      },
+      {
+        "path": "李洪/src/a4_speech/models_2024141460331.py",
+        "sameAsLocal": true,
+        "remoteSyntax": "ok"
+      },
+      {
+        "path": "李洪/src/a4_speech/models_xlsr_webrtc_2024141460331.py",
+        "sameAsLocal": true,
+        "remoteSyntax": "ok"
+      },
+      {
+        "path": "李洪/src/a4_speech/postgres_2024141460331.py",
+        "sameAsLocal": true,
+        "remoteSyntax": "ok"
+      },
+      {
+        "path": "李洪/src/a4_speech/results_2024141460331.py",
+        "sameAsLocal": true,
+        "remoteSyntax": "ok"
+      },
+      {
+        "path": "李洪/src/a4_speech/segments_2024141460331.py",
+        "sameAsLocal": true,
+        "remoteSyntax": "ok"
+      },
+      {
+        "path": "李洪/src/a4_speech/service_2024141460331.py",
+        "sameAsLocal": true,
+        "remoteSyntax": "ok"
+      },
+      {
+        "path": "李洪/src/a4_speech/vad_webrtc_2024141460331.py",
+        "sameAsLocal": true,
+        "remoteSyntax": "ok"
+      }
+    ]
+  },
+  "personal-runtime-source-comparison": {
+    "ref": "083d8cc1ea157297d46eeb61231e2461aa973c69",
+    "comparedFiles": 54,
+    "identicalFiles": 54,
+    "files": [
+      {
+        "path": "李洪/src/a4_speech/__init__.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/src/a4_speech/__main__.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/src/a4_speech/api_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/src/a4_speech/audio_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/src/a4_speech/cli_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/src/a4_speech/client_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/src/a4_speech/diagnostics_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/src/a4_speech/models_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/src/a4_speech/models_xlsr_webrtc_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/src/a4_speech/postgres_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/src/a4_speech/results_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/src/a4_speech/segments_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/src/a4_speech/service_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/src/a4_speech/vad_webrtc_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tests/support_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tests/test_atco2_comparison_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tests/test_atco2_eval_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tests/test_audio_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tests/test_cli_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tests/test_client_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tests/test_diagnostics_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tests/test_http_api_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tests/test_legacy_compatibility_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tests/test_models_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tests/test_outcomes_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tests/test_postgres_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tests/test_revision_service_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tests/test_save_recovery_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tests/test_segments_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tests/test_service_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tests/test_storage_config_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tests/test_transcript_http_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tests/test_webrtc_sensevoice_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tests/test_whisper_atc_experiment_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tests/test_xlsr_webrtc_engine_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tools/atco2_comparison_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tools/atco2_eval_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tools/atco2_silero_v6_eval_20261021_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tools/automation_http_integration_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tools/download_whisper_atc_assets_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tools/postgres_import_audio_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tools/postgres_integration_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tools/postgres_local_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tools/query_export_integration_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tools/validate_webrtc_sensevoice_service_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tools/validate_xlsr_webrtc_service_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tools/whisper_atc_experiment_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tools/whisper_atc_native_decoder_audit_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tools/whisper_atc_preprocessing_audit_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/tools/whisper_atc_published_validation_2024141460331.py",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/config.example.json",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/config.generic-sensevoice.example.json",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/config.teacher-sensevoice.example.json",
+        "sameAsLocal": true
+      },
+      {
+        "path": "李洪/pyproject.toml",
+        "sameAsLocal": true
+      }
+    ]
+  },
+  "database-current-git-comparison": {
+    "sourceRef": "745db5cd4d9a52d8bf68adf38290e52f09904aca",
+    "readOnly": true,
+    "appliedMigrationComparison": [
+      {
+        "path": "infra/postgres/init/00-bootstrap.sql",
+        "databaseDigestMatchesCurrentGit": true,
+        "databaseSourceRefMatchesCurrentGit": true
+      },
+      {
+        "path": "migrations/R__01_core_reference.sql",
+        "databaseDigestMatchesCurrentGit": true,
+        "databaseSourceRefMatchesCurrentGit": true
+      },
+      {
+        "path": "migrations/R__02_vsp_data.sql",
+        "databaseDigestMatchesCurrentGit": true,
+        "databaseSourceRefMatchesCurrentGit": true
+      },
+      {
+        "path": "migrations/R__03_iam_engine_labels.sql",
+        "databaseDigestMatchesCurrentGit": true,
+        "databaseSourceRefMatchesCurrentGit": true
+      },
+      {
+        "path": "migrations/R__04_ops_config.sql",
+        "databaseDigestMatchesCurrentGit": true,
+        "databaseSourceRefMatchesCurrentGit": true
+      },
+      {
+        "path": "migrations/R__05_api_registry.sql",
+        "databaseDigestMatchesCurrentGit": true,
+        "databaseSourceRefMatchesCurrentGit": true
+      },
+      {
+        "path": "migrations/V10__ui_views_and_functions.sql",
+        "databaseDigestMatchesCurrentGit": true,
+        "databaseSourceRefMatchesCurrentGit": true
+      },
+      {
+        "path": "migrations/V11__maintenance_functions.sql",
+        "databaseDigestMatchesCurrentGit": true,
+        "databaseSourceRefMatchesCurrentGit": true
+      },
+      {
+        "path": "migrations/V12__grants_and_privileges.sql",
+        "databaseDigestMatchesCurrentGit": true,
+        "databaseSourceRefMatchesCurrentGit": true
+      },
+      {
+        "path": "migrations/V13__module_numbering_comments.sql",
+        "databaseDigestMatchesCurrentGit": true,
+        "databaseSourceRefMatchesCurrentGit": true
+      },
+      {
+        "path": "migrations/V1__bootstrap_schemas_and_extensions.sql",
+        "databaseDigestMatchesCurrentGit": true,
+        "databaseSourceRefMatchesCurrentGit": true
+      },
+      {
+        "path": "migrations/V2__core_reference_data.sql",
+        "databaseDigestMatchesCurrentGit": true,
+        "databaseSourceRefMatchesCurrentGit": true
+      },
+      {
+        "path": "migrations/V3__iam_identity.sql",
+        "databaseDigestMatchesCurrentGit": true,
+        "databaseSourceRefMatchesCurrentGit": true
+      },
+      {
+        "path": "migrations/V4__vsp_aip_static_data.sql",
+        "databaseDigestMatchesCurrentGit": true,
+        "databaseSourceRefMatchesCurrentGit": true
+      },
+      {
+        "path": "migrations/V5__trk_flight_and_track.sql",
+        "databaseDigestMatchesCurrentGit": true,
+        "databaseSourceRefMatchesCurrentGit": true
+      },
+      {
+        "path": "migrations/V6__aud_audio_capture.sql",
+        "databaseDigestMatchesCurrentGit": true,
+        "databaseSourceRefMatchesCurrentGit": true
+      },
+      {
+        "path": "migrations/V7__asr_transcription.sql",
+        "databaseDigestMatchesCurrentGit": true,
+        "databaseSourceRefMatchesCurrentGit": true
+      },
+      {
+        "path": "migrations/V8__anno_annotation.sql",
+        "databaseDigestMatchesCurrentGit": true,
+        "databaseSourceRefMatchesCurrentGit": true
+      },
+      {
+        "path": "migrations/V9__ops_platform.sql",
+        "databaseDigestMatchesCurrentGit": true,
+        "databaseSourceRefMatchesCurrentGit": true
+      }
+    ],
+    "functionComparison": [
+      {
+        "name": "asr.fn_transcript_before_update",
+        "path": "migrations/V7__asr_transcription.sql",
+        "installedBodyMatchesCurrentGit": true,
+        "installedBodySha256": "cb9805401d4cc42ac3bc3cd9db130deecac668fa9f5362655adc657dbd203121",
+        "currentGitBodySha256": "cb9805401d4cc42ac3bc3cd9db130deecac668fa9f5362655adc657dbd203121"
+      },
+      {
+        "name": "asr.fn_transcript_after_write",
+        "path": "migrations/V7__asr_transcription.sql",
+        "installedBodyMatchesCurrentGit": true,
+        "installedBodySha256": "84b9fe1e4b11fe52be20aaa8ec91c2d0d6b6be569da1b0bcced8a37b44fed166",
+        "currentGitBodySha256": "84b9fe1e4b11fe52be20aaa8ec91c2d0d6b6be569da1b0bcced8a37b44fed166"
+      },
+      {
+        "name": "asr.fn_apply_transcript_edit",
+        "path": "migrations/V7__asr_transcription.sql",
+        "installedBodyMatchesCurrentGit": true,
+        "installedBodySha256": "e230f9e3519a79a9da427b9bc38e8b1ba6c041d7e8e28688c78cfa24613013e7",
+        "currentGitBodySha256": "e230f9e3519a79a9da427b9bc38e8b1ba6c041d7e8e28688c78cfa24613013e7"
+      },
+      {
+        "name": "anno.fn_build_export_items",
+        "path": "migrations/V10__ui_views_and_functions.sql",
+        "installedBodyMatchesCurrentGit": true,
+        "installedBodySha256": "debe538a12c0013a7f00af14a050516e32adcb7e544e307a6cf583332954f1aa",
+        "currentGitBodySha256": "debe538a12c0013a7f00af14a050516e32adcb7e544e307a6cf583332954f1aa"
+      }
+    ],
+    "backupV14Installed": false,
+    "casRevisionInstalled": false,
+    "latestGitHasExportOverflowExpression": true
+  },
+  "official-v14-rollback-verification": {
+    "sourceRef": "745db5cd4d9a52d8bf68adf38290e52f09904aca",
+    "migration": "migrations/V14__backup_and_restore.sql",
+    "mode": "force_rollback_transaction",
+    "migrationSha256": "ffa683132407d74d71b89277e37d14de84970d3e4c6547b88ec52c2d8c81992b",
+    "migrationAppliedInsideTransaction": true,
+    "exportFunctionUnchangedByV14": true,
+    "overflowAfterOfficialV14": "22003",
+    "earlyBigintCastResult": 1762080,
+    "casRevisionFunctionPresent": false,
+    "userAudioBefore": {
+      "rows": 2,
+      "sha256": "0b859ba73e07840f834d8f2c6465e79354fb80ec7a57aca5ba89ff9afafc39a6"
+    },
+    "userAudioAfter": {
+      "rows": 2,
+      "sha256": "0b859ba73e07840f834d8f2c6465e79354fb80ec7a57aca5ba89ff9afafc39a6"
+    },
+    "userAudioUnchanged": true,
+    "backupV14StateBefore": false,
+    "backupV14StateAfter": false,
+    "schemaChangesRolledBack": true
+  },
+  "asOf": "2026-11-07",
+  "productionFixesApplied": false,
+  "gitIndexSha256": "e64c3790b482eb99eb085df9072e02d67fce30888ad3c24daa898e2e7638c545"
+}

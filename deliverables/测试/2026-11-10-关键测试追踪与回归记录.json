@@ -1,0 +1,1318 @@
+{
+  "date": "2026-11-10",
+  "timezone": "Asia/Shanghai",
+  "startedAt": "2026-11-10T17:59:09+08:00",
+  "finishedAt": "2026-11-10T17:59:18+08:00",
+  "scope": "本地现有工作树；真实数据库和模型开关关闭；不启动GPU、数据库或真实上游；无提交推送",
+  "baselineHead": "12e3d4eabda0cf0327672e809cfc943bc17e8f23",
+  "observedRemoteMain": "384d187cf0d684e30dec79a8689cb8a5eb72429a",
+  "sourceFingerprint": "d36b162a8200e52716227cf068cbaf5bacad4372fa7ecffd765494de528c95a9",
+  "sourceFiles": {
+    "src/a4_speech/__init__.py": "2a7a7ffa77ec2b40d5ae0f08dbbb0c21d85890ab1f19febfdd561f697cc7db88",
+    "src/a4_speech/__main__.py": "b70fc24093e17c179d324fb6972268282424b88c58ab08560c64b5da0bade04f",
+    "src/a4_speech/api_2024141460331.py": "fcdef681d9538dc5e7605aeae85f46aeeff16dfd0daaf0464034f92c5f977835",
+    "src/a4_speech/audio_2024141460331.py": "eec8b15b24142e95a26d26ca89b619f732af9dba83dbb4a73e9ad770c1381657",
+    "src/a4_speech/cli_2024141460331.py": "3c984ab20f05a311d9442943115e420346f2099eedc8addd4aa3ce16835bceee",
+    "src/a4_speech/client_2024141460331.py": "83e1c1b82e1266235c04e618880fd8b2523055d9c8263c3c3549ec96a56a9952",
+    "src/a4_speech/diagnostics_2024141460331.py": "cdc6bf59af88bc3575c11ccef4325f63c98d90ca98723a06d932b715e3016f7e",
+    "src/a4_speech/models_2024141460331.py": "0a83312ebcb4077e3c6544cab6892382d9c65eca60ea1230b66a5122d0ca2dd6",
+    "src/a4_speech/models_xlsr_webrtc_2024141460331.py": "2bccc2b12c177814f4ac1ec98ebc0d3ccbe0f7e3b69429faef07712c8227fd55",
+    "src/a4_speech/postgres_2024141460331.py": "9c4047309c34734ebfc4c7e08045e7cde3e6b7a2783ad877749c4d7fac7f395a",
+    "src/a4_speech/results_2024141460331.py": "fa478fd05451cbbd2f45544dc0dbe595c27cf54236067f5233a2fa8c81bf4860",
+    "src/a4_speech/segments_2024141460331.py": "96e0ffebfb773b02aa109dc9d9c175d50cca366e46188933d075cc2220d3e55c",
+    "src/a4_speech/service_2024141460331.py": "7b63233b060dd4643b3ba7a289b201245560ac4e67c84dad9b85719847ac3cc8",
+    "src/a4_speech/vad_webrtc_2024141460331.py": "caab21416e3e27511255073971a164ede2ac0b38a24dd3ae78c52f39c617f323",
+    "tests/support_2024141460331.py": "cfa0b8763794e229911c0c74bd3f822f4f6bfb7238f467b118d324635d101bd9",
+    "tests/test_atco2_comparison_2024141460331.py": "59a6b7bf258537480aa908db3c8860b46a64b12f162932c9a9f990e1fe67d71b",
+    "tests/test_atco2_eval_2024141460331.py": "05a52a26938fc73ed17e0f1013004144a377cd9258af3729393eeeb185e9638c",
+    "tests/test_audio_2024141460331.py": "58022af6c453ff11750c38b50d3aee06de661f4b1d58c6ecf93c97bb1daaaa68",
+    "tests/test_cli_2024141460331.py": "63c219273870bf3f4879c4eb94c0acab6ff928bd335174a0308701ea42c390b3",
+    "tests/test_client_2024141460331.py": "8f0df788065c2d3313457caa7e597e481fb4987ce54ed4d47e5a80e41c36681c",
+    "tests/test_diagnostics_2024141460331.py": "2bd5b0f7ae3dbb7d648189cb0f1a2a70df977cb6cbf12ffbdbf2f8400b60a6f5",
+    "tests/test_http_api_2024141460331.py": "18d26dbe94de82dceb6ba800c467b8b8e180170482b5adae0e48a7c2b36837a8",
+    "tests/test_legacy_compatibility_2024141460331.py": "8d4eca2d9a804e9701be200cbe83778efd5574eecbea7e44bbe7452f5ffcb6e5",
+    "tests/test_limits_2024141460331.py": "bc2ba03eaa5f71788418302d304765a92422ae0944d6342663892c386cbf2a0d",
+    "tests/test_models_2024141460331.py": "b67dfcba17ac45f16759bdade602cc3869be28cefabefbea52bbcda7147fee83",
+    "tests/test_outcomes_2024141460331.py": "940f29ed719bd13c0f1e44c66cb901b8bfed5b01d389e92b6d5e249d7d0355b2",
+    "tests/test_postgres_2024141460331.py": "61e41dfb83fc88151a7c747f2dca2d0a37418d09684028a537f043aa3d9f3781",
+    "tests/test_postgres_revision_2024141460331.py": "3435ee8c07a3137aa42c93646969757f8ccd40275bbbdc3143b9da75bddc51e2",
+    "tests/test_revision_service_2024141460331.py": "5a2c94c46a9a972956b3fd282c0fdeaeca68dcca30836fd1e49528e861c0620b",
+    "tests/test_save_recovery_2024141460331.py": "68d4becc72a0d590aa4c62567a12c1d5b7f3a40ef8c591aa859a2fdec55361a6",
+    "tests/test_segments_2024141460331.py": "95d2c0b7a2a6c12fdb7334094e75675e1c02a8a81112606ad0637ff9aeff1749",
+    "tests/test_service_2024141460331.py": "84b57e7056f0316b445e3d52e727e624b631fded4f4ffd9cd2461234cb9a297a",
+    "tests/test_storage_config_2024141460331.py": "81e0ad3aa954e0b0024abfcebb2341ca633ae0dcd0681c36efbfab44fcd76a8f",
+    "tests/test_transcript_http_2024141460331.py": "ce08bb54ecc7622dd3bc6131c75d1afd17068ae2ea813693299807ace8d1af5e",
+    "tests/test_webrtc_sensevoice_2024141460331.py": "d0d29def20cd66a159d18ee0552dc6b2f21624cc38f21207e18c3f235a1cef73",
+    "tests/test_whisper_atc_experiment_2024141460331.py": "62c992bba31bd4c27d98020bb4667604fd81c9516d48d126a5fd0c584be3fb84",
+    "tests/test_xlsr_webrtc_engine_2024141460331.py": "ecd97da592c5b94efbfb5369fb18d53851b8fa2b98beaf95393480615b65839a",
+    "pyproject.toml": "75038dc49685dfc61d3b7c0b5056dd7907200e8fa11a059fbdde62a2b54ab9a2",
+    "requirements.lock.txt": "e2adf22180bde8d2f0e6d6f2a8de06a85f14043b0155167135a834d4ff5f5cb7"
+  },
+  "sourceNotes": "工作树有既有未提交修改；提交哈希仅为基点，实际被测文件以上述指纹为准。",
+  "normativeSources": {
+    "课程模板": {
+      "path": "D:\\course_project\\现代软件工程\\template\\项目开发模板\\05-测试分析报告.doc",
+      "sha256": "af833016e6c7605c5fe589d4da254616324e2e0c5de0f47f87832adebb2b43b2"
+    },
+    "质量评价标准原件": {
+      "path": "D:\\course_project\\项目工作质量评价标准.pdf",
+      "sha256": "5112281d1f6083b9ca6f2f91c27c5511422e369bf2cdfa4b2cf906524737799d"
+    },
+    "现有个人命名准则": {
+      "path": "D:\\course_project\\现代软件工程\\SEPA2026_TeamBlue\\李洪\\docs\\个人文件与代码命名准则.md",
+      "sha256": "0ac320c5b0315145104e7535be16a7ffc8c65cf2ff165d1c6a80dc43ab24f0e9"
+    }
+  },
+  "command": "python -m pytest -q -rs -p no:cacheprovider --junitxml=outputs/testing-traceability-20261110/pytest.xml",
+  "environment": {
+    "pythonVersion": "Python 3.13.9",
+    "system": "Windows-11-10.0.26200-SP0",
+    "realDatabaseEnabled": false,
+    "realModelEnabled": false
+  },
+  "totals": {
+    "passed": 420,
+    "skipped": 26,
+    "failed": 0
+  },
+  "countsMeaning": "totals为pytest参数实例数；cases为关键逻辑用例分组，不能相加；plannedCases未执行，不混入pytest数量。",
+  "log": {
+    "path": "outputs/testing-traceability-20261110/pytest.log",
+    "sha256": "c5be45fd0cf87a31f80cbdc7ab481d7626bd8fb2a5a81d46f4050c68bae6f0a8"
+  },
+  "junit": {
+    "path": "outputs/testing-traceability-20261110/pytest.xml",
+    "sha256": "6e5231c49822bb3634312cb742ba504a128fe6ee9e3392b228be7d37b839cae5"
+  },
+  "checks": [
+    {
+      "command": "python -m ruff check src tests --no-cache",
+      "exitCode": 0,
+      "output": "All checks passed!"
+    },
+    {
+      "command": "python -m ruff format --check src tests --no-cache",
+      "exitCode": 0,
+      "output": "37 files already formatted"
+    },
+    {
+      "command": "python -m pip check",
+      "exitCode": 0,
+      "output": "No broken requirements found."
+    }
+  ],
+  "namingAudit": {
+    "checkedDirectories": [
+      "src",
+      "tests",
+      "tools"
+    ],
+    "ordinaryFileCount": 52,
+    "fileSuffixViolations": [],
+    "fixedPythonFiles": [
+      "src/a4_speech/__init__.py",
+      "src/a4_speech/__main__.py"
+    ],
+    "controlSymbolViolations": []
+  },
+  "cases": [
+    {
+      "id": "TC-A4-01",
+      "requirement": "RQ-A-4-10",
+      "requirementClause": "§3.1.1、§3.3",
+      "designSection": "§4.12",
+      "title": "配置上限的无效类",
+      "equivalencePartition": "零/负数/布尔/小数/字符串/空值无效；有效正整数由TC-A4-02覆盖",
+      "inputAndPrecondition": "分别传入0、-1、True、1.5、字符串500、None",
+      "expected": "初始化拒绝非法配置，不进入业务处理",
+      "selector": "tests/test_limits_2024141460331.py::test_invalid_limit_is_rejected_before_work",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_limits_2024141460331",
+          "name": "test_invalid_limit_is_rejected_before_work[0]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_limits_2024141460331",
+          "name": "test_invalid_limit_is_rejected_before_work[-1]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_limits_2024141460331",
+          "name": "test_invalid_limit_is_rejected_before_work[True]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_limits_2024141460331",
+          "name": "test_invalid_limit_is_rejected_before_work[1.5]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_limits_2024141460331",
+          "name": "test_invalid_limit_is_rejected_before_work[500]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_limits_2024141460331",
+          "name": "test_invalid_limit_is_rejected_before_work[None]",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 6,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-01"
+    },
+    {
+      "id": "TC-A4-02",
+      "requirement": "RQ-A-4-10",
+      "requirementClause": "§3.1.1、§3.2.2",
+      "designSection": "§4.12",
+      "title": "片段数N−1/N/N+1",
+      "equivalencePartition": "数量边界；N=2",
+      "inputAndPrecondition": "可控引擎返回1/2/3段；公共服务为桩",
+      "expected": "1、2段可进入正常处理；3段超限，零段登记、零任务、零写入和零推理",
+      "selector": "tests/test_limits_2024141460331.py::test_configured_boundary_and_zero_side_effects",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_limits_2024141460331",
+          "name": "test_configured_boundary_and_zero_side_effects[1]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_limits_2024141460331",
+          "name": "test_configured_boundary_and_zero_side_effects[2]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_limits_2024141460331",
+          "name": "test_configured_boundary_and_zero_side_effects[3]",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 3,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-02"
+    },
+    {
+      "id": "TC-A4-03",
+      "requirement": "RQ-A-4-10",
+      "requirementClause": "§3.1.1、§3.2.2",
+      "designSection": "§4.12",
+      "title": "默认500段上限",
+      "equivalencePartition": "默认值与上界外",
+      "inputAndPrecondition": "未配置上限；桩返回501段",
+      "expected": "JOB_SEGMENT_LIMIT，上限500；不写入、不推理",
+      "selector": "tests/test_limits_2024141460331.py::test_default_limit_remains_500_and_is_enforced",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_limits_2024141460331",
+          "name": "test_default_limit_remains_500_and_is_enforced",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-03"
+    },
+    {
+      "id": "TC-A4-04",
+      "requirement": "RQ-A-4-10",
+      "requirementClause": "§3.1.1、§3.3",
+      "designSection": "§4.12",
+      "title": "非法时间区间",
+      "equivalencePartition": "负起点/零长度/越界/重叠/重复/布尔类型",
+      "inputAndPrecondition": "3000ms录音；使用用例所列非法VAD区间",
+      "expected": "拒绝非法片段，不通过裁剪或平移掩盖输入错误",
+      "selector": "tests/test_segments_2024141460331.py::test_invalid_vad_spans_rejected_before_write",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_segments_2024141460331",
+          "name": "test_invalid_vad_spans_rejected_before_write[spans0]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_segments_2024141460331",
+          "name": "test_invalid_vad_spans_rejected_before_write[spans1]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_segments_2024141460331",
+          "name": "test_invalid_vad_spans_rejected_before_write[spans2]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_segments_2024141460331",
+          "name": "test_invalid_vad_spans_rejected_before_write[spans3]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_segments_2024141460331",
+          "name": "test_invalid_vad_spans_rejected_before_write[spans4]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_segments_2024141460331",
+          "name": "test_invalid_vad_spans_rejected_before_write[spans5]",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 6,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-04"
+    },
+    {
+      "id": "TC-A4-05",
+      "requirement": "RQ-A-4-10",
+      "requirementClause": "§3.1.1、§3.2.1",
+      "designSection": "§4.12",
+      "title": "UTC时间对应",
+      "equivalencePartition": "正确时间与错误偏移",
+      "inputAndPrecondition": "录音起点2026-10-17T00:00:00Z、相对0—1000ms；另提供不匹配结束时刻",
+      "expected": "正确关联通过；错误绝对时刻TIME_MISMATCH",
+      "selector": "tests/test_segments_2024141460331.py::test_absolute_timestamp_is_utc_recording_start_plus_offset",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_segments_2024141460331",
+          "name": "test_absolute_timestamp_is_utc_recording_start_plus_offset",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-05"
+    },
+    {
+      "id": "TC-A4-06",
+      "requirement": "RQ-A-4-10",
+      "requirementClause": "§3.1.1",
+      "designSection": "§4.12",
+      "title": "精确重复片段与相邻段",
+      "equivalencePartition": "精确重复可复用；首尾相接可新增",
+      "inputAndPrecondition": "已有0—1000ms段；请求0—1000及1000—2000ms",
+      "expected": "复用已有ID和序号，仅规划新增相邻段",
+      "selector": "tests/test_segments_2024141460331.py::test_exact_segment_reuses_id_and_sequence",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_segments_2024141460331",
+          "name": "test_exact_segment_reuses_id_and_sequence",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-06"
+    },
+    {
+      "id": "TC-A4-07",
+      "requirement": "RQ-A-4-10",
+      "requirementClause": "§3.1.1、§3.5",
+      "designSection": "§4.12",
+      "title": "无语音",
+      "equivalencePartition": "无语音与处理失败分开",
+      "inputAndPrecondition": "可控VAD返回无语音",
+      "expected": "no_speech；无空段、无空ASR任务和伪造文本",
+      "selector": "tests/test_service_2024141460331.py::test_no_speech_creates_no_empty_segments_or_asr_job",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_service_2024141460331",
+          "name": "test_no_speech_creates_no_empty_segments_or_asr_job",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-07"
+    },
+    {
+      "id": "TC-A4-08",
+      "requirement": "RQ-A-4-10/20",
+      "requirementClause": "§3.1.1—3.1.2",
+      "designSection": "§4.12、§5.12",
+      "title": "部分成功及有效子集保存",
+      "equivalencePartition": "多段中途失败",
+      "inputAndPrecondition": "前段成功、第2段失败、后续尚未执行；使用模型和HTTP边界桩",
+      "expected": "保留有效文本，停止后续推理，分别记录失败/未处理；保存后仍partial",
+      "selector": "tests/test_service_2024141460331.py::test_second_segment_failure_retains_partial_text_and_saves_valid_subset",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_service_2024141460331",
+          "name": "test_second_segment_failure_retains_partial_text_and_saves_valid_subset",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-08"
+    },
+    {
+      "id": "TC-A4-09",
+      "requirement": "RQ-A-4-10",
+      "requirementClause": "§3.1.1、§3.5",
+      "designSection": "§4.12",
+      "title": "首段识别失败",
+      "equivalencePartition": "无有效成功段",
+      "inputAndPrecondition": "第1段识别失败",
+      "expected": "failed而非成功或no_speech，不伪造有效结果",
+      "selector": "tests/test_service_2024141460331.py::test_first_segment_failure_is_not_success_or_no_speech",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_service_2024141460331",
+          "name": "test_first_segment_failure_is_not_success_or_no_speech",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-09"
+    },
+    {
+      "id": "TC-A4-10",
+      "requirement": "RQ-A-4-10",
+      "requirementClause": "§3.1.1、§3.5",
+      "designSection": "§4.12",
+      "title": "模型加载失败",
+      "equivalencePartition": "加载失败与片段失败分开",
+      "inputAndPrecondition": "模型准备阶段抛出故障",
+      "expected": "不当作已完成某片段的ASR失败，不虚报任务处理量",
+      "selector": "tests/test_service_2024141460331.py::test_model_load_failure_is_not_a_failed_segment",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_service_2024141460331",
+          "name": "test_model_load_failure_is_not_a_failed_segment",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-10"
+    },
+    {
+      "id": "TC-A4-11",
+      "requirement": "RQ-A-4-10",
+      "requirementClause": "§3.1.1、§3.3",
+      "designSection": "§4.12、§6.4",
+      "title": "HTTP无凭据/错误凭据",
+      "equivalencePartition": "缺失与无效认证",
+      "inputAndPrecondition": "通过真实个人HTTP应用的测试客户端请求；共享服务使用桩",
+      "expected": "拒绝认证，不启动处理",
+      "selector": "tests/test_http_api_2024141460331.py::test_unauthenticated_request_cannot_start_processing",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_http_api_2024141460331",
+          "name": "test_unauthenticated_request_cannot_start_processing[None]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_http_api_2024141460331",
+          "name": "test_unauthenticated_request_cannot_start_processing[incorrect-key]",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 2,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-11"
+    },
+    {
+      "id": "TC-A4-12",
+      "requirement": "RQ-A-4-10",
+      "requirementClause": "§3.3、§3.5",
+      "designSection": "§4.12、§6.4",
+      "title": "HTTP参数与响应格式",
+      "equivalencePartition": "缺失/类型/格式无效",
+      "inputAndPrecondition": "用例列出的非法请求体及头",
+      "expected": "返回problem错误，写入前拒绝",
+      "selector": "tests/test_http_api_2024141460331.py::test_invalid_http_input_is_problem_response_before_any_write",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_http_api_2024141460331",
+          "name": "test_invalid_http_input_is_problem_response_before_any_write[body0-headers0]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_http_api_2024141460331",
+          "name": "test_invalid_http_input_is_problem_response_before_any_write[body1-headers1]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_http_api_2024141460331",
+          "name": "test_invalid_http_input_is_problem_response_before_any_write[body2-headers2]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_http_api_2024141460331",
+          "name": "test_invalid_http_input_is_problem_response_before_any_write[body3-headers3]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_http_api_2024141460331",
+          "name": "test_invalid_http_input_is_problem_response_before_any_write[body4-headers4]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_http_api_2024141460331",
+          "name": "test_invalid_http_input_is_problem_response_before_any_write[body5-headers5]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_http_api_2024141460331",
+          "name": "test_invalid_http_input_is_problem_response_before_any_write[body6-headers6]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_http_api_2024141460331",
+          "name": "test_invalid_http_input_is_problem_response_before_any_write[body7-headers7]",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 8,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-12"
+    },
+    {
+      "id": "TC-A4-13",
+      "requirement": "RQ-A-4-10",
+      "requirementClause": "§3.1.1、§3.5",
+      "designSection": "§4.12",
+      "title": "模型占用时第二个转写",
+      "equivalencePartition": "并发占用与空闲",
+      "inputAndPrecondition": "首个请求占用模型，再提交第二个请求",
+      "expected": "第二请求明确拒绝，不共享可变识别状态；不是负载性能测试",
+      "selector": "tests/test_http_api_2024141460331.py::test_parallel_request_is_rejected_before_sharing_mutable_model_state",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_http_api_2024141460331",
+          "name": "test_parallel_request_is_rejected_before_sharing_mutable_model_state",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-13"
+    },
+    {
+      "id": "TC-A4-14",
+      "requirement": "RQ-A-4-10/20",
+      "requirementClause": "§3.1.1—3.1.2",
+      "designSection": "§4.12、§5.12",
+      "title": "转写与独立保存分离",
+      "equivalencePartition": "先转写后保存",
+      "inputAndPrecondition": "取得结果后用不带模型的服务保存",
+      "expected": "转写不自动发布文本；独立保存无需重新加载模型",
+      "selector": "tests/test_service_2024141460331.py::test_transcription_does_not_save_and_can_be_saved_without_models",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_service_2024141460331",
+          "name": "test_transcription_does_not_save_and_can_be_saved_without_models",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-14"
+    },
+    {
+      "id": "TC-A4-15",
+      "requirement": "RQ-A-4-20",
+      "requirementClause": "§3.1.2、§3.4",
+      "designSection": "§5.12",
+      "title": "保存及读回内容",
+      "equivalencePartition": "完整有效结果",
+      "inputAndPrecondition": "可控引擎及共享HTTP桩",
+      "expected": "文本、时间和来源历史按测试断言一致；不证明真实数据库持久性",
+      "selector": "tests/test_service_2024141460331.py::test_success_saves_all_and_reads_back_text_time_and_history",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_service_2024141460331",
+          "name": "test_success_saves_all_and_reads_back_text_time_and_history",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-15"
+    },
+    {
+      "id": "TC-A4-16",
+      "requirement": "RQ-A-4-20",
+      "requirementClause": "§3.1.2、§3.5",
+      "designSection": "§5.12",
+      "title": "明确保存拒绝",
+      "equivalencePartition": "明确拒绝与提交未知分开",
+      "inputAndPrecondition": "保存接口抛403/FORBIDDEN，本批未写文本",
+      "expected": "SAVE_FAILED并保留请求标识；无文本写入",
+      "selector": "tests/test_save_recovery_2024141460331.py::test_definite_save_rejection_is_distinct_from_uncertain_delivery",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_save_recovery_2024141460331",
+          "name": "test_definite_save_rejection_is_distinct_from_uncertain_delivery",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-16"
+    },
+    {
+      "id": "TC-A4-17",
+      "requirement": "RQ-A-4-20",
+      "requirementClause": "§3.1.2、§3.5",
+      "designSection": "§5.12",
+      "title": "提交后超时确认",
+      "equivalencePartition": "已提交但响应丢失",
+      "inputAndPrecondition": "HTTP桩在保存后制造超时",
+      "expected": "读回确认成功，不再次POST，不重复写文本",
+      "selector": "tests/test_service_2024141460331.py::test_save_timeout_after_commit_is_confirmed_by_readback_without_repost",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_service_2024141460331",
+          "name": "test_save_timeout_after_commit_is_confirmed_by_readback_without_repost",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-17"
+    },
+    {
+      "id": "TC-A4-18",
+      "requirement": "RQ-A-4-20",
+      "requirementClause": "§3.1.2、§3.5",
+      "designSection": "§5.12",
+      "title": "拒绝响应但出现部分写入",
+      "equivalencePartition": "部分写入/确认不足",
+      "inputAndPrecondition": "模拟拒绝响应且存在部分数据写入",
+      "expected": "保留未确认语义，不误判全部未写入",
+      "selector": "tests/test_save_recovery_2024141460331.py::test_definite_http_rejection_with_partial_write_is_still_unconfirmed",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_save_recovery_2024141460331",
+          "name": "test_definite_http_rejection_with_partial_write_is_still_unconfirmed",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-18"
+    },
+    {
+      "id": "TC-A4-19",
+      "requirement": "RQ-A-4-20",
+      "requirementClause": "§3.1.2、§3.4",
+      "designSection": "§5.12",
+      "title": "已编辑文本保护",
+      "equivalencePartition": "已有人工结果",
+      "inputAndPrecondition": "已有经人工修改的转写记录，再请求识别",
+      "expected": "拒绝覆盖已有有效文本",
+      "selector": "tests/test_service_2024141460331.py::test_existing_edited_text_is_never_overwritten",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_service_2024141460331",
+          "name": "test_existing_edited_text_is_never_overwritten",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-19"
+    },
+    {
+      "id": "TC-A4-20",
+      "requirement": "RQ-A-4-20",
+      "requirementClause": "§3.1.2、§3.3",
+      "designSection": "§5.12",
+      "title": "修订输入的无效类",
+      "equivalencePartition": "空操作/错类型/超长文本/非法版本/空或超长原因/非法状态",
+      "inputAndPrecondition": "按参数化用例逐项提交无效修订",
+      "expected": "INVALID_REVISION；无修订请求写入",
+      "selector": "tests/test_revision_service_2024141460331.py::test_invalid_revision_never_writes",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_revision_service_2024141460331",
+          "name": "test_invalid_revision_never_writes[changes0]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_revision_service_2024141460331",
+          "name": "test_invalid_revision_never_writes[changes1]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_revision_service_2024141460331",
+          "name": "test_invalid_revision_never_writes[changes2]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_revision_service_2024141460331",
+          "name": "test_invalid_revision_never_writes[changes3]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_revision_service_2024141460331",
+          "name": "test_invalid_revision_never_writes[changes4]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_revision_service_2024141460331",
+          "name": "test_invalid_revision_never_writes[changes5]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_revision_service_2024141460331",
+          "name": "test_invalid_revision_never_writes[changes6]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_revision_service_2024141460331",
+          "name": "test_invalid_revision_never_writes[changes7]",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 8,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-20"
+    },
+    {
+      "id": "TC-A4-21",
+      "requirement": "RQ-A-4-20",
+      "requirementClause": "§3.1.2、§3.4",
+      "designSection": "§5.12",
+      "title": "修订原文及历史保护",
+      "equivalencePartition": "合法文本修订",
+      "inputAndPrecondition": "有效用户凭据、原因、当前期望版本和新文本；上游为桩",
+      "expected": "当前文本更新，原文不变，版本和历史可核对",
+      "selector": "tests/test_revision_service_2024141460331.py::test_revision_preserves_raw_and_returns_verified_edit_history",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_revision_service_2024141460331",
+          "name": "test_revision_preserves_raw_and_returns_verified_edit_history",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-21"
+    },
+    {
+      "id": "TC-A4-22",
+      "requirement": "RQ-A-4-20",
+      "requirementClause": "§3.1.2、§3.4",
+      "designSection": "§5.12",
+      "title": "仅审核状态变更",
+      "equivalencePartition": "文本不变而状态变化",
+      "inputAndPrecondition": "提交当前版本和新审核状态",
+      "expected": "版本推进，历史保留状态变化",
+      "selector": "tests/test_revision_service_2024141460331.py::test_review_only_revision_advances_version_and_records_state_transition",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_revision_service_2024141460331",
+          "name": "test_review_only_revision_advances_version_and_records_state_transition",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-22"
+    },
+    {
+      "id": "TC-A4-23",
+      "requirement": "RQ-A-4-20",
+      "requirementClause": "§3.1.2、§3.4",
+      "designSection": "§5.12",
+      "title": "旧版本修订",
+      "equivalencePartition": "过期期望版本",
+      "inputAndPrecondition": "预读版本与请求expectedRevision不一致",
+      "expected": "冲突，不覆盖新版本",
+      "selector": "tests/test_revision_service_2024141460331.py::test_stale_revision_is_conflict_and_cannot_overwrite",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_revision_service_2024141460331",
+          "name": "test_stale_revision_is_conflict_and_cannot_overwrite",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-23"
+    },
+    {
+      "id": "TC-A4-24",
+      "requirement": "RQ-A-4-20",
+      "requirementClause": "§3.1.2、§3.5",
+      "designSection": "§5.12",
+      "title": "上游原子冲突",
+      "equivalencePartition": "预查后实际提交冲突",
+      "inputAndPrecondition": "上游PATCH返回冲突",
+      "expected": "REVISION_CONFLICT；只提交一次，不自动重试",
+      "selector": "tests/test_revision_service_2024141460331.py::test_atomic_upstream_conflict_is_not_retried",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_revision_service_2024141460331",
+          "name": "test_atomic_upstream_conflict_is_not_retried",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-24"
+    },
+    {
+      "id": "TC-A4-25",
+      "requirement": "RQ-A-4-20",
+      "requirementClause": "§3.1.2、§3.5",
+      "designSection": "§5.12",
+      "title": "无权限修订",
+      "equivalencePartition": "认证存在但权限不足",
+      "inputAndPrecondition": "上游返回403/FORBIDDEN",
+      "expected": "保留拒绝授权状态和错误码",
+      "selector": "tests/test_revision_service_2024141460331.py::test_revision_forbidden_preserves_authorization_failure",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_revision_service_2024141460331",
+          "name": "test_revision_forbidden_preserves_authorization_failure",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-25"
+    },
+    {
+      "id": "TC-A4-26",
+      "requirement": "RQ-A-4-20",
+      "requirementClause": "§3.1.2、§3.5",
+      "designSection": "§5.12",
+      "title": "修订未确认",
+      "equivalencePartition": "响应丢失/原文被破坏/历史缺失",
+      "inputAndPrecondition": "分别注入lost_response、corrupt_raw、missing_history",
+      "expected": "不报告确认成功，反馈REVISION_UNCONFIRMED",
+      "selector": "tests/test_revision_service_2024141460331.py::test_uncertain_or_unverifiable_revision_is_not_reported_confirmed",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_revision_service_2024141460331",
+          "name": "test_uncertain_or_unverifiable_revision_is_not_reported_confirmed[lost_response]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_revision_service_2024141460331",
+          "name": "test_uncertain_or_unverifiable_revision_is_not_reported_confirmed[corrupt_raw]",
+          "status": "passed",
+          "reason": ""
+        },
+        {
+          "class": "tests.test_revision_service_2024141460331",
+          "name": "test_uncertain_or_unverifiable_revision_is_not_reported_confirmed[missing_history]",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 3,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-26"
+    },
+    {
+      "id": "TC-A4-27",
+      "requirement": "RQ-A-4-20",
+      "requirementClause": "§3.1.2、§3.4",
+      "designSection": "§5.12",
+      "title": "无变化修订",
+      "equivalencePartition": "请求有效但文本和状态均未变化",
+      "inputAndPrecondition": "当前版本提交相同内容",
+      "expected": "不新增重复历史、不无故升版",
+      "selector": "tests/test_revision_service_2024141460331.py::test_no_change_revision_does_not_create_duplicate_history",
+      "layer": "组件/模拟接口",
+      "defect": "无对应未关闭缺陷",
+      "executionStatus": "通过",
+      "nodes": [
+        {
+          "class": "tests.test_revision_service_2024141460331",
+          "name": "test_no_change_revision_does_not_create_duplicate_history",
+          "status": "passed",
+          "reason": ""
+        }
+      ],
+      "nodeCounts": {
+        "passed": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "actual": "本次该函数全部参数实例通过其现有断言。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-27"
+    },
+    {
+      "id": "TC-A4-28",
+      "requirement": "RQ-A-4-20",
+      "requirementClause": "§3.1.2、§3.4",
+      "designSection": "§5.12",
+      "title": "真实数据库保存读回与重试",
+      "equivalencePartition": "持久化、重复调用",
+      "inputAndPrecondition": "需要已初始化且隔离的A4_TEST_DATABASE_URL；本次未提供",
+      "expected": "真实表中读回原文/任务/历史一致，重复保存不重复写入",
+      "selector": "tests/test_postgres_2024141460331.py::test_real_save_readback_and_retry_2024141460331",
+      "layer": "真实数据库",
+      "defect": "L02/L05；前置与来源待核验",
+      "executionStatus": "未执行（跳过）",
+      "nodes": [
+        {
+          "class": "tests.test_postgres_2024141460331",
+          "name": "test_real_save_readback_and_retry_2024141460331",
+          "status": "skipped",
+          "reason": "A4_TEST_DATABASE_URL is not configured"
+        }
+      ],
+      "nodeCounts": {
+        "passed": 0,
+        "skipped": 1,
+        "failed": 0
+      },
+      "actual": "缺少本次真实依赖；用例跳过，未观察预期业务结果。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-28"
+    },
+    {
+      "id": "TC-A4-29",
+      "requirement": "RQ-A-4-20",
+      "requirementClause": "§3.1.2、§3.4",
+      "designSection": "§5.12",
+      "title": "同版本并发修订",
+      "equivalencePartition": "并发竞争",
+      "inputAndPrecondition": "隔离真实数据库；IAM HTTP边界为MockTransport，不等于真实登录服务",
+      "expected": "两个编辑者至多一方变更成功，另一方冲突，不静默覆盖",
+      "selector": "tests/test_postgres_revision_2024141460331.py::test_concurrent_editors_cannot_silently_overwrite",
+      "layer": "真实数据库＋身份桩",
+      "defect": "L02/L05；前置与来源待核验",
+      "executionStatus": "未执行（跳过）",
+      "nodes": [
+        {
+          "class": "tests.test_postgres_revision_2024141460331",
+          "name": "test_concurrent_editors_cannot_silently_overwrite",
+          "status": "skipped",
+          "reason": "A4_TEST_DATABASE_URL is not configured"
+        }
+      ],
+      "nodeCounts": {
+        "passed": 0,
+        "skipped": 1,
+        "failed": 0
+      },
+      "actual": "缺少本次真实依赖；用例跳过，未观察预期业务结果。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-29"
+    },
+    {
+      "id": "TC-A4-30",
+      "requirement": "RQ-A-4-20",
+      "requirementClause": "§3.1.2、§3.4—3.5",
+      "designSection": "§5.12",
+      "title": "事务结束前故障回滚",
+      "equivalencePartition": "SQL执行后事务结束前失败",
+      "inputAndPrecondition": "隔离真实数据库；身份HTTP为桩；事务包装器在实际SQL后、事务结束前抛OperationalError，不是直接注入审计语句故障",
+      "expected": "当前文本和历史回滚，不留下半次修订；本用例不证明所有实际审计故障路径",
+      "selector": "tests/test_postgres_revision_2024141460331.py::test_audit_failure_rolls_back_text_and_history",
+      "layer": "真实数据库＋身份桩",
+      "defect": "L02/L05；前置与来源待核验",
+      "executionStatus": "未执行（跳过）",
+      "nodes": [
+        {
+          "class": "tests.test_postgres_revision_2024141460331",
+          "name": "test_audit_failure_rolls_back_text_and_history",
+          "status": "skipped",
+          "reason": "A4_TEST_DATABASE_URL is not configured"
+        }
+      ],
+      "nodeCounts": {
+        "passed": 0,
+        "skipped": 1,
+        "failed": 0
+      },
+      "actual": "缺少本次真实依赖；用例跳过，未观察预期业务结果。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-30"
+    },
+    {
+      "id": "TC-A4-31",
+      "requirement": "RQ-A-4-10",
+      "requirementClause": "§3.1.1、§3.2.1",
+      "designSection": "§4.12",
+      "title": "真实模型直接推理",
+      "equivalencePartition": "真实有语音与静音",
+      "inputAndPrecondition": "需要本地可信模型配置和授权音频；本次未提供",
+      "expected": "静音无段；有语音生成非空文本；不据此判断识别准确率",
+      "selector": "tests/test_models_2024141460331.py::test_actual_silero_silence_and_sensevoice_audio",
+      "layer": "真实模型",
+      "defect": "L01；识别质量另行抽听",
+      "executionStatus": "未执行（跳过）",
+      "nodes": [
+        {
+          "class": "tests.test_models_2024141460331",
+          "name": "test_actual_silero_silence_and_sensevoice_audio",
+          "status": "skipped",
+          "reason": "set A4_REAL_MODEL_CONFIG and A4_REAL_TEST_AUDIO to local files"
+        }
+      ],
+      "nodeCounts": {
+        "passed": 0,
+        "skipped": 1,
+        "failed": 0
+      },
+      "actual": "缺少本次真实依赖；用例跳过，未观察预期业务结果。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-31"
+    },
+    {
+      "id": "TC-A4-32",
+      "requirement": "RQ-A-4-10",
+      "requirementClause": "§3.1.1、§3.3",
+      "designSection": "§4.12、§6.4",
+      "title": "真实CPU模型通过个人HTTP",
+      "equivalencePartition": "真实模型与模拟上游组合",
+      "inputAndPrecondition": "需要本地模型及音频；共享服务使用MockTransport",
+      "expected": "个人HTTP路径调用真实模型返回结果；不证明真实公共服务或数据库",
+      "selector": "tests/test_http_api_2024141460331.py::test_actual_cpu_model_through_http_with_simulated_shared_services",
+      "layer": "真实模型＋上游桩",
+      "defect": "L01；共享部署另验",
+      "executionStatus": "未执行（跳过）",
+      "nodes": [
+        {
+          "class": "tests.test_http_api_2024141460331",
+          "name": "test_actual_cpu_model_through_http_with_simulated_shared_services",
+          "status": "skipped",
+          "reason": "set A4_REAL_MODEL_CONFIG and A4_REAL_TEST_AUDIO to local assets"
+        }
+      ],
+      "nodeCounts": {
+        "passed": 0,
+        "skipped": 1,
+        "failed": 0
+      },
+      "actual": "缺少本次真实依赖；用例跳过，未观察预期业务结果。",
+      "executedAt": "2026-11-10T17:59:09+08:00",
+      "evidence": "2026-11-10-关键测试追踪与回归记录.json#TC-A4-32"
+    }
+  ],
+  "plannedCases": [
+    {
+      "id": "TC-A4-33",
+      "requirement": "RQ-A-4-10/20",
+      "design": "§4.12、§5.12、§7.2",
+      "title": "纯团队main端到端",
+      "input": "从正式团队main空库初始化，真实录音UUID、UTC、编排、转写、保存、读回与修订",
+      "expected": "正式数据关联和历史完整；重启后仍可读回",
+      "status": "阻塞；未执行",
+      "defect": "L02/L05",
+      "evidence": "2026-11-07-团队主仓库数据库独立部署复核.md；仅历史前置证据，不等于11/10动态重建"
+    },
+    {
+      "id": "TC-A4-34",
+      "requirement": "RQ-A-4-10",
+      "design": "§4.12",
+      "title": "代表性ATC抽听确认",
+      "input": "来源明确的少量可复核ATC音频及机器稿，由用户逐项确认",
+      "expected": "文本与音频有可辨认对应，时间/来源可解释；错误和待确认项如实记录，不增设WER阈值",
+      "status": "本次未重做；历史仅C15-02有明确漏识别反馈",
+      "defect": "L01",
+      "evidence": "2026-11-07-VHHH轻量质量检查.md"
+    },
+    {
+      "id": "TC-A4-35",
+      "requirement": "RQ-A-4-10/20",
+      "design": "§4.3、§5.3、§7.2",
+      "title": "目标资源与负载",
+      "input": "约定的目标部署、真实音频时长、CPU/内存及并发负载，分开计时",
+      "expected": "与需求§3.2.2建议目标同口径比较，不以桩的501段代表真实性能",
+      "status": "本次未执行；历史512MiB有OOM反例",
+      "defect": "L04",
+      "evidence": "2026-11-03-ASR容器与512MiB内存验证.md"
+    },
+    {
+      "id": "TC-A4-36",
+      "requirement": "RQ-A-4-20",
+      "design": "§5.12、§6.4",
+      "title": "修订明确拒绝/回滚/未知的错误语义",
+      "input": "身份不可用、历史校验回滚、提交后响应丢失三类故障；分别核对错误、读回和副作用",
+      "expected": "对有证据的拒绝和回滚不误称已写入；提交未知先核对；与批准后的接口约定一致",
+      "status": "开放缺陷，待确定修复方案并补回归；本次不重演故障",
+      "defect": "L07/DR-08",
+      "evidence": "05-测试分析报告-RQ-A-4-10_20.md §3.8；既有error-mapping.json为历史模拟结果"
+    }
+  ],
+  "phaseVerdicts": {
+    "组件回归执行": "通过；仅指本次已执行的现有断言",
+    "组件质量交付": "附L07等限制；未正式审核批准",
+    "真实模型": "本次未执行",
+    "真实数据库": "本次未执行",
+    "纯团队main集成": "未完成",
+    "最终需求验收": "未完成"
+  },
+  "recordCoverage": {
+    "keyCaseGroups": 32,
+    "keyPassedGroups": 27,
+    "keySkippedGroups": 5,
+    "keyPassedInstances": 56,
+    "keySkippedInstances": 5,
+    "fullSuiteSkippedDatabaseInstances": 23,
+    "fullSuiteSkippedRealModelInstances": 3,
+    "note": "逐参数记录针对本附表选定的关键用例；整套回归完整JUnit在ignored输出目录，摘要数量不相加。"
+  }
+}

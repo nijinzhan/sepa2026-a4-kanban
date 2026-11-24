@@ -1,0 +1,76 @@
+{
+  "finishedUtc": "2026-10-23T12:26:08.588813+00:00",
+  "purpose": "diagnostic ITN ablation; reused public ATCO2 set; non-VHHH; not a new holdout",
+  "recordings": 49,
+  "segments": 54,
+  "elapsedSeconds": 40.770990599998186,
+  "scores": {
+    "itnOn": {
+      "strict": {
+        "S": 360,
+        "D": 366,
+        "I": 8,
+        "N": 892,
+        "wer": 0.8228699551569507
+      },
+      "numericNormalized": {
+        "S": 254,
+        "D": 325,
+        "I": 15,
+        "N": 902,
+        "wer": 0.6585365853658537
+      }
+    },
+    "itnOff": {
+      "strict": {
+        "S": 260,
+        "D": 327,
+        "I": 13,
+        "N": 892,
+        "wer": 0.672645739910314
+      },
+      "numericNormalized": {
+        "S": 260,
+        "D": 325,
+        "I": 13,
+        "N": 902,
+        "wer": 0.6629711751662971
+      }
+    }
+  },
+  "itnOffSnapshot": {
+    "schemaVersion": 1,
+    "vad": {
+      "engineCode": "webrtc-vad",
+      "modelName": "webrtcvad-wheels",
+      "version": "2.0.14.post1",
+      "distributionVersion": "2.0.14.post1",
+      "parameters": {
+        "sampleRate": 16000,
+        "provider": "cpu",
+        "aggressiveness": 2,
+        "frameMs": 20,
+        "mergeSilenceMs": 500,
+        "minSpeechMs": 250,
+        "paddingMs": 0
+      }
+    },
+    "asr": {
+      "engineCode": "sensevoice",
+      "modelName": "SenseVoiceSmall",
+      "version": "2024-07-17",
+      "modelSha256": "c71f0ce00bec95b07744e116345e33d8cbbe08cef896382cf907bf4b51a2cd51",
+      "tokensSha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc",
+      "parameters": {
+        "sampleRate": 16000,
+        "numThreads": 2,
+        "provider": "cpu",
+        "language": "en",
+        "useItn": false
+      }
+    }
+  },
+  "fixedBoundariesSourceSha256": "fca26af3718388181876a0c54e43f0728e9b10f4f9fa277661240fbe6cf7f752",
+  "defaultConfigUnchanged": true,
+  "resultsSha256": "532334925474a9600e527bcd8e3aceff9f47168c25b5f8ffb561f745ae5f9339"
+}

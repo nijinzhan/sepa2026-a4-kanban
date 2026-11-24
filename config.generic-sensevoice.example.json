@@ -1,0 +1,31 @@
+{
+  "a3Url": "http://127.0.0.1:8000/api/v1/a3",
+  "a4Url": "http://127.0.0.1:8000/api/v1/a4",
+  "a5Url": "http://127.0.0.1:8000/api/v1/a5",
+  "maxSegments": 500,
+  "apiKeyEnv": "A4_API_KEY",
+  "timeoutSeconds": 60,
+  "receiptDirectory": "outputs/requests",
+  "engine": {
+    "vad": {
+      "engineCode": "webrtc-vad",
+      "modelName": "webrtcvad-wheels",
+      "version": "2.0.14.post1",
+      "aggressiveness": 2,
+      "frameMs": 20,
+      "mergeSilenceMs": 500,
+      "minSpeechMs": 250,
+      "paddingMs": 0
+    },
+    "asr": {
+      "engineCode": "sensevoice",
+      "modelName": "SenseVoiceSmall",
+      "version": "2024-07-17",
+      "modelPath": "models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/model.int8.onnx",
+      "tokensPath": "models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/tokens.txt",
+      "language": "en",
+      "useItn": true,
+      "numThreads": 2
+    }
+  }
+}

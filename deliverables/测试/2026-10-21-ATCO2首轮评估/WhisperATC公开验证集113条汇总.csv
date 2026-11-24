@@ -1,0 +1,9 @@
+﻿model,condition,subset,recordings,diagnostic_errors,rule,N,S,D,I,C,WER_fraction,WER_percent,scope
+mixed,no_prompt,validation,113,0,strict,2276,332,572,180,1372,0.47627416520210897,47.627417,author model-selection validation; whole recordings; max220; no prompt
+mixed,no_prompt,validation,113,0,numeric,2291,333,575,178,1383,0.47402880838061984,47.402881,author model-selection validation; whole recordings; max220; no prompt
+mixed,no_prompt,validation,113,0,openai,1884,341,436,202,1107,0.5196390658174098,51.963907,author model-selection validation; whole recordings; max220; no prompt
+mixed,no_prompt,validation,113,0,authorSafe,2251,331,552,181,1368,0.4726788094180364,47.267881,author model-selection validation; whole recordings; max220; no prompt
+mixed,metadata_prompt,validation,113,0,strict,2276,203,105,78,1968,0.1695957820738137,16.959578,author model-selection validation; whole recordings; max220; metadata is extra input
+mixed,metadata_prompt,validation,113,0,numeric,2291,200,108,77,1983,0.1680488869489306,16.804889,author model-selection validation; whole recordings; max220; metadata is extra input
+mixed,metadata_prompt,validation,113,0,openai,1884,198,92,77,1594,0.1947983014861996,19.47983,author model-selection validation; whole recordings; max220; metadata is extra input
+mixed,metadata_prompt,validation,113,0,authorSafe,2251,201,105,79,1945,0.17103509551310528,17.10351,author model-selection validation; whole recordings; max220; metadata is extra input

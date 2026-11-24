@@ -1,0 +1,225 @@
+﻿model,condition,subset,recordings,diagnostic_errors,rule,N,S,D,I,C,WER_fraction,WER_percent,scope
+xlsr,xml,all49,49,0,strict,892,267,76,12,549,0.39798206278026904,39.798206,small reused ATCO2 sample; not VHHH
+xlsr,xml,all49,49,0,numeric,902,264,77,15,561,0.3946784922394678,39.467849,small reused ATCO2 sample; not VHHH
+xlsr,xml,all49,49,0,openai,727,271,64,19,392,0.48693259972489683,48.69326,small reused ATCO2 sample; not VHHH
+xlsr,xml,all49,49,0,authorSafe,883,252,76,19,555,0.3929784824462061,39.297848,small reused ATCO2 sample; not VHHH
+xlsr,xml,validation,10,0,strict,193,55,18,2,120,0.38860103626943004,38.860104,small reused ATCO2 sample; not VHHH
+xlsr,xml,validation,10,0,numeric,195,54,18,2,123,0.37948717948717947,37.948718,small reused ATCO2 sample; not VHHH
+xlsr,xml,validation,10,0,openai,163,59,12,1,92,0.44171779141104295,44.171779,small reused ATCO2 sample; not VHHH
+xlsr,xml,validation,10,0,authorSafe,191,56,18,1,117,0.39267015706806285,39.267016,small reused ATCO2 sample; not VHHH
+xlsr,silero,all49,49,0,strict,892,274,97,13,521,0.4304932735426009,43.049327,small reused ATCO2 sample; not VHHH
+xlsr,silero,all49,49,0,numeric,902,274,94,13,534,0.4223946784922395,42.239468,small reused ATCO2 sample; not VHHH
+xlsr,silero,all49,49,0,openai,727,283,79,24,365,0.530949105914718,53.094911,small reused ATCO2 sample; not VHHH
+xlsr,silero,all49,49,0,authorSafe,883,269,97,14,517,0.43035107587768967,43.035108,small reused ATCO2 sample; not VHHH
+xlsr,silero,validation,10,0,strict,193,61,16,1,116,0.40414507772020725,40.414508,small reused ATCO2 sample; not VHHH
+xlsr,silero,validation,10,0,numeric,195,60,16,1,119,0.39487179487179486,39.487179,small reused ATCO2 sample; not VHHH
+xlsr,silero,validation,10,0,openai,163,64,12,3,87,0.48466257668711654,48.466258,small reused ATCO2 sample; not VHHH
+xlsr,silero,validation,10,0,authorSafe,191,64,17,1,110,0.4293193717277487,42.931937,small reused ATCO2 sample; not VHHH
+xlsr,webrtc,all49,49,0,strict,892,276,68,20,548,0.4080717488789238,40.807175,small reused ATCO2 sample; not VHHH
+xlsr,webrtc,all49,49,0,numeric,902,273,70,21,559,0.4035476718403548,40.354767,small reused ATCO2 sample; not VHHH
+xlsr,webrtc,all49,49,0,openai,727,273,57,36,397,0.5034387895460798,50.343879,small reused ATCO2 sample; not VHHH
+xlsr,webrtc,all49,49,0,authorSafe,883,262,71,27,550,0.40770101925254815,40.770102,small reused ATCO2 sample; not VHHH
+xlsr,webrtc,validation,10,0,strict,193,49,16,2,128,0.3471502590673575,34.715026,small reused ATCO2 sample; not VHHH
+xlsr,webrtc,validation,10,0,numeric,195,48,16,2,131,0.3384615384615385,33.846154,small reused ATCO2 sample; not VHHH
+xlsr,webrtc,validation,10,0,openai,163,50,13,2,100,0.3987730061349693,39.877301,small reused ATCO2 sample; not VHHH
+xlsr,webrtc,validation,10,0,authorSafe,191,49,17,2,125,0.35602094240837695,35.602094,small reused ATCO2 sample; not VHHH
+xlsr,xml,train,38,0,strict,659,199,53,9,407,0.3960546282245827,39.605463,small reused ATCO2 sample; not VHHH
+xlsr,xml,train,38,0,numeric,667,197,54,12,416,0.39430284857571213,39.430285,small reused ATCO2 sample; not VHHH
+xlsr,xml,train,38,0,openai,531,198,48,17,285,0.4952919020715631,49.52919,small reused ATCO2 sample; not VHHH
+xlsr,xml,train,38,0,authorSafe,652,183,53,17,416,0.3880368098159509,38.803681,small reused ATCO2 sample; not VHHH
+xlsr,silero,train,38,0,strict,659,199,77,11,383,0.4355083459787557,43.550835,small reused ATCO2 sample; not VHHH
+xlsr,silero,train,38,0,numeric,667,200,74,11,393,0.4272863568215892,42.728636,small reused ATCO2 sample; not VHHH
+xlsr,silero,train,38,0,openai,531,205,63,19,263,0.5404896421845574,54.048964,small reused ATCO2 sample; not VHHH
+xlsr,silero,train,38,0,authorSafe,652,191,76,12,385,0.4279141104294479,42.791411,small reused ATCO2 sample; not VHHH
+xlsr,webrtc,train,38,0,strict,659,213,48,17,398,0.4218512898330804,42.185129,small reused ATCO2 sample; not VHHH
+xlsr,webrtc,train,38,0,numeric,667,211,50,18,406,0.41829085457271364,41.829085,small reused ATCO2 sample; not VHHH
+xlsr,webrtc,train,38,0,openai,531,208,41,33,282,0.5310734463276836,53.107345,small reused ATCO2 sample; not VHHH
+xlsr,webrtc,train,38,0,authorSafe,652,199,50,24,403,0.4187116564417178,41.871166,small reused ATCO2 sample; not VHHH
+xlsr,xml,unknown,1,0,strict,40,13,5,1,22,0.475,47.5,small reused ATCO2 sample; not VHHH
+xlsr,xml,unknown,1,0,numeric,40,13,5,1,22,0.475,47.5,small reused ATCO2 sample; not VHHH
+xlsr,xml,unknown,1,0,openai,33,14,4,1,15,0.5757575757575758,57.575758,small reused ATCO2 sample; not VHHH
+xlsr,xml,unknown,1,0,authorSafe,40,13,5,1,22,0.475,47.5,small reused ATCO2 sample; not VHHH
+xlsr,silero,unknown,1,0,strict,40,14,4,1,22,0.475,47.5,small reused ATCO2 sample; not VHHH
+xlsr,silero,unknown,1,0,numeric,40,14,4,1,22,0.475,47.5,small reused ATCO2 sample; not VHHH
+xlsr,silero,unknown,1,0,openai,33,14,4,2,15,0.6060606060606061,60.606061,small reused ATCO2 sample; not VHHH
+xlsr,silero,unknown,1,0,authorSafe,40,14,4,1,22,0.475,47.5,small reused ATCO2 sample; not VHHH
+xlsr,webrtc,unknown,1,0,strict,40,14,4,1,22,0.475,47.5,small reused ATCO2 sample; not VHHH
+xlsr,webrtc,unknown,1,0,numeric,40,14,4,1,22,0.475,47.5,small reused ATCO2 sample; not VHHH
+xlsr,webrtc,unknown,1,0,openai,33,15,3,1,15,0.5757575757575758,57.575758,small reused ATCO2 sample; not VHHH
+xlsr,webrtc,unknown,1,0,authorSafe,40,14,4,1,22,0.475,47.5,small reused ATCO2 sample; not VHHH
+sensevoice,xml,all49,49,0,strict,892,447,250,9,195,0.7914798206278026,79.147982,small reused ATCO2 sample; not VHHH
+sensevoice,xml,all49,49,0,numeric,902,316,195,23,391,0.5920177383592018,59.201774,small reused ATCO2 sample; not VHHH
+sensevoice,xml,all49,49,0,openai,727,349,156,44,222,0.7551581843191196,75.515818,small reused ATCO2 sample; not VHHH
+sensevoice,xml,all49,49,0,authorSafe,883,311,189,26,383,0.5956964892412231,59.569649,small reused ATCO2 sample; not VHHH
+sensevoice,xml,validation,10,0,strict,193,88,53,3,52,0.7461139896373057,74.611399,small reused ATCO2 sample; not VHHH
+sensevoice,xml,validation,10,0,numeric,195,62,45,7,88,0.5846153846153846,58.461538,small reused ATCO2 sample; not VHHH
+sensevoice,xml,validation,10,0,openai,163,67,37,13,59,0.7177914110429447,71.779141,small reused ATCO2 sample; not VHHH
+sensevoice,xml,validation,10,0,authorSafe,191,65,41,6,85,0.5863874345549738,58.638743,small reused ATCO2 sample; not VHHH
+sensevoice,xml,train,38,0,strict,659,355,167,6,137,0.8012139605462822,80.121396,small reused ATCO2 sample; not VHHH
+sensevoice,xml,train,38,0,numeric,667,252,124,16,291,0.5877061469265368,58.770615,small reused ATCO2 sample; not VHHH
+sensevoice,xml,train,38,0,openai,531,278,96,31,157,0.7627118644067796,76.271186,small reused ATCO2 sample; not VHHH
+sensevoice,xml,train,38,0,authorSafe,652,244,121,20,287,0.5904907975460123,59.04908,small reused ATCO2 sample; not VHHH
+sensevoice,xml,unknown,1,0,strict,40,4,30,0,6,0.85,85.0,small reused ATCO2 sample; not VHHH
+sensevoice,xml,unknown,1,0,numeric,40,2,26,0,12,0.7,70.0,small reused ATCO2 sample; not VHHH
+sensevoice,xml,unknown,1,0,openai,33,4,23,0,6,0.8181818181818182,81.818182,small reused ATCO2 sample; not VHHH
+sensevoice,xml,unknown,1,0,authorSafe,40,2,27,0,11,0.725,72.5,small reused ATCO2 sample; not VHHH
+sensevoice,silero,all49,49,0,strict,892,363,369,2,160,0.8228699551569507,82.286996,small reused ATCO2 sample; not VHHH
+sensevoice,silero,all49,49,0,numeric,902,275,304,7,323,0.6496674057649667,64.966741,small reused ATCO2 sample; not VHHH
+sensevoice,silero,all49,49,0,openai,727,296,240,17,191,0.7606602475928473,76.066025,small reused ATCO2 sample; not VHHH
+sensevoice,silero,all49,49,0,authorSafe,883,262,297,10,324,0.6443941109852774,64.439411,small reused ATCO2 sample; not VHHH
+sensevoice,silero,validation,10,0,strict,193,83,70,1,40,0.7979274611398963,79.792746,small reused ATCO2 sample; not VHHH
+sensevoice,silero,validation,10,0,numeric,195,63,58,2,74,0.6307692307692307,63.076923,small reused ATCO2 sample; not VHHH
+sensevoice,silero,validation,10,0,openai,163,62,52,8,49,0.7484662576687117,74.846626,small reused ATCO2 sample; not VHHH
+sensevoice,silero,validation,10,0,authorSafe,191,63,54,2,74,0.6230366492146597,62.303665,small reused ATCO2 sample; not VHHH
+sensevoice,silero,train,38,0,strict,659,267,279,1,113,0.8300455235204856,83.004552,small reused ATCO2 sample; not VHHH
+sensevoice,silero,train,38,0,numeric,667,201,228,4,238,0.6491754122938531,64.917541,small reused ATCO2 sample; not VHHH
+sensevoice,silero,train,38,0,openai,531,221,175,9,135,0.7627118644067796,76.271186,small reused ATCO2 sample; not VHHH
+sensevoice,silero,train,38,0,authorSafe,652,188,225,7,239,0.6441717791411042,64.417178,small reused ATCO2 sample; not VHHH
+sensevoice,silero,unknown,1,0,strict,40,13,20,0,7,0.825,82.5,small reused ATCO2 sample; not VHHH
+sensevoice,silero,unknown,1,0,numeric,40,11,18,1,11,0.75,75.0,small reused ATCO2 sample; not VHHH
+sensevoice,silero,unknown,1,0,openai,33,13,13,0,7,0.7878787878787878,78.787879,small reused ATCO2 sample; not VHHH
+sensevoice,silero,unknown,1,0,authorSafe,40,11,18,1,11,0.75,75.0,small reused ATCO2 sample; not VHHH
+sensevoice,webrtc,all49,49,0,strict,892,358,367,9,167,0.8228699551569507,82.286996,small reused ATCO2 sample; not VHHH
+sensevoice,webrtc,all49,49,0,numeric,902,252,326,16,324,0.6585365853658537,65.853659,small reused ATCO2 sample; not VHHH
+sensevoice,webrtc,all49,49,0,openai,727,285,255,34,187,0.7895460797799174,78.954608,small reused ATCO2 sample; not VHHH
+sensevoice,webrtc,all49,49,0,authorSafe,883,245,316,18,322,0.6557191392978482,65.571914,small reused ATCO2 sample; not VHHH
+sensevoice,webrtc,validation,10,0,strict,193,82,71,3,40,0.8082901554404145,80.829016,small reused ATCO2 sample; not VHHH
+sensevoice,webrtc,validation,10,0,numeric,195,61,64,5,70,0.6666666666666666,66.666667,small reused ATCO2 sample; not VHHH
+sensevoice,webrtc,validation,10,0,openai,163,64,53,10,46,0.7791411042944786,77.91411,small reused ATCO2 sample; not VHHH
+sensevoice,webrtc,validation,10,0,authorSafe,191,61,60,5,70,0.6596858638743456,65.968586,small reused ATCO2 sample; not VHHH
+sensevoice,webrtc,train,38,0,strict,659,275,259,6,125,0.8194233687405159,81.942337,small reused ATCO2 sample; not VHHH
+sensevoice,webrtc,train,38,0,numeric,667,191,226,11,250,0.6416791604197901,64.167916,small reused ATCO2 sample; not VHHH
+sensevoice,webrtc,train,38,0,openai,531,220,172,24,139,0.783427495291902,78.34275,small reused ATCO2 sample; not VHHH
+sensevoice,webrtc,train,38,0,authorSafe,652,184,219,13,249,0.6380368098159509,63.803681,small reused ATCO2 sample; not VHHH
+sensevoice,webrtc,unknown,1,0,strict,40,1,37,0,2,0.95,95.0,small reused ATCO2 sample; not VHHH
+sensevoice,webrtc,unknown,1,0,numeric,40,0,36,0,4,0.9,90.0,small reused ATCO2 sample; not VHHH
+sensevoice,webrtc,unknown,1,0,openai,33,1,30,0,2,0.9393939393939394,93.939394,small reused ATCO2 sample; not VHHH
+sensevoice,webrtc,unknown,1,0,authorSafe,40,0,37,0,3,0.925,92.5,small reused ATCO2 sample; not VHHH
+atcosim,whole,all49,49,0,strict,892,182,222,91,488,0.554932735426009,55.493274,small reused ATCO2 sample; not VHHH
+atcosim,whole,all49,49,0,numeric,902,183,222,93,497,0.5521064301552107,55.210643,small reused ATCO2 sample; not VHHH
+atcosim,whole,all49,49,0,openai,727,193,173,97,361,0.6368638239339752,63.686382,small reused ATCO2 sample; not VHHH
+atcosim,whole,all49,49,0,authorSafe,883,177,210,90,496,0.5402038505096263,54.020385,small reused ATCO2 sample; not VHHH
+atcosim,whole,validation,10,0,strict,193,34,37,10,122,0.41968911917098445,41.968912,small reused ATCO2 sample; not VHHH
+atcosim,whole,validation,10,0,numeric,195,33,37,10,125,0.41025641025641024,41.025641,small reused ATCO2 sample; not VHHH
+atcosim,whole,validation,10,0,openai,163,33,33,12,97,0.4785276073619632,47.852761,small reused ATCO2 sample; not VHHH
+atcosim,whole,validation,10,0,authorSafe,191,34,35,8,122,0.4031413612565445,40.314136,small reused ATCO2 sample; not VHHH
+atcosim,xml,all49,49,0,strict,892,227,151,112,514,0.5493273542600897,54.932735,small reused ATCO2 sample; not VHHH
+atcosim,xml,all49,49,0,numeric,902,223,151,113,528,0.5399113082039911,53.991131,small reused ATCO2 sample; not VHHH
+atcosim,xml,all49,49,0,openai,727,227,123,122,377,0.6492434662998624,64.924347,small reused ATCO2 sample; not VHHH
+atcosim,xml,all49,49,0,authorSafe,883,209,149,118,525,0.5390713476783692,53.907135,small reused ATCO2 sample; not VHHH
+atcosim,xml,validation,10,0,strict,193,43,22,32,128,0.5025906735751295,50.259067,small reused ATCO2 sample; not VHHH
+atcosim,xml,validation,10,0,numeric,195,42,22,32,131,0.49230769230769234,49.230769,small reused ATCO2 sample; not VHHH
+atcosim,xml,validation,10,0,openai,163,43,19,33,101,0.5828220858895705,58.282209,small reused ATCO2 sample; not VHHH
+atcosim,xml,validation,10,0,authorSafe,191,44,22,29,125,0.4973821989528796,49.73822,small reused ATCO2 sample; not VHHH
+atcosim,silero,all49,49,0,strict,892,200,186,28,506,0.4641255605381166,46.412556,small reused ATCO2 sample; not VHHH
+atcosim,silero,all49,49,0,numeric,902,201,185,33,516,0.46452328159645234,46.452328,small reused ATCO2 sample; not VHHH
+atcosim,silero,all49,49,0,openai,727,207,150,32,370,0.5350756533700137,53.507565,small reused ATCO2 sample; not VHHH
+atcosim,silero,all49,49,0,authorSafe,883,181,183,31,519,0.44733861834654587,44.733862,small reused ATCO2 sample; not VHHH
+atcosim,silero,validation,10,0,strict,193,33,48,9,112,0.46632124352331605,46.632124,small reused ATCO2 sample; not VHHH
+atcosim,silero,validation,10,0,numeric,195,33,48,9,114,0.46153846153846156,46.153846,small reused ATCO2 sample; not VHHH
+atcosim,silero,validation,10,0,openai,163,35,37,9,91,0.49693251533742333,49.693252,small reused ATCO2 sample; not VHHH
+atcosim,silero,validation,10,0,authorSafe,191,31,45,7,115,0.43455497382198954,43.455497,small reused ATCO2 sample; not VHHH
+atcosim,webrtc,all49,49,0,strict,892,173,215,56,504,0.4977578475336323,49.775785,small reused ATCO2 sample; not VHHH
+atcosim,webrtc,all49,49,0,numeric,902,173,216,59,513,0.49667405764966743,49.667406,small reused ATCO2 sample; not VHHH
+atcosim,webrtc,all49,49,0,openai,727,186,169,58,372,0.5680880330123796,56.808803,small reused ATCO2 sample; not VHHH
+atcosim,webrtc,all49,49,0,authorSafe,883,166,205,57,512,0.48471121177802945,48.471121,small reused ATCO2 sample; not VHHH
+atcosim,webrtc,validation,10,0,strict,193,35,36,32,122,0.533678756476684,53.367876,small reused ATCO2 sample; not VHHH
+atcosim,webrtc,validation,10,0,numeric,195,34,36,32,125,0.5230769230769231,52.307692,small reused ATCO2 sample; not VHHH
+atcosim,webrtc,validation,10,0,openai,163,33,31,32,99,0.588957055214724,58.895706,small reused ATCO2 sample; not VHHH
+atcosim,webrtc,validation,10,0,authorSafe,191,35,33,31,123,0.518324607329843,51.832461,small reused ATCO2 sample; not VHHH
+atcosim,whole,train,38,0,strict,659,137,183,75,339,0.5993930197268589,59.939302,small reused ATCO2 sample; not VHHH
+atcosim,whole,train,38,0,numeric,667,139,183,77,345,0.5982008995502249,59.82009,small reused ATCO2 sample; not VHHH
+atcosim,whole,train,38,0,openai,531,149,138,79,244,0.6892655367231638,68.926554,small reused ATCO2 sample; not VHHH
+atcosim,whole,train,38,0,authorSafe,652,132,173,76,347,0.5843558282208589,58.435583,small reused ATCO2 sample; not VHHH
+atcosim,xml,train,38,0,strict,659,173,127,74,359,0.56752655538695,56.752656,small reused ATCO2 sample; not VHHH
+atcosim,xml,train,38,0,numeric,667,170,127,75,370,0.5577211394302849,55.772114,small reused ATCO2 sample; not VHHH
+atcosim,xml,train,38,0,openai,531,173,102,83,256,0.6741996233521658,67.419962,small reused ATCO2 sample; not VHHH
+atcosim,xml,train,38,0,authorSafe,652,154,125,83,373,0.5552147239263804,55.521472,small reused ATCO2 sample; not VHHH
+atcosim,silero,train,38,0,strict,659,155,133,16,371,0.4613050075872534,46.130501,small reused ATCO2 sample; not VHHH
+atcosim,silero,train,38,0,numeric,667,155,134,21,378,0.46476761619190404,46.476762,small reused ATCO2 sample; not VHHH
+atcosim,silero,train,38,0,openai,531,159,110,20,262,0.544256120527307,54.425612,small reused ATCO2 sample; not VHHH
+atcosim,silero,train,38,0,authorSafe,652,137,135,21,380,0.4493865030674847,44.93865,small reused ATCO2 sample; not VHHH
+atcosim,webrtc,train,38,0,strict,659,127,176,18,356,0.48710166919575115,48.710167,small reused ATCO2 sample; not VHHH
+atcosim,webrtc,train,38,0,numeric,667,128,177,21,362,0.48875562218890556,48.875562,small reused ATCO2 sample; not VHHH
+atcosim,webrtc,train,38,0,openai,531,142,135,20,254,0.559322033898305,55.932203,small reused ATCO2 sample; not VHHH
+atcosim,webrtc,train,38,0,authorSafe,652,120,169,20,363,0.47392638036809814,47.392638,small reused ATCO2 sample; not VHHH
+atcosim,whole,unknown,1,0,strict,40,11,2,6,27,0.475,47.5,small reused ATCO2 sample; not VHHH
+atcosim,whole,unknown,1,0,numeric,40,11,2,6,27,0.475,47.5,small reused ATCO2 sample; not VHHH
+atcosim,whole,unknown,1,0,openai,33,11,2,6,20,0.5757575757575758,57.575758,small reused ATCO2 sample; not VHHH
+atcosim,whole,unknown,1,0,authorSafe,40,11,2,6,27,0.475,47.5,small reused ATCO2 sample; not VHHH
+atcosim,xml,unknown,1,0,strict,40,11,2,6,27,0.475,47.5,small reused ATCO2 sample; not VHHH
+atcosim,xml,unknown,1,0,numeric,40,11,2,6,27,0.475,47.5,small reused ATCO2 sample; not VHHH
+atcosim,xml,unknown,1,0,openai,33,11,2,6,20,0.5757575757575758,57.575758,small reused ATCO2 sample; not VHHH
+atcosim,xml,unknown,1,0,authorSafe,40,11,2,6,27,0.475,47.5,small reused ATCO2 sample; not VHHH
+atcosim,silero,unknown,1,0,strict,40,12,5,3,23,0.5,50.0,small reused ATCO2 sample; not VHHH
+atcosim,silero,unknown,1,0,numeric,40,13,3,3,24,0.475,47.5,small reused ATCO2 sample; not VHHH
+atcosim,silero,unknown,1,0,openai,33,13,3,3,17,0.5757575757575758,57.575758,small reused ATCO2 sample; not VHHH
+atcosim,silero,unknown,1,0,authorSafe,40,13,3,3,24,0.475,47.5,small reused ATCO2 sample; not VHHH
+atcosim,webrtc,unknown,1,0,strict,40,11,3,6,26,0.5,50.0,small reused ATCO2 sample; not VHHH
+atcosim,webrtc,unknown,1,0,numeric,40,11,3,6,26,0.5,50.0,small reused ATCO2 sample; not VHHH
+atcosim,webrtc,unknown,1,0,openai,33,11,3,6,19,0.6060606060606061,60.606061,small reused ATCO2 sample; not VHHH
+atcosim,webrtc,unknown,1,0,authorSafe,40,11,3,6,26,0.5,50.0,small reused ATCO2 sample; not VHHH
+mixed,whole,all49,49,0,strict,892,71,140,92,681,0.3396860986547085,33.96861,ATCO2 training overlap: diagnostic only
+mixed,whole,all49,49,0,numeric,902,75,134,92,693,0.33370288248337027,33.370288,ATCO2 training overlap: diagnostic only
+mixed,whole,all49,49,0,openai,727,77,98,101,552,0.3796423658872077,37.964237,ATCO2 training overlap: diagnostic only
+mixed,whole,all49,49,0,authorSafe,883,73,127,92,683,0.33069082672706684,33.069083,ATCO2 training overlap: diagnostic only
+mixed,whole,validation,10,0,strict,193,13,57,2,123,0.37305699481865284,37.305699,small reused ATCO2 sample; not VHHH
+mixed,whole,validation,10,0,numeric,195,12,57,2,126,0.3641025641025641,36.410256,small reused ATCO2 sample; not VHHH
+mixed,whole,validation,10,0,openai,163,14,46,2,103,0.3803680981595092,38.03681,small reused ATCO2 sample; not VHHH
+mixed,whole,validation,10,0,authorSafe,191,15,55,2,121,0.3769633507853403,37.696335,small reused ATCO2 sample; not VHHH
+mixed,xml,all49,49,0,strict,892,90,93,78,709,0.29260089686098656,29.26009,ATCO2 training overlap: diagnostic only
+mixed,xml,all49,49,0,numeric,902,91,89,78,722,0.2860310421286031,28.603104,ATCO2 training overlap: diagnostic only
+mixed,xml,all49,49,0,openai,727,96,61,87,570,0.3356258596973865,33.562586,ATCO2 training overlap: diagnostic only
+mixed,xml,all49,49,0,authorSafe,883,91,86,80,706,0.29105322763306907,29.105323,ATCO2 training overlap: diagnostic only
+mixed,xml,validation,10,0,strict,193,19,23,3,151,0.23316062176165803,23.316062,small reused ATCO2 sample; not VHHH
+mixed,xml,validation,10,0,numeric,195,18,23,3,154,0.22564102564102564,22.564103,small reused ATCO2 sample; not VHHH
+mixed,xml,validation,10,0,openai,163,20,15,3,128,0.2331288343558282,23.312883,small reused ATCO2 sample; not VHHH
+mixed,xml,validation,10,0,authorSafe,191,21,22,3,148,0.24083769633507854,24.08377,small reused ATCO2 sample; not VHHH
+mixed,silero,all49,49,0,strict,892,94,145,35,653,0.3071748878923767,30.717489,ATCO2 training overlap: diagnostic only
+mixed,silero,all49,49,0,numeric,902,94,143,35,665,0.30155210643015523,30.155211,ATCO2 training overlap: diagnostic only
+mixed,silero,all49,49,0,openai,727,101,103,39,523,0.3342503438789546,33.425034,ATCO2 training overlap: diagnostic only
+mixed,silero,all49,49,0,authorSafe,883,91,137,34,655,0.29671574178935445,29.671574,ATCO2 training overlap: diagnostic only
+mixed,silero,validation,10,0,strict,193,24,33,5,136,0.32124352331606215,32.124352,small reused ATCO2 sample; not VHHH
+mixed,silero,validation,10,0,numeric,195,24,33,5,138,0.31794871794871793,31.794872,small reused ATCO2 sample; not VHHH
+mixed,silero,validation,10,0,openai,163,26,23,5,114,0.3312883435582822,33.128834,small reused ATCO2 sample; not VHHH
+mixed,silero,validation,10,0,authorSafe,191,25,30,5,136,0.31413612565445026,31.413613,small reused ATCO2 sample; not VHHH
+mixed,webrtc,all49,49,0,strict,892,99,119,62,674,0.31390134529147984,31.390135,ATCO2 training overlap: diagnostic only
+mixed,webrtc,all49,49,0,numeric,902,105,112,62,685,0.3093126385809313,30.931264,ATCO2 training overlap: diagnostic only
+mixed,webrtc,all49,49,0,openai,727,100,81,72,546,0.34800550206327374,34.80055,ATCO2 training overlap: diagnostic only
+mixed,webrtc,all49,49,0,authorSafe,883,103,102,63,678,0.3035107587768969,30.351076,ATCO2 training overlap: diagnostic only
+mixed,webrtc,validation,10,0,strict,193,22,32,4,139,0.3005181347150259,30.051813,small reused ATCO2 sample; not VHHH
+mixed,webrtc,validation,10,0,numeric,195,21,32,4,142,0.2923076923076923,29.230769,small reused ATCO2 sample; not VHHH
+mixed,webrtc,validation,10,0,openai,163,21,25,3,117,0.3006134969325153,30.06135,small reused ATCO2 sample; not VHHH
+mixed,webrtc,validation,10,0,authorSafe,191,25,29,4,137,0.3036649214659686,30.366492,small reused ATCO2 sample; not VHHH
+mixed,whole,train,38,0,strict,659,52,79,88,528,0.3323216995447648,33.23217,ATCO2 training overlap: diagnostic only
+mixed,whole,train,38,0,numeric,667,56,75,88,536,0.328335832083958,32.833583,ATCO2 training overlap: diagnostic only
+mixed,whole,train,38,0,openai,531,56,50,97,425,0.3822975517890772,38.229755,ATCO2 training overlap: diagnostic only
+mixed,whole,train,38,0,authorSafe,652,51,70,88,531,0.3205521472392638,32.055215,ATCO2 training overlap: diagnostic only
+mixed,xml,train,38,0,strict,659,65,66,73,528,0.3095599393019727,30.955994,ATCO2 training overlap: diagnostic only
+mixed,xml,train,38,0,numeric,667,66,64,73,537,0.30434782608695654,30.434783,ATCO2 training overlap: diagnostic only
+mixed,xml,train,38,0,openai,531,69,44,82,418,0.3672316384180791,36.723164,ATCO2 training overlap: diagnostic only
+mixed,xml,train,38,0,authorSafe,652,63,62,75,527,0.3067484662576687,30.674847,ATCO2 training overlap: diagnostic only
+mixed,silero,train,38,0,strict,659,63,109,30,487,0.30652503793626706,30.652504,ATCO2 training overlap: diagnostic only
+mixed,silero,train,38,0,numeric,667,63,107,30,497,0.29985007496251875,29.985007,ATCO2 training overlap: diagnostic only
+mixed,silero,train,38,0,openai,531,68,77,34,386,0.3370998116760829,33.709981,ATCO2 training overlap: diagnostic only
+mixed,silero,train,38,0,authorSafe,652,59,104,29,489,0.294478527607362,29.447853,ATCO2 training overlap: diagnostic only
+mixed,webrtc,train,38,0,strict,659,70,84,56,505,0.3186646433990895,31.866464,ATCO2 training overlap: diagnostic only
+mixed,webrtc,train,38,0,numeric,667,76,79,56,512,0.31634182908545727,31.634183,ATCO2 training overlap: diagnostic only
+mixed,webrtc,train,38,0,openai,531,71,55,67,405,0.3634651600753296,36.346516,ATCO2 training overlap: diagnostic only
+mixed,webrtc,train,38,0,authorSafe,652,70,72,57,510,0.3052147239263804,30.521472,ATCO2 training overlap: diagnostic only
+mixed,whole,unknown,1,0,strict,40,6,4,2,30,0.3,30.0,ATCO2 training overlap: diagnostic only
+mixed,whole,unknown,1,0,numeric,40,7,2,2,31,0.275,27.5,ATCO2 training overlap: diagnostic only
+mixed,whole,unknown,1,0,openai,33,7,2,2,24,0.3333333333333333,33.333333,ATCO2 training overlap: diagnostic only
+mixed,whole,unknown,1,0,authorSafe,40,7,2,2,31,0.275,27.5,ATCO2 training overlap: diagnostic only
+mixed,xml,unknown,1,0,strict,40,6,4,2,30,0.3,30.0,ATCO2 training overlap: diagnostic only
+mixed,xml,unknown,1,0,numeric,40,7,2,2,31,0.275,27.5,ATCO2 training overlap: diagnostic only
+mixed,xml,unknown,1,0,openai,33,7,2,2,24,0.3333333333333333,33.333333,ATCO2 training overlap: diagnostic only
+mixed,xml,unknown,1,0,authorSafe,40,7,2,2,31,0.275,27.5,ATCO2 training overlap: diagnostic only
+mixed,silero,unknown,1,0,strict,40,7,3,0,30,0.25,25.0,ATCO2 training overlap: diagnostic only
+mixed,silero,unknown,1,0,numeric,40,7,3,0,30,0.25,25.0,ATCO2 training overlap: diagnostic only
+mixed,silero,unknown,1,0,openai,33,7,3,0,23,0.30303030303030304,30.30303,ATCO2 training overlap: diagnostic only
+mixed,silero,unknown,1,0,authorSafe,40,7,3,0,30,0.25,25.0,ATCO2 training overlap: diagnostic only
+mixed,webrtc,unknown,1,0,strict,40,7,3,2,30,0.3,30.0,ATCO2 training overlap: diagnostic only
+mixed,webrtc,unknown,1,0,numeric,40,8,1,2,31,0.275,27.5,ATCO2 training overlap: diagnostic only
+mixed,webrtc,unknown,1,0,openai,33,8,1,2,24,0.3333333333333333,33.333333,ATCO2 training overlap: diagnostic only
+mixed,webrtc,unknown,1,0,authorSafe,40,8,1,2,31,0.275,27.5,ATCO2 training overlap: diagnostic only

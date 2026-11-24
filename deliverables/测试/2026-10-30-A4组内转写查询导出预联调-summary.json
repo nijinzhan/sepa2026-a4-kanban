@@ -1,0 +1,151 @@
+{
+  "checkedAt": "2026-10-30T17:47:38.235526+08:00",
+  "sourceRef": "943d87f0e8e01b546932e33ca6042f91fd631b9a",
+  "sourceAudio": "local C15 MP3-derived PCM, first 20 seconds",
+  "originalSourceSha256": "1128d111b56c4ed035ec1a8a11cda0e36cf7781deaa85f6e9a2ee23a46e3842f",
+  "clipSha256": "8abfc46c7f036f62e25808810b7d734ee432287a670e602ad8f1d42c5daef33b",
+  "recordingIdAndAbsoluteTimeAreTestFixtures": true,
+  "actualRecordingUtcKnown": false,
+  "humanReferenceAvailable": false,
+  "actualTeacherCpuInference": true,
+  "orchestrationStatus": "succeeded",
+  "savedInSimulatedSharedService": true,
+  "queriedTranscripts": 2,
+  "queryDatabaseReopened": true,
+  "exports": [
+    {
+      "format": "json",
+      "itemCount": 2,
+      "audioClips": 2,
+      "zipBytes": 543668,
+      "zipSha256": "e044bd2ef7d68e316e543958b1249a369cc74c53368c766297381d6e4a44d7c1"
+    },
+    {
+      "format": "csv",
+      "itemCount": 2,
+      "audioClips": 2,
+      "zipBytes": 543630,
+      "zipSha256": "dd3720f1bf3bbeb94a9d330821cf8319dceed085056d600d2e1b37a7a4b08db9"
+    },
+    {
+      "format": "srt",
+      "itemCount": 2,
+      "audioClips": 2,
+      "zipBytes": 543433,
+      "zipSha256": "36acc0531fcae2e754ad45b6b1e318fe51ef9ce4a4a5be8cd837ab5ce01ba073"
+    },
+    {
+      "format": "vtt",
+      "itemCount": 2,
+      "audioClips": 2,
+      "zipBytes": 543443,
+      "zipSha256": "7c849ab5d48a57fd059b5e5353d77f5741eb75affb4a5b9aec2a7cb1493d0369"
+    }
+  ],
+  "productionAdapterImplemented": false,
+  "sharedTeamPersistenceVerified": false,
+  "bridge": "Observed detail id -> transcriptId/transcript_id, textRaw -> text_raw, current text -> text_norm, reviewStatus copied unchanged, observed IDs and UTC offsets preserved, local file path supplied. Bridge inserts only into a new isolated SQLite DB.",
+  "scope": "Actual Liu Rui orchestration, personal API and teacher inference, actual Yu Tianming query/export APIs with four formats and FFmpeg audio slices. In-process TestClient; common A3/A4 HTTP persistence simulated, one-off bridge to isolated SQLite. Does not verify real A3 source timestamps, PostgreSQL integration, team service restart, user permissions, or quality acceptance.",
+  "sourceFiles": [
+    {
+      "path": "于天名/app/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "于天名/app/db.py",
+      "bytes": 786,
+      "sha256": "93f4f2336e8eeeb3a349bba89ac3a91ed328d89787f252fb8cb59c8e781a315d"
+    },
+    {
+      "path": "于天名/app/demo_data.py",
+      "bytes": 2858,
+      "sha256": "1abe4a0f3a1228f90d73bcfe51e1a698e0b35540007999d5c982a5167585b068"
+    },
+    {
+      "path": "于天名/app/deps.py",
+      "bytes": 237,
+      "sha256": "43b4d79166c2b6159c8a3e2ad76b6510374ca21f535aedb781934c7eafe42b01"
+    },
+    {
+      "path": "于天名/app/exporter.py",
+      "bytes": 7785,
+      "sha256": "2a72a4318a703dfe86ba91e78bed9750fed4145c70fdf45e1293e0d4629c5492"
+    },
+    {
+      "path": "于天名/app/exports.py",
+      "bytes": 2083,
+      "sha256": "454ce8cbe019e752a83007c880bdb10ce0d549bdb388548412167aa156b5a158"
+    },
+    {
+      "path": "于天名/app/main.py",
+      "bytes": 847,
+      "sha256": "313f45ee4f46fe7f6026cc681f9a81d2a393371f87987e48323da48e1661b71d"
+    },
+    {
+      "path": "于天名/app/queries.py",
+      "bytes": 1991,
+      "sha256": "734176388f691cad7fffb5ed65ede6af7d565f1070eb238fe0417d45e3bbf5d3"
+    },
+    {
+      "path": "于天名/app/schemas.py",
+      "bytes": 1311,
+      "sha256": "5b7a6116b0ffc9caeba153631863c843a49f0d1848d824f742f55a1e772c3b3b"
+    },
+    {
+      "path": "于天名/app/tables.py",
+      "bytes": 2958,
+      "sha256": "2e180c638589b2f7f742ccefecad4dce5b1bf5c1760fd9f307e188636b28d174"
+    },
+    {
+      "path": "于天名/app/transcripts.py",
+      "bytes": 1147,
+      "sha256": "017b2535e3ffb52e5eedda27dc5cbbf11c18fc47d57c6d1c862b5338ce83f8f6"
+    },
+    {
+      "path": "刘睿/src/a4_auto/__init__.py",
+      "bytes": 95,
+      "sha256": "ada1e3aa88650ea271693985ec79f796d49bfc55d1b650b144ed1d8772c7365e"
+    },
+    {
+      "path": "刘睿/src/a4_auto/__main__.py",
+      "bytes": 532,
+      "sha256": "1b448eeb583429263e8dcae482a3f95811b8cb45dcd8c8ef41424fa3242f211f"
+    },
+    {
+      "path": "刘睿/src/a4_auto/api.py",
+      "bytes": 4453,
+      "sha256": "d7c3ed9879a3faa464086bbb2b3d9d48f33ac228f78875dbb5596d3bd12c55aa"
+    },
+    {
+      "path": "刘睿/src/a4_auto/config.py",
+      "bytes": 1921,
+      "sha256": "3b732cf12dd35ad6174e94677bb9d6a010c4387760e3048899077abd445ebdef"
+    },
+    {
+      "path": "刘睿/src/a4_auto/gateways.py",
+      "bytes": 6080,
+      "sha256": "17607bcd8644f64eda27f849f0814794062a842a5adc47b5b4ea009207089fbb"
+    },
+    {
+      "path": "刘睿/src/a4_auto/models.py",
+      "bytes": 3878,
+      "sha256": "efc69498397eb51952878be6b8336e554dfb012281c6ff5dae395202341456d9"
+    },
+    {
+      "path": "刘睿/src/a4_auto/repository.py",
+      "bytes": 7663,
+      "sha256": "c74d1524103e66280690200374bc3a32f3fb7ff2076dfda521cb0094961b1d40"
+    },
+    {
+      "path": "刘睿/src/a4_auto/service.py",
+      "bytes": 3273,
+      "sha256": "cc15013f99ef9af78a27341d91c567af814f1a86ce1a8dcb384e1c8b8cee619a"
+    }
+  ],
+  "diagnosticScriptSha256": "fffd8352ea8f570ab776eef3a525dcc3cf9a0625f55433875d64151d27c601dc",
+  "cooperationRepositoryRef": "745db5cd4d9a52d8bf68adf38290e52f09904aca",
+  "teamRepositoryRef": "943d87f0e8e01b546932e33ca6042f91fd631b9a",
+  "workbookSha256": "1d8463aeaee436b70a5c65e2c32377ad31a97e3112e4e40d7eb81e0da1655d5c",
+  "workbooksChanged": false
+}

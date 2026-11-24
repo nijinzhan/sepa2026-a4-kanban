@@ -1,0 +1,87 @@
+{
+  "status": "passed",
+  "scope": "standalone automation HTTP -> speech HTTP -> PostgreSQL",
+  "notificationSender": "local test script; not live A3 provider",
+  "a3LiveProviderVerified": false,
+  "teammateCommit": "943d87f0e8e01b546932e33ca6042f91fd631b9a",
+  "recordingId": "6dc14610-4752-46d8-b151-ae13eef4fbcf",
+  "businessTaskId": "84da0473-9ebe-45b3-a6cc-d445275eecb6",
+  "asrJobId": "2b0797eb-5d26-4ab1-a673-34fe12315158",
+  "transcriptIds": [
+    "0384ba93-8658-4cdc-b52d-ac4172faff1c",
+    "b4f105dc-a746-4a3e-9daa-7b294c6b0f1a"
+  ],
+  "originalCaptureTimeKnown": false,
+  "testTimeAnchor": true,
+  "checks": [
+    {
+      "case": "missing_credential",
+      "status": 401
+    },
+    {
+      "case": "invalid_uuid",
+      "status": 400
+    },
+    {
+      "case": "invalid_utc",
+      "status": 400
+    },
+    {
+      "case": "reversed_interval",
+      "status": 400
+    },
+    {
+      "case": "real_cpu_recognition_and_postgres_save",
+      "asrJobs": 1,
+      "transcripts": 2
+    },
+    {
+      "case": "duplicate_event_no_extra_job_or_transcript",
+      "status": 200
+    },
+    {
+      "case": "same_audio_conflicting_metadata",
+      "status": 409
+    },
+    {
+      "case": "database_rows_and_http_readback_match",
+      "rows": 2
+    },
+    {
+      "case": "automation_service_restart_retains_task_and_dedup",
+      "status": 200
+    }
+  ],
+  "executionSnapshot": {
+    "schemaVersion": 1,
+    "vad": {
+      "engineCode": "webrtc-vad",
+      "modelName": "webrtcvad-wheels",
+      "version": "2.0.14.post1",
+      "distributionVersion": "2.0.14.post1",
+      "parameters": {
+        "sampleRate": 16000,
+        "provider": "cpu",
+        "aggressiveness": 2,
+        "frameMs": 20,
+        "mergeSilenceMs": 500,
+        "minSpeechMs": 250,
+        "paddingMs": 0
+      }
+    },
+    "asr": {
+      "engineCode": "sensevoice",
+      "modelName": "SenseVoiceSmall-ATC-VHHH",
+      "version": "teacher-2025_0706-int8",
+      "modelSha256": "625facec8fb54410d0e34543947cd80c2e0b1e568df00395bd9a31d3d00f23e8",
+      "tokensSha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc",
+      "parameters": {
+        "sampleRate": 16000,
+        "numThreads": 2,
+        "provider": "cpu",
+        "language": "en",
+        "useItn": true
+      }
+    }
+  }
+}

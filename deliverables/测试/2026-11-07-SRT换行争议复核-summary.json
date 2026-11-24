@@ -1,0 +1,73 @@
+{
+  "checkedRef": "6cdbe573eda716e08b505da0c8bee498c46a48c9",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]",
+  "dependencies": {
+    "fastapi": "0.162.0",
+    "pytest": "8.4.2",
+    "httpx": "0.28.1",
+    "sqlalchemy": "2.1.6"
+  },
+  "test": "于天名/tests/test_api.py::test_export_bundle_zip_with_audio_via_a3",
+  "assertionLine": 179,
+  "assertedNewline": "LF",
+  "renderInMemory": {
+    "sha256": "4ea60153ebc7e2fc8b6f3e64cb85cd822a2b3119765e7168f7b1344f8116b58c",
+    "bytes": 164,
+    "lfCount": 11,
+    "crlfCount": 0,
+    "loneLfCount": 11,
+    "prefixHex": "31 0a 30 30 3a 30 30 3a 30 30 2c 30 30 30 20 2d 2d 3e 20 30 30 3a 30 30 3a 30 32 2c 30 30 30 0a 43 50 41 31 32 33 20 e8 81 94 e7 b3 bb e5 a1 94 e5"
+  },
+  "writtenFile": {
+    "sha256": "63cffc818a35e6dd944c30c450791011fbf52bff104c7b63f63f22e215abc11d",
+    "bytes": 175,
+    "lfCount": 11,
+    "crlfCount": 11,
+    "loneLfCount": 0,
+    "prefixHex": "31 0d 0a 30 30 3a 30 30 3a 30 30 2c 30 30 30 20 2d 2d 3e 20 30 30 3a 30 30 3a 30 32 2c 30 30 30 0d 0a 43 50 41 31 32 33 20 e8 81 94 e7 b3 bb e5 a1"
+  },
+  "zipEntry": {
+    "sha256": "63cffc818a35e6dd944c30c450791011fbf52bff104c7b63f63f22e215abc11d",
+    "bytes": 175,
+    "lfCount": 11,
+    "crlfCount": 11,
+    "loneLfCount": 0,
+    "prefixHex": "31 0d 0a 30 30 3a 30 30 3a 30 30 2c 30 30 30 20 2d 2d 3e 20 30 30 3a 30 30 3a 30 32 2c 30 30 30 0d 0a 43 50 41 31 32 33 20 e8 81 94 e7 b3 bb e5 a1"
+  },
+  "zipBytesEqualWrittenFile": true,
+  "windowsNewlineTranslationExplainsAllBytes": true,
+  "lfWriteControlExitCode": 0,
+  "controlUsesRuntimeMonkeypatchOnly": true,
+  "peerSourceChanged": false,
+  "sources": [
+    {
+      "path": "于天名/app/exporter.py",
+      "sha256": "78e96f525999867cca96aa1219dbe8b5d8492bf13e56c0c35c7173732285e711"
+    },
+    {
+      "path": "于天名/tests/conftest.py",
+      "sha256": "163fd7d7de889c3620208ff29b77c57b1798ef62dd43607ea680f75de3393d93"
+    },
+    {
+      "path": "于天名/tests/test_api.py",
+      "sha256": "42f2cabf63e7230449a41ad5d70e00390b5f7f5b733d50b0c3af18bf0a6ba4a2"
+    }
+  ],
+  "previousRef": "083d8cc1ea157297d46eeb61231e2461aa973c69",
+  "latestOriginalTests": {
+    "failed": 1,
+    "passed": 1
+  },
+  "lfWriteControlledTests": {
+    "failed": 0,
+    "passed": 2
+  },
+  "linuxApiTestRun": false,
+  "productionFixApplied": false,
+  "sourceIdenticalToPreviousSnapshot": {
+    "于天名/app/exporter.py": true,
+    "于天名/tests/conftest.py": true,
+    "于天名/tests/test_api.py": true
+  }
+}

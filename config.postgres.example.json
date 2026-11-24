@@ -1,0 +1,32 @@
+{
+  "a5Url": "http://127.0.0.1:8000/api/v1/a5",
+  "maxSegments": 500,
+  "storage": {
+    "mode": "postgres",
+    "dsnEnv": "A4_DATABASE_URL",
+    "audioRoot": "outputs"
+  },
+  "receiptDirectory": "outputs/postgres/requests",
+  "engine": {
+    "vad": {
+      "engineCode": "webrtc-vad",
+      "modelName": "webrtcvad-wheels",
+      "version": "2.0.14.post1",
+      "aggressiveness": 2,
+      "frameMs": 20,
+      "mergeSilenceMs": 500,
+      "minSpeechMs": 250,
+      "paddingMs": 0
+    },
+    "asr": {
+      "engineCode": "sensevoice",
+      "modelName": "SenseVoiceSmall-ATC-VHHH",
+      "version": "teacher-2025_0706-int8",
+      "modelPath": "models/vhhh-sensevoice-atc-2025_0706/model.int8.onnx",
+      "tokensPath": "models/vhhh-sensevoice-atc-2025_0706/tokens.txt",
+      "language": "en",
+      "useItn": true,
+      "numThreads": 2
+    }
+  }
+}

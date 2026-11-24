@@ -1,0 +1,53 @@
+{
+  "finishedUtc": "2026-10-23T12:09:05.705514+00:00",
+  "recordings": 49,
+  "savedAndReadBack": 49,
+  "matchesPreviousSegmentsAndText": 49,
+  "totalSegments": 54,
+  "strict": {
+    "S": 360,
+    "D": 366,
+    "I": 8,
+    "N": 892,
+    "wer": 0.8228699551569507
+  },
+  "elapsedSeconds": 113.17412889999832,
+  "executionSnapshot": {
+    "schemaVersion": 1,
+    "vad": {
+      "engineCode": "webrtc-vad",
+      "modelName": "webrtcvad-wheels",
+      "version": "2.0.14.post1",
+      "distributionVersion": "2.0.14.post1",
+      "parameters": {
+        "sampleRate": 16000,
+        "provider": "cpu",
+        "aggressiveness": 2,
+        "frameMs": 20,
+        "mergeSilenceMs": 500,
+        "minSpeechMs": 250,
+        "paddingMs": 0
+      }
+    },
+    "asr": {
+      "engineCode": "sensevoice",
+      "modelName": "SenseVoiceSmall",
+      "version": "2024-07-17",
+      "modelSha256": "c71f0ce00bec95b07744e116345e33d8cbbe08cef896382cf907bf4b51a2cd51",
+      "tokensSha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc",
+      "parameters": {
+        "sampleRate": 16000,
+        "numThreads": 2,
+        "provider": "cpu",
+        "language": "en",
+        "useItn": true
+      }
+    }
+  },
+  "manifestSha256": "d332daf52355def630a3a08e3fb5fd543a8ff19636fedb4efee44e7f7151ccb3",
+  "referencesSha256": "fd9991448d5536931bdef8f82e560d4a1163512f5c3d7053c5c1e901b89b32c7",
+  "previousOutputsSha256": "b826dee0ded7e080744a67bb53a43d5b72f3d0f743e233595439ba9feb2ec934",
+  "resultsSha256": "fca26af3718388181876a0c54e43f0728e9b10f4f9fa277661240fbe6cf7f752",
+  "dataset": "ATCO2; reused frozen set; non-VHHH; not an independent holdout",
+  "httpBoundary": "simulated A3/A4 HTTP transport; no real team service was contacted"
+}

@@ -4,14 +4,88 @@ Authentication and transport lifetime belong to the injected httpx client.
 Writes are sent once: recovery from an uncertain response belongs to the caller.
 """
 
+import logging
 import re
-from typing import Any
+from typing import Any, Literal
 from urllib.parse import quote
 
 import httpx
 
+from .diagnostics_2024141460331 import current_trace_id, log_event, new_trace_id
+
+LOG = logging.getLogger(__name__)
+
 JOB_STATUSES = {"queued", "running", "succeeded", "partial", "failed", "canceled"}
 JOB_KINDS = {"vad", "asr", "postprocess", "batch", "rescore"}
+REVIEW_STATUSES = {"unreviewed", "accepted", "rejected", "needs_review", "skipped"}
+
+
+def segment_limit_2024141460331(value=500):
+    if type(value) is not int or value < 1:
+        raise ValueError("maxSegments must be a positive integer")
+    return value
+
+
+def revision_payload(
+    *, text: str | None, review_status: str | None, expected_revision: int, reason: str
+) -> dict[str, Any]:
+    """Validate the shared edit boundary before any write is attempted."""
+    if (
+        not _integer(expected_revision, 1)
+        or not _string(reason)
+        or len(reason) > 200
+        or (text is None and review_status is None)
+        or (text is not None and (not isinstance(text, str) or len(text) > 4000))
+        or (review_status is not None and not _enum(review_status, REVIEW_STATUSES))
+    ):
+        raise ValueError("INVALID_REVISION")
+    result: dict[str, Any] = {"expectedRevision": expected_revision, "reason": reason}
+    if text is not None:
+        result["text"] = text
+    if review_status is not None:
+        result["reviewStatus"] = review_status
+    return result
+
+
+def transcript_edits(data: dict[str, Any]) -> list[dict[str, Any]]:
+    """Read the contract's embedded history; never synthesize missing history."""
+    if "edits" not in data:
+        raise ValueError("HISTORY_UNAVAILABLE")
+    edits = data["edits"]
+    if not isinstance(edits, list) or not _integer(data.get("revision"), 1):
+        raise ValueError("READBACK_INVALID")
+    seen: set[int] = set()
+    for edit in edits:
+        if (
+            not isinstance(edit, dict)
+            or not _integer(edit.get("revision"), 1)
+            or edit["revision"] > data["revision"]
+            or edit["revision"] in seen
+            or not {"beforeText", "afterText", "editorUserId", "reason", "editedAt"} <= edit.keys()
+            or any(
+                edit[key] is not None and not isinstance(edit[key], str)
+                for key in ("beforeText", "afterText", "editorUserId", "reason")
+            )
+            or not _string(edit["editedAt"])
+            or any(
+                key in edit and not _enum(edit[key], REVIEW_STATUSES)
+                for key in ("beforeReviewStatus", "afterReviewStatus")
+            )
+        ):
+            raise ValueError("READBACK_INVALID")
+        if edit["revision"] == 1 and (
+            edit["beforeText"] != edit["afterText"]
+            or not _enum(edit.get("beforeReviewStatus"), REVIEW_STATUSES)
+            or not _enum(edit.get("afterReviewStatus"), REVIEW_STATUSES)
+            or edit["beforeReviewStatus"] == edit["afterReviewStatus"]
+        ):
+            # V7 logged the initial review-only edit without advancing revision.
+            # Accept that exact legacy shape; never renumber or hide a text edit.
+            raise ValueError("READBACK_INVALID")
+        seen.add(edit["revision"])
+    if len(seen - {1}) != data["revision"] - 1:
+        raise ValueError("READBACK_INVALID")
+    return sorted(edits, key=lambda edit: edit["revision"])
 
 
 def _error_code(value: Any) -> str | None:
@@ -29,10 +103,20 @@ def _request_id(value: Any) -> str | None:
 class ApiError(Exception):
     """Failure with structured identifiers, never request credentials or response body."""
 
-    def __init__(self, status: int, code: str, request_id: str | None = None) -> None:
+    def __init__(
+        self,
+        status: int,
+        code: str,
+        request_id: str | None = None,
+        *,
+        write_outcome: Literal["not_written", "rolled_back"] | None = None,
+    ) -> None:
         self.status = status
         self.code = _error_code(code) or "HTTP_ERROR"
         self.request_id = _request_id(request_id)
+        # Local adapter evidence only. Never populate this from an HTTP error body.
+        self.write_outcome = write_outcome
+        self.trace_id = current_trace_id() or new_trace_id()
         super().__init__(f"Team API failed: status={status}, code={self.code}")
 
 
@@ -57,10 +141,11 @@ def _identifier(value: str) -> str:
 class TeamApi:
     """Calls only declared team endpoints; creates no shared schemas or tables."""
 
-    def __init__(self, client: httpx.Client, a3_url: str, a4_url: str) -> None:
+    def __init__(self, client: httpx.Client, a3_url: str, a4_url: str, *, max_segments=500) -> None:
         self.client = client
         self.a3_url = a3_url.rstrip("/")
         self.a4_url = a4_url.rstrip("/")
+        self.max_segments = segment_limit_2024141460331(max_segments)
 
     @staticmethod
     def _invalid(response: httpx.Response) -> ApiError:
@@ -76,15 +161,37 @@ class TeamApi:
         expected: int = 200,
         missing_ok: bool = False,
         full_audio: bool = False,
+        user_bearer: str | None = None,
         **kwargs: Any,
     ) -> httpx.Response:
         try:
             request = self.client.build_request(method, url, **kwargs)
+            if user_bearer is not None:
+                # A user edit must be authorized as that user, never by the worker's API key.
+                request.headers.pop("X-Api-Key", None)
+                request.headers["Authorization"] = f"Bearer {user_bearer}"
+            if current_trace_id() is not None:
+                request.headers["X-Request-Id"] = current_trace_id()
             if full_audio:
                 request.headers.pop("Range", None)
             response = self.client.send(request, follow_redirects=False)
         except httpx.RequestError:
+            log_event(
+                LOG,
+                "A4.HTTP.FAILED",
+                level=logging.WARNING,
+                method=method,
+                code="TRANSPORT_ERROR",
+                httpStatus=0,
+            )
             raise ApiError(0, "TRANSPORT_ERROR") from None
+        log_event(
+            LOG,
+            "A4.HTTP.RECEIVED",
+            method=method,
+            httpStatus=response.status_code,
+            requestId=_request_id(response.headers.get("X-Request-Id")),
+        )
         if full_audio and response.status_code == 206:
             raise self._invalid(response)
         if response.status_code == expected or (missing_ok and response.status_code == 404):
@@ -303,11 +410,11 @@ class TeamApi:
     ) -> dict[str, Any]:
         if (
             not isinstance(segment_ids, list)
-            or not 1 <= len(segment_ids) <= 500
+            or not 1 <= len(segment_ids) <= self.max_segments
             or any(not _string(item) for item in segment_ids)
             or len(set(segment_ids)) != len(segment_ids)
         ):
-            raise ValueError("Task creation requires 1..500 distinct segment identifiers")
+            raise ValueError("Task targets exceed maxSegments or contain invalid identifiers")
         if (
             not _string(idempotency_key)
             or len(idempotency_key) > 64
@@ -341,7 +448,8 @@ class TeamApi:
         rows: list[dict[str, Any]] = []
         seen: set[str] = set()
         expected_page = 1
-        fixed_meta: tuple[int, int] | None = None
+        page_size = 100
+        fixed_meta: tuple[int, int, int] | None = None
         while True:
             response = self._send(
                 "GET",
@@ -350,7 +458,7 @@ class TeamApi:
                     "recordingId": recording_id,
                     "kind": "asr",
                     "page": expected_page,
-                    "pageSize": 100,
+                    "pageSize": page_size,
                 },
             )
             data = self._object(response)
@@ -361,25 +469,27 @@ class TeamApi:
                 or not _integer(page.get("page"), 1)
                 or page["page"] != expected_page
                 or not _integer(page.get("pageSize"), 1)
-                or page["pageSize"] != 100
+                or page["pageSize"] > page_size
                 or not _integer(page.get("total"))
                 or not _integer(page.get("totalPages"))
                 or type(page.get("hasNext")) is not bool
             ):
                 raise self._invalid(response)
+            actual_size = page["pageSize"]
             total, total_pages = page["total"], page["totalPages"]
             if (
                 (total == 0 and total_pages not in {0, 1})
-                or (total > 0 and total_pages != (total + 99) // 100)
+                or (total > 0 and total_pages != (total + actual_size - 1) // actual_size)
                 or (total_pages > 0 and expected_page > total_pages)
                 or page["hasNext"] != (expected_page < total_pages)
-                or len(items) != min(100, max(0, total - (expected_page - 1) * 100))
+                or len(items) != min(actual_size, max(0, total - (expected_page - 1) * actual_size))
             ):
                 raise self._invalid(response)
-            meta = (total, total_pages)
+            meta = (actual_size, total, total_pages)
             if fixed_meta is not None and meta != fixed_meta:
                 raise self._invalid(response)
             fixed_meta = meta
+            page_size = actual_size
             for item in items:
                 item = self._job_data(response, item)
                 if (
@@ -420,3 +530,42 @@ class TeamApi:
     def get_transcript_by_id(self, transcript_id: str) -> dict[str, Any]:
         response = self._send("GET", f"{self.a4_url}/transcripts/{_identifier(transcript_id)}")
         return self._transcript(response, "id", transcript_id)
+
+    def list_transcript_edits(self, transcript_id: str) -> list[dict[str, Any]]:
+        """P-Blue exposes edits in transcript detail, not a separate /edits route."""
+        return transcript_edits(self.get_transcript_by_id(transcript_id))
+
+    def revise_transcript(
+        self,
+        transcript_id: str,
+        *,
+        text: str | None = None,
+        review_status: str | None = None,
+        expected_revision: int,
+        reason: str,
+        bearer_token: str | None = None,
+    ) -> dict[str, Any]:
+        payload = revision_payload(
+            text=text,
+            review_status=review_status,
+            expected_revision=expected_revision,
+            reason=reason,
+        )
+        if not _string(bearer_token) or any(
+            ord(char) < 33 or ord(char) > 126 for char in bearer_token
+        ):
+            raise ValueError("REVISION_AUTH_REQUIRED")
+        response = self._send(
+            "PATCH",
+            f"{self.a4_url}/transcripts/{_identifier(transcript_id)}",
+            json=payload,
+            user_bearer=bearer_token,
+        )
+        data = self._object(response)
+        if (
+            data.get("transcriptId") != transcript_id
+            or not _integer(data.get("revision"), 1)
+            or not _enum(data.get("reviewStatus"), REVIEW_STATUSES)
+        ):
+            raise self._invalid(response)
+        return data
